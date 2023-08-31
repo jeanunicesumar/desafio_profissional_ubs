@@ -1,14 +1,14 @@
 package saude.agenda.api.doctor;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import saude.agenda.api.address.Address;
 import saude.agenda.api.person.Gender;
 import saude.agenda.api.person.Person;
-import saude.agenda.api.person.PersonRegister;
+
 import java.util.Date;
 
 
@@ -19,11 +19,15 @@ import java.util.Date;
 @AllArgsConstructor
 public class Doctor extends Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @Column(nullable = false)
     private Integer susCode;
 
-    private Person person;
+    private Long active;
+
+    public Doctor(Integer susCode, Long id, String name, String motherName, String fatherName, Date birthDate,
+                  String email, Gender gender, String ddd, String phone, String cpf) {
+
+        super(id, name, motherName, fatherName, birthDate, email, gender, ddd, phone, cpf);
+        this.susCode = susCode;
+    }
 }
