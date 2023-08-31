@@ -1,5 +1,6 @@
 package com.saude.agenda.api.person;
 
+import com.saude.agenda.api.address.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,12 +9,13 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Entity
 @Table(name = "person")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
     @Id
@@ -32,6 +34,12 @@ public class Person {
     private Date birthDate;
 
     @Column(nullable = false)
+    private String birthCity;
+
+    @Column(nullable = false)
+    private String birthUf;
+
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -45,5 +53,13 @@ public class Person {
 
     @Column(nullable = false, unique = true)
     private String cpf;
+
+    @Column(nullable = false)
+    private Long active;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
 
 }
