@@ -56,7 +56,7 @@ public class Person {
 
     @Column(nullable = false)
     private Long active;
-
+//booolean
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;

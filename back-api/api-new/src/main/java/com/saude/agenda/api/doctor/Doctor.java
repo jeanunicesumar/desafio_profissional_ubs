@@ -24,7 +24,10 @@ public class Doctor extends Person {
     @Column(nullable = false)
     private Long crm;
 
-    public Doctor(Long crm, Long id, String name, String motherName, String fatherName, Date birthDate, String birthCity,
+    public Doctor(Long crm,
+                  Long id,
+                  String name,
+                  String motherName, String fatherName, Date birthDate, String birthCity,
                   String birthUf, String email, Gender gender, String ddd, String phone, String cpf, Long active,
                   Address address) {
         super(id, name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);

@@ -1,6 +1,7 @@
 package com.saude.agenda.api.address;
 
 import com.saude.agenda.api.person.Person;
+import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,17 +21,22 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private Person person;
 
+    @OneToOne(mappedBy = "address")
+    private Ubs ubs;
+
     @Column(nullable = false)
     private String zipCode;
 
     @Column(nullable = false)
-    private String street;
+    private String streetAddress;
+
+    private String streetAddressII;
 
     @Column(nullable = false)
     private String number;
 
     @Column(nullable = false)
-    private String neighborhood;
+    private String district;
 
     @Column(nullable = false)
     private String city;
