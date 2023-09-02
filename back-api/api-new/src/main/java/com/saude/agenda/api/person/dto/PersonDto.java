@@ -56,7 +56,7 @@ public class PersonDto {
         private String cpf;
 
         @NotNull
-        private Long active;
+        private Boolean active;
 
         @Valid
         private AddressDto address;

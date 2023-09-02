@@ -23,7 +23,7 @@ public class DoctorDto extends PersonDto {
                      @NotBlank String fatherName, @NotNull Date birthDate, @NotBlank String birthCity,
                      @NotBlank String birthUf, @NotBlank String email, @NotNull @Valid Gender gender,
                      @NotBlank String ddd, @NotBlank String phone, @NotNull String cpf,
-                     @NotNull Long active, @Valid AddressDto address) {
+                     @NotNull Boolean active, @Valid AddressDto address) {
         super(id, name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
         this.crm = crm;
     }

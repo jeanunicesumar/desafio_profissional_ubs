@@ -1,10 +1,10 @@
 package com.saude.agenda.api.doctor;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.print.Doc;
-import java.awt.print.Pageable;
+
 import java.util.List;
 
 @Service
