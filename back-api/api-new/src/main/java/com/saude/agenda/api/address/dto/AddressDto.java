@@ -1,7 +1,6 @@
 package com.saude.agenda.api.address.dto;
 
 import com.saude.agenda.api.person.Person;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,13 +19,16 @@ public class AddressDto {
     private String zipCode;
 
     @NotBlank
-    private String street;
+    private String streetAddress;
+
+    @NotBlank
+    private String streetAddressII;
 
     @NotBlank
     private String number;
 
     @NotBlank
-    private String neighborhood;
+    private String district;
 
     @NotBlank
     private String city;
@@ -34,4 +36,15 @@ public class AddressDto {
     @NotBlank
     private String uf;
 
+    public AddressDto(Long id, String zipCode, String streetAddress,
+                      String streetAddressII, String number, String district,
+                      String city, String uf) {
+        this.id = id;
+        this.streetAddress = streetAddress;
+        this.streetAddressII = streetAddressII;
+        this.number = number;
+        this.district = district;
+        this.city = city;
+        this.uf = uf;
+    }
 }

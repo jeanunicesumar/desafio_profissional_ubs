@@ -44,4 +44,15 @@ public class Address {
     @Column(nullable = false)
     private String uf;
 
+    public Address(Long id, String zipCode, String streetAddress, String streetAddressII,
+                   String number, String district, String city, String uf) {
+        this.id = id;
+        this.zipCode = zipCode;
+        this.streetAddress = streetAddress;
+        this.streetAddressII = streetAddressII;
+        this.number = number;
+        this.district = district;
+        this.city = city;
+        this.uf = uf;
+    }
 }

@@ -1,6 +1,5 @@
 package com.saude.agenda.api.doctor.dto;
 
-import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.address.dto.AddressDto;
 import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.dto.PersonDto;
@@ -24,7 +23,7 @@ public class DoctorDto extends PersonDto {
                      @NotBlank String fatherName, @NotNull Date birthDate, @NotBlank String birthCity,
                      @NotBlank String birthUf, @NotBlank String email, @NotNull @Valid Gender gender,
                      @NotBlank String ddd, @NotBlank String phone, @NotNull String cpf,
-                     @NotNull Long active, @Valid Address address) {
+                     @NotNull Long active, @Valid AddressDto address) {
         super(id, name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
         this.crm = crm;
     }

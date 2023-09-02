@@ -1,6 +1,7 @@
 package com.saude.agenda.api.person.dto;
 
 import com.saude.agenda.api.address.Address;
+import com.saude.agenda.api.address.dto.AddressDto;
 import com.saude.agenda.api.person.Gender;
 import jakarta.persistence.Column;
 import jakarta.validation.Valid;
@@ -58,8 +59,7 @@ public class PersonDto {
         private Long active;
 
         @Valid
-        private Address address;
-
-
+        private AddressDto address;
+        
 }
 
