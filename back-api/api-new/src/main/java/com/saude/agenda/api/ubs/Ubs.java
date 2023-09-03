@@ -13,16 +13,17 @@ import lombok.Setter;
 @Table(name = "ubs")
 @Getter
 @Setter
-
 public class Ubs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
+
 }
