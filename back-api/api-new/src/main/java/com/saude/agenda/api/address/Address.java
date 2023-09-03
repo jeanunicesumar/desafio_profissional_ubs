@@ -3,6 +3,7 @@ package com.saude.agenda.api.address;
 import com.saude.agenda.api.person.Person;
 import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

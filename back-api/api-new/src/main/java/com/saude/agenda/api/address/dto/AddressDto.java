@@ -2,6 +2,8 @@ package com.saude.agenda.api.address.dto;
 
 import com.saude.agenda.api.person.Person;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,11 +14,14 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AddressDto {
 
+    private static final String ZIP_CODE_PATTERN_REGEX = "^\\d{5}-\\d{3}$";
+
     private Long id;
 
     private Person person;
 
     @NotBlank
+    @Pattern(regexp = ZIP_CODE_PATTERN_REGEX)
     private String zipCode;
 
     @NotBlank
@@ -34,6 +39,7 @@ public class AddressDto {
     private String city;
 
     @NotBlank
+    @Size(min = 2, max = 2)
     private String uf;
 
 
