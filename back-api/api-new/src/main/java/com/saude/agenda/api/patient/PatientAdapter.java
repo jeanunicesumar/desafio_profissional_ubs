@@ -1,11 +1,12 @@
-package com.saude.agenda.api.medicalRecord;
+package com.saude.agenda.api.patient;
 
 import com.saude.agenda.api.adapter.Adapter;
+import com.saude.agenda.api.medicalRecord.MedicalRecord;
 import com.saude.agenda.api.medicalRecord.dto.MedicalRecordDto;
 
-public class MedicalRecordAdapter implements Adapter<MedicalRecordDto, MedicalRecord> {
+public class PatientAdapter implements Adapter<PatientDto, Patient> {
     @Override
-    public MedicalRecordDto fromEntity(MedicalRecord medicalRecord) {
+    public PatientDto fromEntity(Patient patient) {
         return new MedicalRecordDto(
                 medicalRecord.getId(),
                 medicalRecord.getDescription(),
