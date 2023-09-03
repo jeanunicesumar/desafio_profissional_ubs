@@ -1,6 +1,7 @@
 package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.address.Address;
+import com.saude.agenda.api.doctor.dto.DoctorDto;
 import com.saude.agenda.api.person.Gender;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,9 +30,6 @@ class DoctorControllerTest {
     @InjectMocks
     private DoctorService service;
 
-    @InjectMocks
-    private DoctorAdapter adapter;
-
     private Doctor doctor;
     private Address address;
 
@@ -45,13 +43,11 @@ class DoctorControllerTest {
     @Test
     public void should_return_status_ok_when_get_all_doctor() {
         Pageable pageable = PageRequest.of(0, 10);
-//        Mockito.when(service.getAll(pageable)).thenReturn(Collections.singletonList(doctor));
+//        Mockito.when(service.getAll()).thenReturn(Collections.singletonList();
 
-//        List<Doctor> doctors = service.getAll();
+        List<DoctorDto> doctors = service.getAll();
 
-
-//        Assertions.assertEquals(Collections.singletonList(doctor), doctors);
-//        verifyNoMoreInteractions(repository);
+        verifyNoMoreInteractions(repository);
 
     }
 

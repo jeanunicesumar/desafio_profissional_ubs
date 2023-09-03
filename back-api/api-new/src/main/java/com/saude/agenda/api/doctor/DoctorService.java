@@ -4,7 +4,6 @@ import com.saude.agenda.api.doctor.dto.DoctorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.print.Doc;
 import java.util.List;
 
 @Service
@@ -24,7 +23,7 @@ public class DoctorService {
         return adapter.fromEntity(doctor);
     }
 
-    public DoctorDto save(DoctorDto data) {
+    public DoctorDto register(DoctorDto data) {
         Doctor doctor = adapter.fromDto(data);
         repository.save(doctor);
         return adapter.fromEntity(doctor);
