@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-    @RestController
-    @RequestMapping("admin")
-    public class AdminController {
+@RestController
+@RequestMapping("admin")
+public class AdminController {
 
-        @Autowired
-        private AdminService service;
+    @Autowired
+    private AdminService service;
 
-        @GetMapping
-        public List<Admin> getAll(@PageableDefault(size = 10) Pageable pageable) {
+    @GetMapping
+    public List<Admin> getAll(@PageableDefault Pageable pageable) {
             return service.getAll(pageable);
         }
 

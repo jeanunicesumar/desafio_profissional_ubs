@@ -18,7 +18,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class Admin extends Person {
     public Admin(Long id, String name, String motherName,
                  String fatherName, Date birthDate, String birthCity,
