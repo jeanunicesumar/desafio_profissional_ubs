@@ -9,22 +9,26 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class DoctorControllerTest {
-
-    @Mock
-    private DoctorRepository repository;
+class DoctorServiceTest {
 
     @InjectMocks
-    private DoctorService service;
+    DoctorService service;
+
+    @Mock
+    DoctorRepository repository;
+
+    @Mock
+    DoctorAdapter adapter;
 
     private Doctor doctor;
     private Address address;
@@ -36,15 +40,26 @@ class DoctorControllerTest {
                 Gender.MASCULINO, "44", "99999-9999", "123.456.789-10", true, address);
     }
 
+
     @Test
-    public void should_return_status_ok_when_get_all_doctor() {
-        Pageable pageable = PageRequest.of(0, 10);
-//        Mockito.when(service.getAll()).thenReturn(Collections.singletonList();
+    void should_return_list_doctorDto_when_catch_service_get_all() {
+        DoctorDto doctorDto = adapter.fromEntity(doctor);
+        when(service.getAll()).thenReturn(Collections.singletonList(doctorDto));
 
         List<DoctorDto> doctors = service.getAll();
 
+        assertEquals(Collections.singletonList(doctorDto), doctors);
         verifyNoMoreInteractions(repository);
 
     }
 
+    @Test
+    void should_return_ok_when_register_one_doctor() {
+        DoctorDto doctorDtoExpected = adapter.fromEntity(doctor);
+        when(service.register(doctorDtoExpected)).thenReturn(doctorDtoExpected);
+
+        DoctorDto doctorDto = service.register(doctorDtoExpected);
+
+        assertEquals(doctorDto, doctorDtoExpected);
+    }
 }
