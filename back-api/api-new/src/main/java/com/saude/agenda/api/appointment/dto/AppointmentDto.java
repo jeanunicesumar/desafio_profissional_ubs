@@ -13,22 +13,22 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @AllArgsConstructor
-
 public class AppointmentDto {
+
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Insira o horário inicial")
     private Timestamp startTime;
 
-    @NotBlank
+    @NotBlank(message = "Insira o horário final")
     private Timestamp endTime;
 
-    @NotBlank
+    @NotBlank(message = "Insira a data")
     private Date date;
 
-    @NotBlank
+    @NotBlank(message = "Insira a pessoa")
     private Person person;
 
-    @NotBlank
+    @NotBlank(message = "Insira o doutor")
     private Doctor doctor;
 }

@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity
@@ -18,7 +17,6 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class Appointment {
 
     @Id

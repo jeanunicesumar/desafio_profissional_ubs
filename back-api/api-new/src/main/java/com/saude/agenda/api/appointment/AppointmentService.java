@@ -15,9 +15,13 @@ public class AppointmentService {
     @Autowired
     private AppointmentAdapter adapter;
 
-    public List<AppointmentDto> getAll() { return repository.findAll().stream().map(this::getAppointmentDto).toList();}
+    public List<AppointmentDto> getAll() {
+        return repository.findAll().stream().map(this::getAppointmentDto).toList();
+    }
 
-    public AppointmentDto getAppointmentDto(Appointment appointment) { return adapter.fromEntity(appointment); }
+    public AppointmentDto getAppointmentDto(Appointment appointment) {
+        return adapter.fromEntity(appointment);
+    }
 
     public AppointmentDto register(AppointmentDto data) {
         Appointment appointment = adapter.fromDto(data);

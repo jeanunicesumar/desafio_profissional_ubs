@@ -8,12 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class AppointmentAdapter implements Adapter<AppointmentDto, Appointment> {
 
-    @Autowired
-    private AppointmentAdapter appointmentAdapter;
-
     @Override
     public AppointmentDto fromEntity(Appointment appointment) {
-        return new AppointmentDto(appointment.getId(),appointment.getStartTime(), appointment.getEndTime(), appointment.getDate(),
+        return new AppointmentDto(appointment.getId(), appointment.getStartTime(), appointment.getEndTime(), appointment.getDate(),
                 appointment.getPerson(), appointment.getDoctor());
     }
 
