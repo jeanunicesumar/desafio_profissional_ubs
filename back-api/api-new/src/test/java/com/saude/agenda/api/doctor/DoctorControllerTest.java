@@ -3,20 +3,16 @@ package com.saude.agenda.api.doctor;
 import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.doctor.dto.DoctorDto;
 import com.saude.agenda.api.person.Gender;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import static org.mockito.Mockito.verifyNoMoreInteractions;
