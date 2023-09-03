@@ -16,6 +16,7 @@ import java.util.Date;
 @Entity
 @Table(name = "medicalRecord")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class MedicalRecord {
@@ -25,13 +26,4 @@ public class MedicalRecord {
     private String description;
     private Date medicalRecordDate;
 
-    public MedicalRecord (
-            Long id,
-            String description,
-            Date medicalRecordDate
-                  ) {
-        this.id = id;
-        this.description = description;
-        this.medicalRecordDate = medicalRecordDate;
-    }
 }
