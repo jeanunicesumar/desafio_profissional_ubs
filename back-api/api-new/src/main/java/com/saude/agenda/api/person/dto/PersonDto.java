@@ -1,12 +1,9 @@
 package com.saude.agenda.api.person.dto;
 
-import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.address.dto.AddressDto;
 import com.saude.agenda.api.person.Gender;
-import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +11,6 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @AllArgsConstructor
@@ -47,7 +43,6 @@ public class PersonDto {
         private String email;
 
         @Enumerated(EnumType.STRING)
-        @NotBlank(message = "Insira o gênero")
         private Gender gender;
 
         @NotBlank(message = "Insira o ddd")
