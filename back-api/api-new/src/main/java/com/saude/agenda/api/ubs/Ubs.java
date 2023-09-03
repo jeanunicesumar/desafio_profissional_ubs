@@ -13,7 +13,6 @@ import lombok.Setter;
 @Table(name = "ubs")
 @Getter
 @Setter
-
 public class Ubs {
 
     @Id
@@ -26,4 +25,5 @@ public class Ubs {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
+
 }

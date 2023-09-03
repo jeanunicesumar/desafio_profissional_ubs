@@ -5,11 +5,13 @@ import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "address")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Address {
@@ -44,9 +46,8 @@ public class Address {
     @Column(nullable = false)
     private String uf;
 
-    public Address(Long id, String zipCode, String streetAddress, String streetAddressII,
+    public Address(String zipCode, String streetAddress, String streetAddressII,
                    String number, String district, String city, String uf) {
-        this.id = id;
         this.zipCode = zipCode;
         this.streetAddress = streetAddress;
         this.streetAddressII = streetAddressII;

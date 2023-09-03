@@ -2,8 +2,10 @@ package com.saude.agenda.api.address;
 
 import com.saude.agenda.api.adapter.Adapter;
 import com.saude.agenda.api.address.dto.AddressDto;
+import org.springframework.stereotype.Service;
 
 
+@Service
 public class AddressAdapter implements Adapter<AddressDto, Address> {
 
 
@@ -16,7 +18,7 @@ public class AddressAdapter implements Adapter<AddressDto, Address> {
 
     @Override
     public Address fromDto(AddressDto addressDto) {
-        return new Address(addressDto.getId(), addressDto.getZipCode(), addressDto.getStreetAddress(),
+        return new Address(addressDto.getZipCode(), addressDto.getStreetAddress(),
                 addressDto.getStreetAddressII(), addressDto.getNumber(), addressDto.getDistrict(),
                 addressDto.getCity(), addressDto.getUf());
     }

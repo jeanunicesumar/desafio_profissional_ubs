@@ -2,17 +2,18 @@ package com.saude.agenda.api.address.dto;
 
 import com.saude.agenda.api.person.Person;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class AddressDto {
 
-    @NotBlank
     private Long id;
 
-    @NotBlank
     private Person person;
 
     @NotBlank
@@ -21,7 +22,6 @@ public class AddressDto {
     @NotBlank
     private String streetAddress;
 
-    @NotBlank
     private String streetAddressII;
 
     @NotBlank
@@ -36,10 +36,10 @@ public class AddressDto {
     @NotBlank
     private String uf;
 
-    public AddressDto(Long id, String zipCode, String streetAddress,
-                      String streetAddressII, String number, String district,
-                      String city, String uf) {
+
+    public AddressDto(Long id, String zipCode, String streetAddress, String streetAddressII, String number, String district, String city, String uf) {
         this.id = id;
+        this.zipCode = zipCode;
         this.streetAddress = streetAddress;
         this.streetAddressII = streetAddressII;
         this.number = number;
@@ -47,4 +47,5 @@ public class AddressDto {
         this.city = city;
         this.uf = uf;
     }
+
 }
