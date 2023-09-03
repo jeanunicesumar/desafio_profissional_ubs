@@ -1,5 +1,6 @@
 package com.saude.agenda.api.patient;
 
+
 import com.saude.agenda.api.adapter.Adapter;
 import com.saude.agenda.api.address.AddressAdapter;
 import com.saude.agenda.api.patient.dto.PatientDto;
@@ -34,9 +35,8 @@ public class PatientAdapter implements Adapter<PatientDto, Patient> {
 
     @Override
     public Patient fromDto(PatientDto patientDto){
-        return new PatientDto(
+        return new Patient(
                 patientDto.getSusCode(),
-                patientDto.getId(),
                 patientDto.getName(),
                 patientDto.getMotherName(),
                 patientDto.getFatherName(),
