@@ -23,8 +23,10 @@ public class DoctorAdapter implements Adapter<DoctorDto, Doctor> {
 
     @Override
     public Doctor fromDto(DoctorDto doctorDto) {
-        return new Doctor(doctorDto.getCrm(), doctorDto.getName(), doctorDto.getMotherName(), doctorDto.getFatherName(),
+        return new Doctor(doctorDto.getCrm(),
+                doctorDto.getName(), doctorDto.getMotherName(), doctorDto.getFatherName(),
                 doctorDto.getBirthDate(), doctorDto.getBirthCity(), doctorDto.getBirthUf(), doctorDto.getEmail(), doctorDto.getGender(),
-                doctorDto.getDdd(), doctorDto.getPhone(), doctorDto.getCpf(), doctorDto.getActive(), addressAdapter.fromDto(doctorDto.getAddress()));
+                doctorDto.getDdd(), doctorDto.getPhone(), doctorDto.getCpf(), doctorDto.getActive(),
+                addressAdapter.fromDto(doctorDto.getAddress()));
     }
 }
