@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -20,7 +21,7 @@ import java.util.Date;
 @Setter
 public class Admin extends Person {
     public Admin(Long id, String name, String motherName,
-                 String fatherName, Date birthDate, String birthCity,
+                 String fatherName, LocalDate birthDate, String birthCity,
                  String birthUf, String email, Gender gender,
                  String ddd, String phone, String cpf,
                  Boolean active, Address address) {

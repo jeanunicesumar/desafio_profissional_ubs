@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -14,7 +15,7 @@ import java.util.Date;
 
 public class AdminDto extends PersonDto {
    public AdminDto (@Valid Long id, @Valid String name, @Valid String motherName,
-                    @Valid String fatherName, @Valid Date birthDate, @Valid String birthCity,
+                    @Valid String fatherName, @Valid LocalDate birthDate, @Valid String birthCity,
                     @Valid String birthUf, @Valid String email, @Valid Gender gender,
                     @Valid String ddd, @Valid String phone, @Valid String cpf,
                     @Valid Boolean active, @Valid AddressDto address){
