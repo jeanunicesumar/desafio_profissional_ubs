@@ -1,8 +1,11 @@
 package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.doctor.dto.DoctorDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -27,5 +30,13 @@ public class DoctorService {
         Doctor doctor = adapter.fromDto(data);
         repository.save(doctor);
         return adapter.fromEntity(doctor);
+
+    public List<DoctorDto> getAll(Pageable pageable) {
+        return repository.findAll();
+    }
+
+    public void updateDoctor(@RequestBody @Valid DoctorDto data, @PathVariable Long id) {
+        var findDoctor = repository.getReferenceById(id);
+        findDoctor.updateRegister(data);
     }
 }
