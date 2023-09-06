@@ -1,6 +1,7 @@
 package com.saude.agenda.api.appointment;
 
 import com.saude.agenda.api.doctor.Doctor;
+import com.saude.agenda.api.medicalRecord.MedicalRecord;
 import com.saude.agenda.api.person.Person;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -39,5 +40,9 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "medical_record_id", referencedColumnName = "id")
+    private MedicalRecord medicalRecord;
 
 }

@@ -1,5 +1,6 @@
 package com.saude.agenda.api.medicalRecord;
 
+import com.saude.agenda.api.appointment.Appointment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,8 @@ public class MedicalRecord {
     private Long id;
 
     private String description;
-
     private Date date;
 
+    @OneToOne(mappedBy = "medicalRecord")
+    private Appointment appointment;
 }
