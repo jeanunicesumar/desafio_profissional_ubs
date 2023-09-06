@@ -9,7 +9,7 @@ public class MedicalRecordAdapter implements Adapter<MedicalRecordDto, MedicalRe
         return new MedicalRecordDto(
                 medicalRecord.getId(),
                 medicalRecord.getDescription(),
-                medicalRecord.getMedicalRecordDate());
+                medicalRecord.getDate());
     }
 
     @Override
@@ -17,6 +17,6 @@ public class MedicalRecordAdapter implements Adapter<MedicalRecordDto, MedicalRe
         return new MedicalRecord(
                 medicalRecordDto.getId(),
                 medicalRecordDto.getDescription(),
-                medicalRecordDto.getMedicalRecordDate());
+                medicalRecordDto.getDate());
     }
 }

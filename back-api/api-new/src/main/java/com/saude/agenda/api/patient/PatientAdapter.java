@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PatientAdapter implements Adapter<PatientDto, Patient> {
+
     @Autowired
     private AddressAdapter addressAdapter;
 
