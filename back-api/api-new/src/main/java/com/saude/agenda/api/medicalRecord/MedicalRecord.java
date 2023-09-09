@@ -22,8 +22,14 @@ public class MedicalRecord {
     private Long id;
 
     private String description;
+
     private Date date;
 
     @OneToOne(mappedBy = "medicalRecord")
     private Appointment appointment;
+
+    public MedicalRecord(Date date, String description) {
+        this.date = date;
+        this.description = description;
+    }
 }

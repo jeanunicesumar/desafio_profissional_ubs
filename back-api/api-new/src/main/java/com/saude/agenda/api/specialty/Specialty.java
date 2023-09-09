@@ -1,6 +1,6 @@
 package com.saude.agenda.api.specialty;
 
-import com.saude.agenda.api.doctorSpecialty.DoctorSpecialty;
+import com.saude.agenda.api.doctor.Doctor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +24,7 @@ public class Specialty {
     @Column(nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "specialty")
-    List<DoctorSpecialty> doctorSpecialties;
+    @ManyToMany(mappedBy = "specialties")
+    private List<Doctor> doctors;
 
 }

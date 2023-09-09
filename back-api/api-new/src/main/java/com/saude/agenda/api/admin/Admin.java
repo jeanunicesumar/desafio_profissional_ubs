@@ -16,15 +16,14 @@ import java.util.Date;
 @Entity
 @Table(name = "admin")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Admin extends Person {
-    public Admin(Long id, String name, String motherName,
+    public Admin(String name, String motherName,
                  String fatherName, LocalDate birthDate, String birthCity,
                  String birthUf, String email, Gender gender,
                  String ddd, String phone, String cpf,
                  Boolean active, Address address) {
-        super(id, name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
     }
 }

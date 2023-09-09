@@ -30,13 +30,10 @@ public class DoctorService {
         Doctor doctor = adapter.fromDto(data);
         repository.save(doctor);
         return adapter.fromEntity(doctor);
-
-    public List<DoctorDto> getAll(Pageable pageable) {
-        return repository.findAll();
     }
 
     public void updateDoctor(@RequestBody @Valid DoctorDto data, @PathVariable Long id) {
         var findDoctor = repository.getReferenceById(id);
-        findDoctor.updateRegister(data);
+//        findDoctor.updateRegister(data);
     }
 }
