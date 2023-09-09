@@ -2,9 +2,9 @@ package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.appointment.Appointment;
-import com.saude.agenda.api.doctorSpecialty.DoctorSpecialty;
 import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.Person;
+import com.saude.agenda.api.specialty.Specialty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +25,13 @@ public class Doctor extends Person {
     @Column(nullable = false)
     private Integer crm;
 
-    @OneToMany(mappedBy = "doctor")
-    List<DoctorSpecialty> doctorSpecialties;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "doctor_specialty",
+            joinColumns = { @JoinColumn(name = "doctor_id") },
+            inverseJoinColumns = { @JoinColumn(name = "specialty_id") }
+    )
+    List<Specialty> specialties;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "doctor")
     private List<Appointment> appointments;

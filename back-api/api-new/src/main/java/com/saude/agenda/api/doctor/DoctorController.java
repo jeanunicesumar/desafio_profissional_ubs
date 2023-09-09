@@ -2,6 +2,7 @@ package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.doctor.dto.DoctorDto;
 import jakarta.validation.Valid;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,12 @@ public class DoctorController {
     public List<DoctorDto> getAll() {
         return service.getAll();
     }
+
+    @GetMapping("/{id}")
+    public DoctorDto getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
 
     @PostMapping
     public ResponseEntity<DoctorDto> register(@RequestBody @Valid DoctorDto data, UriComponentsBuilder uriBuilder) {

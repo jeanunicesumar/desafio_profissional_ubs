@@ -16,7 +16,7 @@ public class AppointmentAdapter implements Adapter<AppointmentDto, Appointment> 
 
     @Override
     public Appointment fromDto(AppointmentDto appointmentDto) {
-        return new Appointment(appointmentDto.getId(), appointmentDto.getStartTime(), appointmentDto.getEndTime(),
+        return new Appointment(appointmentDto.getStartTime(), appointmentDto.getEndTime(),
                 appointmentDto.getDate(), appointmentDto.getPerson(), appointmentDto.getDoctor());
     }
 }

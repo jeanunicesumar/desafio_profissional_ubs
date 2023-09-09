@@ -19,7 +19,7 @@ public class AdminAdapter implements Adapter<AdminDto, Admin> {
 
     @Override
     public Admin fromDto(AdminDto adminDto) {
-        return new Admin(adminDto.getId(), adminDto.getName(), adminDto.getMotherName(), adminDto.getFatherName(), adminDto.getBirthDate(), adminDto.getBirthCity(), adminDto.getBirthUf(), adminDto.getEmail(), adminDto.getGender(),
+        return new Admin(adminDto.getName(), adminDto.getMotherName(), adminDto.getFatherName(), adminDto.getBirthDate(), adminDto.getBirthCity(), adminDto.getBirthUf(), adminDto.getEmail(), adminDto.getGender(),
                 adminDto.getDdd(), adminDto.getPhone(), adminDto.getCpf(), adminDto.getActive(), addressAdapter.fromDto(adminDto.getAddress()));
     }
 }

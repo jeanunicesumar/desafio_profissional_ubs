@@ -45,4 +45,11 @@ public class Appointment {
     @JoinColumn(name = "medical_record_id", referencedColumnName = "id")
     private MedicalRecord medicalRecord;
 
+    public Appointment(Timestamp startTime, Timestamp endTime, Date date, Person person, Doctor doctor) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.date = date;
+        this.person = person;
+        this.doctor = doctor;
+    }
 }

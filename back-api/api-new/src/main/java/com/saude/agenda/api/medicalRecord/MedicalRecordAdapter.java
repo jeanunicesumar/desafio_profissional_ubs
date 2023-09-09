@@ -16,7 +16,7 @@ public class MedicalRecordAdapter implements Adapter<MedicalRecordDto, MedicalRe
     public MedicalRecord fromDto(MedicalRecordDto medicalRecordDto) {
         return new MedicalRecord(
                 medicalRecordDto.getId(),
-                medicalRecordDto.getDescription(),
-                medicalRecordDto.getDate());
+                medicalRecordDto.getDate(),
+                medicalRecordDto.getDescription());
     }
 }
