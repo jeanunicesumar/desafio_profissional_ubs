@@ -1,6 +1,7 @@
 package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.doctor.dto.DoctorDto;
+import com.saude.agenda.api.helper.HashPassword;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class DoctorService {
     }
 
     public DoctorDto register(DoctorDto data) {
+        data.setPassword(HashPassword.generateHash(data.getPassword()));
         Doctor doctor = adapter.fromDto(data);
         repository.save(doctor);
         return adapter.fromEntity(doctor);

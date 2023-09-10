@@ -22,8 +22,8 @@ public class Admin extends Person {
     public Admin(String name, String motherName,
                  String fatherName, LocalDate birthDate, String birthCity,
                  String birthUf, String email, Gender gender,
-                 String ddd, String phone, String cpf,
+                 String ddd, String phone, String cpf, String password,
                  Boolean active, Address address) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
     }
 }

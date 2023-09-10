@@ -17,8 +17,8 @@ public class AdminDto extends PersonDto {
    public AdminDto (@Valid Long id, @Valid String name, @Valid String motherName,
                     @Valid String fatherName, @Valid LocalDate birthDate, @Valid String birthCity,
                     @Valid String birthUf, @Valid String email, @Valid Gender gender,
-                    @Valid String ddd, @Valid String phone, @Valid String cpf,
+                    @Valid String ddd, @Valid String phone, @Valid String cpf, @Valid String password,
                     @Valid Boolean active, @Valid AddressDto address){
-       super(id, name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
+       super(id, name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
    }
 }

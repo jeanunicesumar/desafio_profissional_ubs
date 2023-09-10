@@ -36,8 +36,8 @@ public class Doctor extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "doctor")
     private List<Appointment> appointments;
 
-    public Doctor(Integer crm, String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, Boolean active, Address address) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
+    public Doctor(Integer crm, String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, String password, Boolean active, Address address) {
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
         this.crm = crm;
     }
 

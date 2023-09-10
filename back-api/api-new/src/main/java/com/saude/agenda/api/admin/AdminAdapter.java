@@ -13,13 +13,13 @@ public class AdminAdapter implements Adapter<AdminDto, Admin> {
     @Override
     public AdminDto fromEntity(Admin admin) {
         return new AdminDto(admin.getId(), admin.getName(), admin.getMotherName(), admin.getFatherName(), admin.getBirthDate(), admin.getBirthCity(), admin.getBirthUf(), admin.getEmail(), admin.getGender(),
-                admin.getDdd(), admin.getPhone(), admin.getCpf(), admin.getActive(), addressAdapter.fromEntity(admin.getAddress())
+                admin.getDdd(), admin.getPhone(), admin.getCpf(), admin.getPassword(), admin.getActive(), addressAdapter.fromEntity(admin.getAddress())
         );
     }
 
     @Override
     public Admin fromDto(AdminDto adminDto) {
         return new Admin(adminDto.getName(), adminDto.getMotherName(), adminDto.getFatherName(), adminDto.getBirthDate(), adminDto.getBirthCity(), adminDto.getBirthUf(), adminDto.getEmail(), adminDto.getGender(),
-                adminDto.getDdd(), adminDto.getPhone(), adminDto.getCpf(), adminDto.getActive(), addressAdapter.fromDto(adminDto.getAddress()));
+                adminDto.getDdd(), adminDto.getPhone(), adminDto.getCpf(), adminDto.getPassword(), adminDto.getActive(), addressAdapter.fromDto(adminDto.getAddress()));
     }
 }

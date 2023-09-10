@@ -33,6 +33,8 @@ public class Appointment {
     @Column(nullable = false)
     private Date date;
 
+    private StatusAppointment status;
+
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
@@ -45,11 +47,13 @@ public class Appointment {
     @JoinColumn(name = "medical_record_id", referencedColumnName = "id")
     private MedicalRecord medicalRecord;
 
-    public Appointment(Timestamp startTime, Timestamp endTime, Date date, Person person, Doctor doctor) {
+    public Appointment(Timestamp startTime, Timestamp endTime, Date date, Person person, Doctor doctor, MedicalRecord medicalRecord) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.date = date;
+        this.status = StatusAppointment.WAITING_CONFIRMATION;
         this.person = person;
         this.doctor = doctor;
+        this.medicalRecord = medicalRecord;
     }
 }

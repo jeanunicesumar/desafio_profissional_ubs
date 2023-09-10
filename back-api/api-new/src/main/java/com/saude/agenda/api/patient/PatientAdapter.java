@@ -29,6 +29,7 @@ public class PatientAdapter implements Adapter<PatientDto, Patient> {
                 patient.getDdd(),
                 patient.getPhone(),
                 patient.getCpf(),
+                patient.getPassword(),
                 patient.getActive(),
                 addressAdapter.fromEntity(patient.getAddress())
                 );
@@ -49,6 +50,7 @@ public class PatientAdapter implements Adapter<PatientDto, Patient> {
                 patientDto.getDdd(),
                 patientDto.getPhone(),
                 patientDto.getCpf(),
+                patientDto.getPassword(),
                 patientDto.getActive(),
                 addressAdapter.fromDto(patientDto.getAddress())
         );

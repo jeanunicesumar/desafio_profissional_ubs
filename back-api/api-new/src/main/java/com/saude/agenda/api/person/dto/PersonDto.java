@@ -57,6 +57,9 @@ public class PersonDto {
         @CPF(message = "Cpf inválido")
         private String cpf;
 
+        @NotBlank(message = "Insira uma senha")
+        private String password;
+
         @NotNull
         private Boolean active;
 

@@ -12,6 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class AddressDto {
 
     private static final String ZIP_CODE_PATTERN_REGEX = "^\\d{5}-\\d{3}$";
