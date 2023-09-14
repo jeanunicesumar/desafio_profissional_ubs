@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -16,8 +17,12 @@ import java.util.Date;
 @Entity
 @Table(name = "admin")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+
+// relacionamentos?
+
 public class Admin extends Person {
     public Admin(String name, String motherName,
                  String fatherName, LocalDate birthDate, String birthCity,
