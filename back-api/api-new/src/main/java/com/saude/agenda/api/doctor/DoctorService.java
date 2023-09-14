@@ -27,6 +27,7 @@ public class DoctorService {
     }
 
     public DoctorDto getDoctorDto(Doctor doctor) {
+
         return adapter.fromEntity(doctor);
     }
 
@@ -53,10 +54,11 @@ public class DoctorService {
     }
 
     private Doctor findByCrm(Integer crm) {
-        return repository.findByCrm(crm).orElseThrow(() -> new EntityNotFoundException("CRM ou senha inválidos"));
+        return repository.findByCrm(crm).
+                orElseThrow(() -> new EntityNotFoundException("CRM ou senha inválidos"));
     }
 
     private Doctor findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Doutor não encontrado"));
+        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Médico não encontrado"));
     }
 }
