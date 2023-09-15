@@ -52,10 +52,8 @@ public class PatientService {
 
     public void updatePatient(Integer susCode, PatientUpdateDto patientUpdateDto){
         Patient patient = findBySusCode(susCode);
-        if(patientUpdateDto.getEmail() != null)
-            patient.setEmail(patientUpdateDto.getEmail());
-        if(patientUpdateDto.getPhone() != null)
-            patient.setPhone(patientUpdateDto.getPhone());
+        patient.setEmail(patientUpdateDto.getEmail());
+        patient.setPhone(patientUpdateDto.getPhone());
 
         repository.save(patient);
     }

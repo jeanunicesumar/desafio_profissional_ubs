@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 
 public class PatientUpdateDto {
+
     @NotBlank(message = "Insira o novo e-mail")
     private String email;
     @NotBlank(message = "Insira o novo telefone")
