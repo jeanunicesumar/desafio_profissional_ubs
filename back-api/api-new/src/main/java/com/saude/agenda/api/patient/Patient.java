@@ -41,4 +41,7 @@ public class Patient extends Person {
         super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
         this.susCode = susCode;
 }
+
+    public void setDeleted(boolean b) {
+    }
 }

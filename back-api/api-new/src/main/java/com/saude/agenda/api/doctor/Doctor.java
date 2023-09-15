@@ -41,4 +41,6 @@ public class Doctor extends Person {
         this.crm = crm;
     }
 
+    public void setDeleted(boolean b) {
+    }
 }
