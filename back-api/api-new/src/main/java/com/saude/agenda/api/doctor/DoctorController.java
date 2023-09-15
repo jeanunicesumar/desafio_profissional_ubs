@@ -23,6 +23,11 @@ public class DoctorController {
         return service.getAll();
     }
 
+    @GetMapping("/{id}")
+    public DoctorDto getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
     @PostMapping
     public ResponseEntity<DoctorDto> register(@RequestBody @Valid DoctorDto data, UriComponentsBuilder uriBuilder) {
         DoctorDto doctor = service.register(data);
@@ -31,8 +36,8 @@ public class DoctorController {
     }
 
     @DeleteMapping("/{id}")
-        public void deleteById(@PathVariable Long id) {
-            service.deleteById(id);
+    public void deleteById(@PathVariable Long id) {
+        service.deleteById(id);
     }
 
     @PostMapping("/login")

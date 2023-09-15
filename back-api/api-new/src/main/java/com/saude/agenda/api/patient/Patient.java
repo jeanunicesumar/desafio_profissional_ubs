@@ -41,5 +41,5 @@ public class Patient extends Person {
                    Address address) {
         super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
         this.susCode = susCode;
-}
+    }
 }

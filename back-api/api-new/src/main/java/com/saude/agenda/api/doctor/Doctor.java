@@ -25,13 +25,14 @@ public class Doctor extends Person {
     @Column(nullable = false)
     private Integer crm;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "doctor_specialty",
-            joinColumns = { @JoinColumn(name = "doctor_id") },
-            inverseJoinColumns = { @JoinColumn(name = "specialty_id") }
+            joinColumns = {@JoinColumn(name = "doctor_id")},
+            inverseJoinColumns = {@JoinColumn(name = "specialty_id")}
     )
     private List<Specialty> specialties;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "doctor")
     private List<Appointment> appointments;

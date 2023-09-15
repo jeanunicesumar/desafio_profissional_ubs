@@ -5,13 +5,11 @@ import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.Person;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "admin")

@@ -14,7 +14,7 @@ public class PatientAdapter implements Adapter<PatientDto, Patient> {
     private AddressAdapter addressAdapter;
 
     @Override
-    public PatientDto fromEntity(Patient patient){
+    public PatientDto fromEntity(Patient patient) {
         return new PatientDto(
                 patient.getSusCode(),
                 patient.getId(),
@@ -32,11 +32,11 @@ public class PatientAdapter implements Adapter<PatientDto, Patient> {
                 patient.getPassword(),
                 patient.getActive(),
                 addressAdapter.fromEntity(patient.getAddress())
-                );
+        );
     }
 
     @Override
-    public Patient fromDto(PatientDto patientDto){
+    public Patient fromDto(PatientDto patientDto) {
         return new Patient(
                 patientDto.getSusCode(),
                 patientDto.getName(),

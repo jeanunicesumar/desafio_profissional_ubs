@@ -27,7 +27,7 @@ public class MedicalRecord {
 
     @OneToOne(mappedBy = "medicalRecord")
     private Appointment appointment;
-
+    
     public MedicalRecord(Date date, String description) {
         this.date = date;
         this.description = description;

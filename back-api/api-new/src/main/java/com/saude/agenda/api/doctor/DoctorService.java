@@ -5,7 +5,6 @@ import com.saude.agenda.api.doctor.dto.DoctorLoginDto;
 import com.saude.agenda.api.helper.HashPassword;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
-import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +25,7 @@ public class DoctorService {
         return repository.findAll().stream().map(this::getDoctorDto).toList();
     }
 
-    public DoctorDto getDoctorDto(Doctor doctor) {
-
+    private DoctorDto getDoctorDto(Doctor doctor) {
         return adapter.fromEntity(doctor);
     }
 
@@ -38,17 +36,22 @@ public class DoctorService {
         return adapter.fromEntity(doctor);
     }
 
+    public DoctorDto getById(Long id) {
+        Doctor doctor = findById(id);
+        return adapter.fromEntity(doctor);
+    }
+
     public void updateDoctor(@RequestBody @Valid DoctorDto data, @PathVariable Long id) {
         var findDoctor = repository.getReferenceById(id);
 //        findDoctor.updateRegister(data);
     }
 
     public void deleteById(Long id) {
-       Doctor doctor = findById(id);
-       doctor.setActive(false);
+        Doctor doctor = findById(id);
+        doctor.setActive(false);
     }
 
-    public Boolean login (DoctorLoginDto data) {
+    public Boolean login(DoctorLoginDto data) {
         Doctor doctor = findByCrm(data.getCrm());
         return HashPassword.verifyPassword(data.getPassword(), doctor.getPassword());
     }
@@ -59,6 +62,6 @@ public class DoctorService {
     }
 
     private Doctor findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Médico não encontrado"));
+        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Doctor not found"));
     }
 }
