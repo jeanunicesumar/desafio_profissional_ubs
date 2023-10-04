@@ -40,7 +40,6 @@ class DoctorServiceTest {
                 Gender.MASCULINO, "44", "99999-9999", "123.456.789-10", true, address);
     }
 
-
     @Test
     void should_return_list_doctorDto_when_catch_service_get_all() {
         DoctorDto doctorDto = adapter.fromEntity(doctor);
@@ -62,4 +61,5 @@ class DoctorServiceTest {
 
         assertEquals(doctorDto, doctorDtoExpected);
     }
+
 }
