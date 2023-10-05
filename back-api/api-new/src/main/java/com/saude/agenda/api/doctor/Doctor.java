@@ -25,19 +25,31 @@ public class Doctor extends Person {
     @Column(nullable = false)
     private Integer crm;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "doctor_specialty",
-            joinColumns = { @JoinColumn(name = "doctor_id") },
-            inverseJoinColumns = { @JoinColumn(name = "specialty_id") }
+            joinColumns = {@JoinColumn(name = "doctor_id")},
+            inverseJoinColumns = {@JoinColumn(name = "specialty_id")}
     )
-    List<Specialty> specialties;
+    private List<Specialty> specialties;
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "doctor")
     private List<Appointment> appointments;
 
-    public Doctor(Integer crm, String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, Boolean active, Address address) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
+    public Doctor(Integer crm,
+                  String name,
+                  String motherName,
+                  String fatherName,
+                  LocalDate birthDate,
+                  String birthCity,
+                  String birthUf,
+                  String email,
+                  Gender gender,
+                  String ddd,
+                  String phone,
+                  String cpf, String password, Boolean active, Address address) {
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
         this.crm = crm;
     }
 

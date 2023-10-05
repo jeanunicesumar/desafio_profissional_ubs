@@ -13,11 +13,11 @@ import java.util.Date;
 @Setter
 public class MedicalRecordDto {
 
-    @NotBlank
     private Long id;
 
     @NotBlank
     private String description;
 
+    @NotBlank
     private Date date;
 }

@@ -17,7 +17,7 @@ public class DoctorAdapter implements Adapter<DoctorDto, Doctor> {
     public DoctorDto fromEntity(Doctor doctor) {
         return new DoctorDto(doctor.getCrm(), doctor.getId(), doctor.getName(), doctor.getMotherName(), doctor.getFatherName(),
                 doctor.getBirthDate(), doctor.getBirthCity(), doctor.getBirthUf(), doctor.getEmail(), doctor.getGender(),
-                doctor.getDdd(), doctor.getPhone(), doctor.getCpf(), doctor.getActive(), addressAdapter.fromEntity(doctor.getAddress())
+                doctor.getDdd(), doctor.getPhone(), doctor.getCpf(), doctor.getPassword(), doctor.getActive(), addressAdapter.fromEntity(doctor.getAddress())
                 );
     }
 
@@ -26,7 +26,7 @@ public class DoctorAdapter implements Adapter<DoctorDto, Doctor> {
         return new Doctor(doctorDto.getCrm(),
                 doctorDto.getName(), doctorDto.getMotherName(), doctorDto.getFatherName(),
                 doctorDto.getBirthDate(), doctorDto.getBirthCity(), doctorDto.getBirthUf(), doctorDto.getEmail(), doctorDto.getGender(),
-                doctorDto.getDdd(), doctorDto.getPhone(), doctorDto.getCpf(), doctorDto.getActive(),
+                doctorDto.getDdd(), doctorDto.getPhone(), doctorDto.getCpf(), doctorDto.getPassword(), doctorDto.getActive(),
                 addressAdapter.fromDto(doctorDto.getAddress()));
     }
 }

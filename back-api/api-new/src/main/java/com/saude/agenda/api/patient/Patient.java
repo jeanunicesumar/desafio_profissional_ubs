@@ -36,9 +36,10 @@ public class Patient extends Person {
                    String ddd,
                    String phone,
                    String cpf,
+                   String password,
                    Boolean active,
                    Address address) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, active, address);
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
         this.susCode = susCode;
-}
+    }
 }
