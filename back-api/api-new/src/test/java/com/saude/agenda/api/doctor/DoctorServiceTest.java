@@ -36,8 +36,10 @@ class DoctorServiceTest {
     @BeforeEach
     public void setUp() {
         address = new Address("87230-230", "Rua Tal", "Complemento", "123A", "Bairro tal", "Maringá", "PR");
-        doctor = new Doctor(1231231, "carlos", "maria", "joao", LocalDate.of(2020, 1, 8), "Maringá", "PR", "teste@gmail.com",
-                Gender.MASCULINO, "44", "99999-9999", "123.456.789-10", true, address);
+        doctor = new Doctor(1231231, "carlos", "maria", "joao",
+                LocalDate.of(2020, 1, 8),
+                "Maringá", "PR", "teste@gmail.com",
+                Gender.MASCULINO, "44", "99999-9999", "123.456.789-10", "1234", true, address);
     }
 
     @Test
