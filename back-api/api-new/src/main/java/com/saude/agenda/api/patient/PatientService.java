@@ -61,4 +61,10 @@ public class PatientService {
         return repository.findBySusCode(susCode).
                 orElseThrow(() -> new EntityNotFoundException("Número SUS incorreto ou inexistente."));
     }
+
+    public void deleteById(Long id) {
+        Patient patient = findById(id);
+        patient.setActive(false);
+        repository.save(patient);
+    }
 }

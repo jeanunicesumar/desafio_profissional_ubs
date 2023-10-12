@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("admin")
+@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class AdminController {
             return service.getAll(pageable);
         }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public AdminDto getById(@PathVariable Long id) {
         return service.getById(id);
     }

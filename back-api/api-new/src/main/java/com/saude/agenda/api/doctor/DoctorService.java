@@ -50,6 +50,7 @@ public class DoctorService {
     public void deleteById(Long id) {
         Doctor doctor = findById(id);
         doctor.setActive(false);
+        repository.save(doctor);
     }
 
     public Boolean login (DoctorLoginDto data) {
