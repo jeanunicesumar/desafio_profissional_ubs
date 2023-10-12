@@ -66,9 +66,6 @@ public class Person {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
-    private List<Appointment> appointments;
-
     public Person(String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, String password, Boolean active, Address address) {
         this.name = name;
         this.motherName = motherName;

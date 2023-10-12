@@ -7,6 +7,8 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,8 +24,8 @@ public class DoctorService {
     @Autowired
     private DoctorAdapter adapter;
 
-    public List<DoctorDto> getAll() {
-        return repository.findAll().stream().map(this::getDoctorDto).toList();
+    public Page<DoctorDto> getAll(Pageable pageable) {
+        return repository.findAll(pageable).map(this::getDoctorDto);
     }
 
     private DoctorDto getDoctorDto(Doctor doctor) {
@@ -50,11 +52,18 @@ public class DoctorService {
     public void deleteById(Long id) {
         Doctor doctor = findById(id);
         doctor.setActive(false);
+        repository.save(doctor);
     }
 
-    public Boolean login (DoctorLoginDto data) {
+    public DoctorDto login (DoctorLoginDto data) throws Exception {
         Doctor doctor = findByCrm(data.getCrm());
-        return HashPassword.verifyPassword(data.getPassword(), doctor.getPassword());
+        Boolean isLogin = HashPassword.verifyPassword(data.getPassword(), doctor.getPassword());
+
+        if (isLogin) {
+            return adapter.fromEntity(doctor);
+        }
+
+        throw new Exception("Username or password invalid");
     }
 
     private Doctor findByCrm(Integer crm) {

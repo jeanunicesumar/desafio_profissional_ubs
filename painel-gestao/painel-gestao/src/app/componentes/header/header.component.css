@@ -1,9 +1,17 @@
 header {
+<<<<<<< HEAD
   background-color: #e9f5f6;
+=======
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #E9F5F6;
+>>>>>>> 3388b5e069a62b6159069adefff6dc3206402ed6
 }
 
 .logo {
   width: 20%;
+<<<<<<< HEAD
   padding: 2rem 3rem;
 }
 
@@ -13,12 +21,36 @@ header {
   margin-bottom: 2rem;
 }
 
+=======
+  margin-left: 1rem;
+  padding: 1em;
+  float: left;
+}
+
+.logo img {
+  width: 50%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.login-icon {
+  width: 2%;
+  margin-left:20rem;
+  padding: 2em;
+  float: right;
+}
+
+>>>>>>> 3388b5e069a62b6159069adefff6dc3206402ed6
 @media (max-width: 576px) {
   .cabecalho .logo {
     padding: 2rem;
   }
   .cabecalho p {
+<<<<<<< HEAD
     font-size: 1.5rem;
+=======
+    font-size: 1.5rem
+>>>>>>> 3388b5e069a62b6159069adefff6dc3206402ed6
   }
 }
 

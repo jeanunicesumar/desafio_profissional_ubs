@@ -1,0 +1,66 @@
+.logo-container {
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 20%;
+}
+
+a {
+  text-decoration: none;
+  font-family: Verdana;
+  color: #035466;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #005599;
+}
+
+.form-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-round {
+  background-color: #105965;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 50%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.input-round {
+  border: none;
+  border-radius: 20px;
+  border-color: black;
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: Verdana;
+  color: #035466;
+}

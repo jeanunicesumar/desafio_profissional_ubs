@@ -10,11 +10,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-
 public class PatientLoginDto {
+
         @NotBlank(message = "Insira o número do SUS")
         private Integer susCode;
 
         @NotBlank(message = "Insira sua senha")
         private String password;
-    }
+
+}

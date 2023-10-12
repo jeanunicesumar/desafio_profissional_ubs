@@ -4,28 +4,29 @@ import com.saude.agenda.api.doctor.dto.DoctorDto;
 import com.saude.agenda.api.doctor.dto.DoctorLoginDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
-@RequestMapping("doctor")
+@RequestMapping("/doctor")
 public class DoctorController {
 
     @Autowired
     private DoctorService service;
 
     @GetMapping
-    public List<DoctorDto> getAll() {
-        return service.getAll();
+    public ResponseEntity<Page<DoctorDto>> getAll(Pageable pageable) {
+        return ResponseEntity.ok().body(service.getAll(pageable));
     }
 
     @GetMapping("/{id}")
-    public DoctorDto getById(@PathVariable Long id) {
-        return service.getById(id);
+    public ResponseEntity<DoctorDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(service.getById(id));
     }
 
     @PostMapping
@@ -40,9 +41,9 @@ public class DoctorController {
         service.deleteById(id);
     }
 
-    @PostMapping("/login")
-    public Boolean login(@RequestBody @Valid DoctorLoginDto data) {
-        return service.login(data);
+    @PostMapping("/auth")
+    public ResponseEntity<DoctorDto> auth(@RequestBody @Valid DoctorLoginDto data) throws Exception {
+        return ResponseEntity.ok(service.login(data));
     }
 
 }
