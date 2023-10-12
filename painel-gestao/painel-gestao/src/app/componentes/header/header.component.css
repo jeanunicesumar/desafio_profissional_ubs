@@ -1,5 +1,5 @@
 header {
-  background-color: #E9F5F6;
+  background-color: #e9f5f6;
 }
 
 .logo {
@@ -13,13 +13,12 @@ header {
   margin-bottom: 2rem;
 }
 
-
 @media (max-width: 576px) {
   .cabecalho .logo {
     padding: 2rem;
   }
   .cabecalho p {
-    font-size: 1.5rem
+    font-size: 1.5rem;
   }
 }
 
