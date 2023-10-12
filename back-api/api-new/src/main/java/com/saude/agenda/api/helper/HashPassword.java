@@ -1,8 +1,5 @@
 package com.saude.agenda.api.helper;
 
-import com.saude.agenda.api.doctor.Doctor;
-import com.saude.agenda.api.doctor.DoctorRepository;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,6 +13,7 @@ public class HashPassword {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+        assert messageDigest != null;
         BigInteger hash = new BigInteger(1, messageDigest.digest(password.getBytes()));
         return hash.toString(16);
     }

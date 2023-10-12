@@ -2,6 +2,7 @@ package com.saude.agenda.api.appointment;
 
 import com.saude.agenda.api.doctor.Doctor;
 import com.saude.agenda.api.medicalRecord.MedicalRecord;
+import com.saude.agenda.api.patient.Patient;
 import com.saude.agenda.api.person.Person;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.Setter;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "appointment")
@@ -31,13 +33,13 @@ public class Appointment {
     private Timestamp endTime;
 
     @Column(nullable = false)
-    private Date date;
+    private LocalDate date;
 
     private StatusAppointment status;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
@@ -47,12 +49,12 @@ public class Appointment {
     @JoinColumn(name = "medical_record_id", referencedColumnName = "id")
     private MedicalRecord medicalRecord;
 
-    public Appointment(Timestamp startTime, Timestamp endTime, Date date, Person person, Doctor doctor, MedicalRecord medicalRecord) {
+    public Appointment(Timestamp startTime, Timestamp endTime, LocalDate date, Patient patient, Doctor doctor, MedicalRecord medicalRecord) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.date = date;
         this.status = StatusAppointment.WAITING_CONFIRMATION;
-        this.person = person;
+        this.patient = patient;
         this.doctor = doctor;
         this.medicalRecord = medicalRecord;
     }

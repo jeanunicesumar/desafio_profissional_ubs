@@ -1,17 +1,17 @@
 package com.saude.agenda.api.patient;
 
 import com.saude.agenda.api.address.Address;
+import com.saude.agenda.api.appointment.Appointment;
 import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.Person;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "patient")
@@ -23,6 +23,9 @@ public class Patient extends Person {
 
     @Column(nullable = false)
     private Integer susCode;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
+    private List<Appointment> appointments;
 
     public Patient(Integer susCode,
                    String name,

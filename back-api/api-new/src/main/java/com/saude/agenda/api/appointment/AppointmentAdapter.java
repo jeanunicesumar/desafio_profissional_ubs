@@ -10,12 +10,12 @@ public class AppointmentAdapter implements Adapter<AppointmentDto, Appointment> 
     @Override
     public AppointmentDto fromEntity(Appointment appointment) {
         return new AppointmentDto(appointment.getId(), appointment.getStartTime(), appointment.getEndTime(), appointment.getDate(),
-                appointment.getPerson(), appointment.getDoctor(), appointment.getMedicalRecord());
+                appointment.getPatient(), appointment.getDoctor(), appointment.getMedicalRecord());
     }
 
     @Override
     public Appointment fromDto(AppointmentDto appointmentDto) {
         return new Appointment(appointmentDto.getStartTime(), appointmentDto.getEndTime(),
-                appointmentDto.getDate(), appointmentDto.getPerson(), appointmentDto.getDoctor(), appointmentDto.getMedicalRecord());
+                appointmentDto.getDate(), appointmentDto.getPatient(), appointmentDto.getDoctor(), appointmentDto.getMedicalRecord());
     }
 }

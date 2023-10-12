@@ -5,6 +5,7 @@ import com.saude.agenda.api.doctor.DoctorService;
 import com.saude.agenda.api.patient.PatientService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,8 @@ public class AdminService {
     @Autowired
     private PatientService patientService;
 
-    public List<Admin> getAll(Pageable pageable) {
-        return repository.findAll();
+    public Page<AdminDto> getAll(Pageable pageable) {
+        return repository.findAll(pageable).map(this::getAdminDto);
     }
 
     private AdminDto getAdminDto(Admin admin) {
@@ -56,5 +57,5 @@ public class AdminService {
                 .orElseThrow(() -> new EntityNotFoundException("Admin not found"));
     }
 
-    // update
+    // TODO: Fazer update
 }
