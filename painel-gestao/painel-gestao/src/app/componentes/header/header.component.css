@@ -1,0 +1,44 @@
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #E9F5F6;
+}
+
+.logo {
+  width: 20%;
+  margin-left: 1rem;
+  padding: 1em;
+  float: left;
+}
+
+.logo img {
+  width: 50%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.login-icon {
+  width: 2%;
+  margin-left:20rem;
+  padding: 2em;
+  float: right;
+}
+
+@media (max-width: 576px) {
+  .cabecalho .logo {
+    padding: 2rem;
+  }
+  .cabecalho p {
+    font-size: 1.5rem
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho .logo {
+    width: 90%;
+  }
+  .cabecalho .imagem {
+    display: none;
+  }
+}
