@@ -3,6 +3,7 @@ package com.saude.agenda.api.admin;
 import com.saude.agenda.api.admin.dto.AdminDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -13,20 +14,20 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("admin")
+@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
     private AdminService service;
 
     @GetMapping
-    public List<Admin> getAll(@PageableDefault Pageable pageable) {
-            return service.getAll(pageable);
-        }
+    public ResponseEntity<Page<AdminDto>> getAll(@PageableDefault Pageable pageable) {
+        return ResponseEntity.ok().body(service.getAll(pageable));
+    }
 
-    @GetMapping
-    public AdminDto getById(@PathVariable Long id) {
-        return service.getById(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<AdminDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(service.getById(id));
     }
 
     @PostMapping
