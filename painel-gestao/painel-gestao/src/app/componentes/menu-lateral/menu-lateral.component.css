@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  position: fixed;
+  width: 193px;
+  height: 497PX;
+  background: #E9F5F6;
+  color: #054955;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-end-end-radius: 50px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.menu-item i {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.menu-item:hover {
+  width: 100%;
+  background: #105050;
+}
+
+.menu-icone {
+  margin-right: 20px;
+  padding: 0 0 10px;
+  width: 20%
+}

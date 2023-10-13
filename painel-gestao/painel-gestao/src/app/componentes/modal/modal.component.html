@@ -1,0 +1,22 @@
+<div class="modal-overlay" *ngIf="mostrar">
+  <div class="modal-container">
+    <div class="modal-header">
+      <div class="logotipo-container">
+        <img class="logotipo" src="../../../assets/logo-nome.png" alt="Logotipo">
+      </div>
+      <button type="button" class="close" aria-label="Close" (click)="fecharModal()">
+        <img class="close-button" src="../../../assets/icone-fechar.png" alt="">
+      </button>
+    </div>
+    <h3>Recuperar senha</h3>
+    <div class="modal-body">
+      <span>Email:</span>
+      <input type="email" class="modal-input" placeholder="Digite seu e-mail" />
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="modal-button">Enviar</button>
+    </div>
+
+  </div>
+</div>
+
