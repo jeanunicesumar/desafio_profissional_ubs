@@ -1,85 +1,78 @@
-.logo-container {
-  margin-top: 5%;
+.main {
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.logo {
-  width: 15%;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  max-width: 1280px;
+  min-height: 100vh;
 }
 
-a {
-  text-decoration: none;
-  font-family: Verdana;
-  font-size: 12px;
-  color: #035466;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #005599;
-}
-
-.label-left {
-  text-align: left;
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-family: Verdana;
-  color: #035466;
-}
-
-.form-container {
-  margin-top: 50px;
+.login {
+  padding: 92px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 722px;
   display: flex;
   flex-direction: column;
+}
+
+.login div {
+  margin: 10px 0;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.button-round {
-  margin-top: 50px;
+.login div form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login div form span {
+  width: 100%;
+}
+
+.login div form span label {
+  margin: 0 30px;
+}
+
+.input-form {
+  padding: 0 20px;
+  outline: 0;
+  margin-top: 5px;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 0.2px solid #105050;
+}
+
+.login div.align-right {
+  height: 50px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.login div.align-right button {
+  width: 261px;
+  height: 50px;
+  border-radius: 10px;
+  border: 0;
   background-color: #105965;
   color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5% 20%;
-  cursor: pointer;
-  width: 200px;
+  box-shadow: 1px 5px 5px rgb(184, 182, 182);
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.input-round {
-  border-radius: 5px;
-  border-color: rgb(122, 122, 122);
-  border-width: 1px;
-  padding: 5%;
-  margin: 5px;
-  width: 200%;
-}
-
-.hidden-input {
-  display: none;
-}
-
-label {
-  margin-bottom: 5px;
-  font-family: Verdana;
+p {
+  margin-top: 10px;
   color: #035466;
-  font-size: 14px;
-}
-
-@media (max-width: 576px) {
-  .input-round {
-    width: 100%;
-  }
+  font-size: 12px;
 }
