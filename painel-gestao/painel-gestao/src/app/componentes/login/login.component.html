@@ -4,14 +4,19 @@
 
 <form class="form-container">
   <div class="input-container">
-    <label for="cpf">CPF: </label>
-    <input type="cpf" id="cpf" class="input-round" />
+     <input type="none" class="input-round hidden-input" />
   </div>
   <div class="input-container">
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" class="input-round" />
+    <label for="cpf" class="label-left">CPF: </label>
+    <input type="cpf" id="cpf" class="input-round" placeholder="Digite seu CPF" />
   </div>
+  <div class="input-container">
+    <label for="senha" class="label-left">Senha: </label>
+    <input type="password" id="senha" class="input-round" placeholder="Digite sua senha"/>
+  </div>
+  <div>
   <button (click)="submit()" class="button-round">Entrar</button>
+</div>
   <div>
     <a routerLink="/header">Esqueci minha senha</a>
   </div>
