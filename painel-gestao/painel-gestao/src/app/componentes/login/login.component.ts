@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  ngOnInit(): void {}
 
-  ngOnInit(): void {};
+  isDoctor: boolean = false;
 
+  constructor(private router: Router, private dialog: MatDialog) {}
 
-  mostrarModal = false;
+  toogle() {
+    console.log('teste');
 
-  constructor(private router: Router) {}
-
-  openModal() {
-    if (!this.mostrarModal) {
-      this.mostrarModal = true;
-
-    }
+    this.dialog.open(ModalComponent);
   }
 
   submit() {
-    this.router.navigate(['/header']);
+    if (this.isDoctor) {
+      this.router.navigate(['/medico']);
+      return;
+    }
+    this.router.navigate(['/administrador']);
   }
 }

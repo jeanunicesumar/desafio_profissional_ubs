@@ -1,15 +1,9 @@
-h3 {
-  font-size: 20px;
-  color: #105050;
-  text-align: center;
-  margin: 40px 0 10px 0;
-}
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
@@ -18,66 +12,82 @@ h3 {
 }
 
 .modal-container {
-  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #ffffff;
   border-radius: 5px;
-  box-shadow: 0 2px 4px #000000;
   width: 100%;
-  max-width: 60%;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-.logotipo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logotipo {
-  max-width: 50%;
-  max-height: 50%;
-}
-
-.modal-body {
-  padding: 40px;
- }
-
-.modal-input {
-  width: 100%;
+  max-width: 660px;
+  height: 100vh;
+  max-height: 360px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-top: 10px;
+  gap: 20px;
 }
 
-.modal-footer {
-  text-align: right;
-  padding: 10px 20px;
-  }
+.align-right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
-.modal-button {
-  background: #105050;
-  color: #fff;
-  width: 30%;
-  padding: 20px 40px;
-  border: 0.2 solid #105050;
-  border-radius: 10px;
+.align-right img {
+  width: 26px;
+}
+
+.align-right img:hover {
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
-.close {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 100px;
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.close-button {
-  width: 80%
+span img {
+  width: 189px;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 14px;
+  color: #105965;
+}
+
+span.form {
+  padding: 0px 60px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+span.form label {
+  margin-left: 10px;
+}
+
+span.form input {
+  padding: 0 10px;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px solid #105050;
+}
+
+span button {
+  max-width: 261px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #105965;
+  color: white;
+  box-shadow: 1px 5px 5px rgb(184, 182, 182);
+}
+
+.padding-60 {
+  padding: 0px 60px;
 }

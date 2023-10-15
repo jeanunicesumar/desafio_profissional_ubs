@@ -42,7 +42,7 @@
 }
 
 .login div form span label {
-  margin: 0 30px;
+  margin: 0 10px;
 }
 
 .input-form {
@@ -62,6 +62,7 @@
 }
 
 .login div.align-right button {
+  cursor: pointer;
   width: 261px;
   height: 50px;
   border-radius: 10px;
@@ -71,12 +72,8 @@
   box-shadow: 1px 5px 5px rgb(184, 182, 182);
 }
 
-
-.esqueci_senha_button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
+h3 {
+  margin-top: 20px;
   font-size: 14px;
   cursor: pointer;
   color: #105050;

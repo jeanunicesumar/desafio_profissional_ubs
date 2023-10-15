@@ -1,21 +1,17 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  styleUrls: ['./modal.component.css'],
 })
-
 export class ModalComponent {
-  @Input()
-  mostrar!: boolean;
+  constructor(private dialogRef: MatDialogRef<ModalComponent>) {}
 
-   constructor() {}
-
-  ngOnInit(): void {};
-
-  fecharModal() {
-    this.mostrar= false;
-     window.location.reload();
+  close() {
+    this.dialogRef.close();
   }
+
+  ngOnInit(): void {}
 }

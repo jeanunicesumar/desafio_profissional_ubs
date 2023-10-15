@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,7 +14,6 @@ import { MedicoComponent } from './componentes/medico/medico.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
 
 @NgModule({
-
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -23,11 +23,8 @@ import { AdministradorComponent } from './componentes/administrador/administrado
     MedicoComponent,
     AdministradorComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, MatDialogModule],
   providers: [MedicoGuard, AdministradorGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
