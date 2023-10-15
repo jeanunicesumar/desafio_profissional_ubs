@@ -6,5 +6,10 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor() { }
-
+  autenticacaoMedico(): boolean {
+    return true;
+  }
+  autenticacaoAdmnistrador(): boolean {
+    return true;
+  }
 }
