@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './componentes/login/login.component';
-import { HeaderComponent } from './componentes/header/header.component';
+import { AdministradorGuard } from './guards/administrador.guard';
+import { MedicoGuard } from './guards/medico.guard';
+import { MedicoComponent } from './componentes/medico/medico.component';
+import { AdministradorComponent } from './componentes/administrador/administrador.component';
+
 
 const routes: Routes = [
   {
@@ -14,8 +18,14 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'header',
-    component: HeaderComponent,
+    path: 'medico',
+    component: MedicoComponent,
+    canActivate: [MedicoGuard],
+  },
+  {
+    path: 'administrador',
+    component: AdministradorComponent,
+    canActivate: [AdministradorGuard]
   },
 ];
 

@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
+
 export class ModalComponent {
   @Input() mostrar = false;
 
