@@ -1,21 +1,32 @@
-.container {
-  border: 1px solid black;
-  padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap');
+
+.container-pai {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
   justify-content: center;
   align-items: center;
 }
 
-.container span {
+.container-filho {
+  border: 1px solid black;
+  height: 100%;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px;  */
+  align-items: center;
+  border-radius: 5px;
+}
+
+.container-filho span {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: green;
   color: white;
   width: 50%;
+  border-radius: 3px;
+  background-color: #105965;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container span.width-30 {
