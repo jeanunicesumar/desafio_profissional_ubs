@@ -10,11 +10,11 @@ div.container {
   grid-template-rows: 2fr 1fr;
 }
 
-div.container div.top {
+.top {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
 
 div {
-  padding: 10px;
+  margin: 10px;
 }
