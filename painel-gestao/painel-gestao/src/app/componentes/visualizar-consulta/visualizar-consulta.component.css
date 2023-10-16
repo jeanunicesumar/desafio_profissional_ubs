@@ -4,6 +4,7 @@
   font-size: 0.8rem;
 }
 .consulta {
+  width: 85%;
   margin: 2rem 0 0 13rem;
   padding: 2rem;
   border: 0.1px solid black;
@@ -11,7 +12,7 @@
 
 }
 .dados-consulta {
-  width: 49rem;
+  width: 100%;
   height: 3rem;
   margin:0.5rem 0.5rem 0 0;
   display: flex;
