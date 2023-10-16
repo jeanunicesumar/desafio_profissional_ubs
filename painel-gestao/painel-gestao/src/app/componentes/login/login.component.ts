@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
-  isDoctor: boolean = false;
+  isDoctor: boolean = true;
 
   constructor(private router: Router, private dialog: MatDialog) {}
 

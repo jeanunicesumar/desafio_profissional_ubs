@@ -12,6 +12,7 @@ import { MedicoGuard } from './guards/medico.guard';
 import { AdministradorGuard } from './guards/administrador.guard';
 import { MedicoComponent } from './componentes/medico/medico.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
+import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/visualizar-consulta.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdministradorComponent } from './componentes/administrador/administrado
     MenuLateralComponent,
     MedicoComponent,
     AdministradorComponent,
+    VisualizarConsultaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MatDialogModule],
   providers: [MedicoGuard, AdministradorGuard],
