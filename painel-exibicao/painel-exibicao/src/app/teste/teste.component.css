@@ -1,0 +1,28 @@
+.container {
+  border: 1px solid black;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  width: 50%;
+}
+
+.container span.width-30 {
+  width: 30%;
+}
+
+.height-50 {
+  height: 50px;
+}
