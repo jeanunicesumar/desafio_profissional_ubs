@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap');
 
 .container-pai {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
 .container-filho {
@@ -12,9 +10,11 @@
   /* padding: 20px; */
   display: flex;
   flex-direction: column;
-  /* gap: 20px;  */
+  gap: 35px; 
   align-items: center;
   border-radius: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-filho span {

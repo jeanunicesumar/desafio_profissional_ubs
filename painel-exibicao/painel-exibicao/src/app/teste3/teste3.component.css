@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap');
+
+.container-pai {
+  height: 100%;
+}
+
+.fila-espera {
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white ;
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  border-radius: 5px;
+}
+
+span {
+  background-color: #105965;  
+}
