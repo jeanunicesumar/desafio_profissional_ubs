@@ -11,8 +11,8 @@ import { MenuLateralComponent } from './componentes/menu-lateral/menu-lateral.co
 import { MedicoGuard } from './guards/medico.guard';
 import { AdministradorGuard } from './guards/administrador.guard';
 import { MedicoComponent } from './componentes/medico/medico.component';
-import { AdministradorComponent } from './componentes/administrador/administrador.component';
 import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/visualizar-consulta.component';
+import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/v
     ModalComponent,
     MenuLateralComponent,
     MedicoComponent,
-    AdministradorComponent,
     VisualizarConsultaComponent,
+    CadastroUsuarioComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MatDialogModule],
   providers: [MedicoGuard, AdministradorGuard],
