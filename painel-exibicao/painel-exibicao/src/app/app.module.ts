@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TesteComponent } from './teste/teste.component';
 import { Teste2Component } from './teste2/teste2.component';
 import { Teste3Component } from './teste3/teste3.component';
+import { Teste4Component } from './teste4/teste4.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { Teste3Component } from './teste3/teste3.component';
     TesteComponent,
     Teste2Component,
     Teste3Component,
+    Teste4Component,
   ],
   imports: [
     BrowserModule,
