@@ -1,20 +1,17 @@
 package com.saude.agenda.api.medicalRecord;
 
-import com.saude.agenda.api.appointment.Appointment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "medicalRecord")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
+@Table(name = "medical_record")
 public class MedicalRecord {
 
     @Id
@@ -23,12 +20,9 @@ public class MedicalRecord {
 
     private String description;
 
-    private Date date;
-
-    @OneToOne(mappedBy = "medicalRecord")
-    private Appointment appointment;
+    private LocalDate date;
     
-    public MedicalRecord(Date date, String description) {
+    public MedicalRecord(LocalDate date, String description) {
         this.date = date;
         this.description = description;
     }

@@ -4,7 +4,9 @@ import com.saude.agenda.api.adapter.Adapter;
 import com.saude.agenda.api.address.AddressAdapter;
 import com.saude.agenda.api.admin.dto.AdminDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdminAdapter implements Adapter<AdminDto, Admin> {
 
     @Autowired
