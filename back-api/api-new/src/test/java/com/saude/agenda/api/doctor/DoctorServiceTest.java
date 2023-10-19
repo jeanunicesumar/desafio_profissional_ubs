@@ -33,6 +33,7 @@ class DoctorServiceTest {
     private Doctor doctor;
     private Address address;
 
+    /*
     @BeforeEach
     public void setUp() {
         address = new Address("87230-230", "Rua Tal", "Complemento", "123A", "Bairro tal", "Maringá", "PR");
@@ -63,5 +64,5 @@ class DoctorServiceTest {
 
         assertEquals(doctorDto, doctorDtoExpected);
     }
-
+     */
 }

@@ -5,6 +5,7 @@ import com.saude.agenda.api.appointment.Appointment;
 import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.Person;
 import com.saude.agenda.api.specialty.Specialty;
+import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -48,8 +49,12 @@ public class Doctor extends Person {
                   Gender gender,
                   String ddd,
                   String phone,
-                  String cpf, String password, Boolean active, Address address) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
+                  String cpf,
+                  String password,
+                  Boolean active,
+                  Address address,
+                  Ubs ubs) {
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address, ubs);
         this.crm = crm;
     }
 

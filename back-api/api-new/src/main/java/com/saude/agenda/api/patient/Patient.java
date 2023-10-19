@@ -4,6 +4,7 @@ import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.appointment.Appointment;
 import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.Person;
+import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -41,8 +42,9 @@ public class Patient extends Person {
                    String cpf,
                    String password,
                    Boolean active,
-                   Address address) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address);
+                   Address address,
+                   Ubs ubs) {
+        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address, ubs);
         this.susCode = susCode;
     }
 }

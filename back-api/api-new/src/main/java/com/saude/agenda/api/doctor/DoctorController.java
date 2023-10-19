@@ -41,9 +41,4 @@ public class DoctorController {
         service.deleteById(id);
     }
 
-    @PostMapping("/auth")
-    public ResponseEntity<DoctorDto> auth(@RequestBody @Valid DoctorLoginDto data) throws Exception {
-        return ResponseEntity.ok(service.login(data));
-    }
-
 }

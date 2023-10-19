@@ -55,17 +55,6 @@ public class DoctorService {
         repository.save(doctor);
     }
 
-    public DoctorDto login (DoctorLoginDto data) throws Exception {
-        Doctor doctor = findByCrm(data.getCrm());
-        Boolean isLogin = HashPassword.verifyPassword(data.getPassword(), doctor.getPassword());
-
-        if (isLogin) {
-            return adapter.fromEntity(doctor);
-        }
-
-        throw new Exception("Username or password invalid");
-    }
-
     private Doctor findByCrm(Integer crm) {
         return repository.findByCrm(crm).
                 orElseThrow(() -> new EntityNotFoundException("CRM ou senha inválidos"));

@@ -26,6 +26,4 @@ public class Ubs {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    // TODO: Relacionar UBS com Person
-
 }
