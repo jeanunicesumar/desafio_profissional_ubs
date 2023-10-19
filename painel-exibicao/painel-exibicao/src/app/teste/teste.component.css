@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap');
 
-.container-pai {
+.container {
   height: 100%;
 }
 
-.container-filho {
+.container__border {
   border: 2px solid black;
   height: 100%;
   /* padding: 20px; */
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.container-filho span {
+span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,10 +29,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.container span.width-30 {
+.container__filho__nova-senha {
   width: 30%;
 }
 
-.height-50 {
+.container__border__nome-doutor {
   height: 50px;
 }
