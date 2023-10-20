@@ -67,7 +67,7 @@ public class Person {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ubs_id", referencedColumnName = "id")
     private Ubs ubs;
 
