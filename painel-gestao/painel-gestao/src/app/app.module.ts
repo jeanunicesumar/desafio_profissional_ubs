@@ -13,6 +13,8 @@ import { AdministradorGuard } from './guards/administrador.guard';
 import { MedicoComponent } from './componentes/medico/medico.component';
 import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/visualizar-consulta.component';
 import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
+import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,9 @@ import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-u
     MedicoComponent,
     VisualizarConsultaComponent,
     CadastroUsuarioComponent,
+    CadastrarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatDialogModule],
+  imports: [BrowserModule, AppRoutingModule, MatDialogModule, FormsModule],
   providers: [MedicoGuard, AdministradorGuard],
   bootstrap: [AppComponent],
 })

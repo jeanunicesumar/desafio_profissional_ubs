@@ -54,7 +54,7 @@ public class AdminService {
 
     private Admin findById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Admin not found"));
+                .orElse(null);
     }
 
     // TODO: Fazer update

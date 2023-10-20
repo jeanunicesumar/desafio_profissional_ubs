@@ -5,6 +5,7 @@ import { AdministradorGuard } from './guards/administrador.guard';
 import { MedicoGuard } from './guards/medico.guard';
 import { MedicoComponent } from './componentes/medico/medico.component';
 import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
+import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
     component: CadastroUsuarioComponent,
     canActivate: [AdministradorGuard]
   },
+  {
+    path: 'cadastrarMedico',
+    component: CadastrarComponent,
+    canActivate: [AdministradorGuard]
+  }
 ];
 
 @NgModule({

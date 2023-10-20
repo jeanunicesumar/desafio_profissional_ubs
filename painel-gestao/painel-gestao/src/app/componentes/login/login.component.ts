@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,10 @@ import { MatDialog } from '@angular/material/dialog';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
-  isDoctor: boolean = false;
-
-  constructor(private router: Router, private dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private dialog: MatDialog,
+    private authService: AuthService) {}
 
   toogle() {
     console.log('teste');
@@ -22,10 +24,13 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    if (this.isDoctor) {
+    if (this.authService.autenticacaoMedico()) {
       this.router.navigate(['/medico']);
       return;
+    } else if (this.authService.autenticacaoAdmnistrador()){
+      this.router.navigate(['/administrador']);
+    } else {
+      console.log("Usuário não existe");
     }
-    this.router.navigate(['/administrador']);
   }
 }

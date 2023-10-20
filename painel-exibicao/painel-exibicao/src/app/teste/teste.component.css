@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,200&display=swap');
 
 .container {
@@ -35,4 +36,10 @@ span {
 
 .container__border__nome-doutor {
   height: 50px;
+=======
+div {
+    width: 100%;
+    height: 300px;
+    background-color: red;
+>>>>>>> fa3b61d2f1230accb0829c7b01245bc665f00e17
 }

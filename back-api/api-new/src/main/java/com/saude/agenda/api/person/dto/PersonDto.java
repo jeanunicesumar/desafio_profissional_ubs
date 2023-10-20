@@ -2,6 +2,7 @@ package com.saude.agenda.api.person.dto;
 
 import com.saude.agenda.api.address.dto.AddressDto;
 import com.saude.agenda.api.person.Gender;
+import com.saude.agenda.api.ubs.dto.UbsDto;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
@@ -63,8 +64,11 @@ public class PersonDto {
         @NotNull
         private Boolean active;
 
-        @NotNull
+        @NotNull(message = "Insira um endereço")
         private AddressDto address;
+
+        @NotNull(message = "Insira uma ubs")
+        private UbsDto ubs;
         
 }
 

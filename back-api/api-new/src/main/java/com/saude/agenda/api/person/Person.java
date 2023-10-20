@@ -2,6 +2,7 @@ package com.saude.agenda.api.person;
 
 import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.appointment.Appointment;
+import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -66,7 +67,11 @@ public class Person {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    public Person(String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, String password, Boolean active, Address address) {
+    @ManyToOne
+    @JoinColumn(name = "ubs_id", referencedColumnName = "id")
+    private Ubs ubs;
+
+    public Person(String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, String password, Boolean active, Address address, Ubs ubs) {
         this.name = name;
         this.motherName = motherName;
         this.fatherName = fatherName;
@@ -81,5 +86,6 @@ public class Person {
         this.password = password;
         this.active = active;
         this.address = address;
+        this.ubs = ubs;
     }
 }

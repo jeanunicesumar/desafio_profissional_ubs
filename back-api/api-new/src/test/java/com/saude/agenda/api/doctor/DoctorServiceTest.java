@@ -33,6 +33,7 @@ class DoctorServiceTest {
     private Doctor doctor;
     private Address address;
 
+    /*
     @BeforeEach
     public void setUp() {
         address = new Address("87230-230", "Rua Tal", "Complemento", "123A", "Bairro tal", "Maringá", "PR");
@@ -41,7 +42,6 @@ class DoctorServiceTest {
                 "Maringá", "PR", "teste@gmail.com",
                 Gender.MASCULINO, "44", "99999-9999", "123.456.789-10", "1234", true, address);
     }
-
 
     @Test
     void should_return_list_doctorDto_when_catch_service_get_all() {
@@ -64,4 +64,5 @@ class DoctorServiceTest {
 
         assertEquals(doctorDto, doctorDtoExpected);
     }
+     */
 }

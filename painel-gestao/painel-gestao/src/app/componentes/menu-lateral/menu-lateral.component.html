@@ -1,27 +1,35 @@
 <div class="sidebar">
   <div class="menu-item">
-    <img class="menu-icone"src="../../../assets/icone-casa.png" alt="Home">
    <span>
+    <img class="menu-icone"src="../../../assets/icone-casa.png" alt="Home">
     Home</span>
   </div>
-  <div class="menu-item">
-    <img class="menu-icone" src="../../../assets/icone-calendário.png" alt="Agendamentos">
+  <div class="menu-item" *ngIf="isAdmin()">
    <span>
-     Agendamentos</span>
+    <img class="menu-icone"
+    src="../../../assets/icone-cadastro.png"
+    alt="Cadastro">
+     Cadastro
+    </span>
   </div>
   <div class="menu-item">
-    <div class="menu-icone-container">
-    <img class="menu-icone" src="../../../assets/icone-estetoscópio.png" alt="Consultas">
-  </div>
-  <span>
-        Consultas</span>
+   <span>
+    <img class="menu-icone"
+    src="../../../assets/icone-calendário.png"
+    alt="Agendamentos">
+     Agendamentos
+    </span>
   </div>
   <div class="menu-item">
-    <div class="menu-icone-container">
-
-    <img class="menu-icone" src="../../../assets/icone-exame.png" alt="Exames">
-    </div>
-    <span>
-          Exames</span>
+       <span>
+        <img class="menu-icone" src="../../../assets/icone-estetoscópio.png" alt="Consultas">
+        Consultas
+      </span>
+  </div>
+  <div class="menu-item">
+        <span>
+          <img class="menu-icone" src="../../../assets/icone-exame.png" alt="Exames">
+          Exames
+        </span>
   </div>
 </div>

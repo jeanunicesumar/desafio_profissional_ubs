@@ -5,6 +5,8 @@ body {
 
 .sidebar {
   position: fixed;
+  padding: 1em;
+  gap: 5px;
   width: 15%;
   height: 70%;
   background: #E9F5F6;
@@ -16,8 +18,8 @@ body {
 }
 
 .menu-item {
+  width: 100%;
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
   padding: 1em;
   transition: 0.3s;
@@ -25,18 +27,21 @@ body {
 }
 
 .menu-item .menu-icone {
-  font-size: 2em;
+  font-size: 1.5em;
   width: 1em;
   height: auto;
 }
 
 .menu-item span {
-  text-align: left;
-  margin-left: 10px;
+  width: 100% ;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .menu-item:hover {
-  width: 180px;
-  background: #105050;
-  color: #E9F5F6;
+  border-radius: 5px;
+  background: #23A2AF;
+  cursor: pointer;
 }

@@ -1,0 +1,104 @@
+.principal {
+  width: 85%;
+  margin-left: 14em;
+}
+
+.principal__titulo {
+  margin-top: 2em;
+  font-size: 1rem;
+  padding: 1em;
+  gap: 1em;
+  color: #105965;
+  background-color: #E9F5F6;
+  display: flex;
+  justify-content: center;
+}
+
+.principal__subtitulo {
+  font-size: 0.8rem;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.campo__etiqueta {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--azul);
+  margin-left: 1em;
+}
+
+.campo__escrita {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 1em;
+  width: 60%;
+}
+
+.formulario__campo {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.campo__tres__modelo1{
+  width: 25%;
+  margin-right: 1.2em;
+  margin-left: 1em;
+}
+
+.campo__dois{
+  width: 30%;
+  margin-right: 0.5em;
+}
+
+.campo__dois__modelo2{
+  width: 52%;
+  margin-left: 0.5em;
+}
+
+.small-input {
+  margin-left: 1em;
+  margin-right: 1em;
+  width: calc(60% - 54%)
+}
+
+.medium-input {
+  width: calc(60% - 52%)
+}
+
+.formulario__botao {
+  background: var(--laranja);
+  padding: 1em 4em;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  border: none;
+  color: var(--branco);
+  cursor: pointer;
+  float: right;
+}
+
+.formulario__erro {
+  display: flex;
+  margin-top: 0.5em;
+  align-items: center;
+}
+
+.erro__imagem {
+  width: 16px;
+  height: 16px;
+  margin: 0 .5em;
+  background-image: url('/assets/img/warning.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ng-touched .ng-invalid:not(form){
+  border-color: red;
+  color: red;
+}

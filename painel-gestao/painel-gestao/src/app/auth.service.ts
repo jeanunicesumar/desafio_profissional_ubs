@@ -7,7 +7,7 @@ export class AuthService {
 
   constructor() { }
   autenticacaoMedico(): boolean {
-    return true;
+    return false;
   }
   autenticacaoAdmnistrador(): boolean {
     return true;
