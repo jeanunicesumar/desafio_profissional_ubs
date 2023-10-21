@@ -19,9 +19,6 @@ public class DoctorService {
     private DoctorRepository repository;
 
     @Autowired
-    private PersonRepository doctorRepository;
-
-    @Autowired
     private DoctorAdapter adapter;
 
     public Page<DoctorDto> getAll(Pageable pageable) {
@@ -65,7 +62,7 @@ public class DoctorService {
     }
 
     public Boolean exists(@PathVariable Long id) {
-        return doctorRepository.existsById(id);
+        return repository.existsByPersonId(id);
     }
 
 }

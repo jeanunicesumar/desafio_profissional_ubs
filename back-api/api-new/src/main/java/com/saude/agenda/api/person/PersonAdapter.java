@@ -5,7 +5,9 @@ import com.saude.agenda.api.address.AddressAdapter;
 import com.saude.agenda.api.person.dto.PersonDto;
 import com.saude.agenda.api.ubs.UbsAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PersonAdapter implements Adapter<PersonDto, Person> {
 
     @Autowired

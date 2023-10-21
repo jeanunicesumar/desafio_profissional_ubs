@@ -1,8 +1,5 @@
 package com.saude.agenda.api.person;
 
-import com.saude.agenda.api.doctor.dto.DoctorDto;
-import com.saude.agenda.api.doctor.dto.DoctorLoginDto;
-import com.saude.agenda.api.person.dto.PersonDto;
 import com.saude.agenda.api.person.dto.PersonLoginDto;
 import com.saude.agenda.api.person.dto.ResponseDto;
 import jakarta.validation.Valid;
@@ -22,7 +19,7 @@ public class PersonController {
 
     @PostMapping("/auth")
     public ResponseEntity<ResponseDto> auth(@RequestBody @Valid PersonLoginDto data) throws Exception {
-        return ResponseEntity.ok().body(service.login(data));
+        return  ResponseEntity.ok().body(service.login(data));
     }
 
 }

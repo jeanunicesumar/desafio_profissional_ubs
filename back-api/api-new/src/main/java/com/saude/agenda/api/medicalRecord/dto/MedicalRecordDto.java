@@ -20,4 +20,5 @@ public class MedicalRecordDto {
 
     @NotBlank
     private LocalDate date;
+
 }
