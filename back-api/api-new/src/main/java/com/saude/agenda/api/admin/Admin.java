@@ -4,6 +4,7 @@ import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.person.Gender;
 import com.saude.agenda.api.person.Person;
 import com.saude.agenda.api.ubs.Ubs;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+@DiscriminatorValue("admin")
 @Entity
 @Table(name = "admin")
 @NoArgsConstructor
