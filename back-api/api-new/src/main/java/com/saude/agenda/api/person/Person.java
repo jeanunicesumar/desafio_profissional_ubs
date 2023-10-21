@@ -1,7 +1,9 @@
 package com.saude.agenda.api.person;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.saude.agenda.api.address.Address;
-import com.saude.agenda.api.appointment.Appointment;
 import com.saude.agenda.api.ubs.Ubs;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Table(name = "person")
 @NoArgsConstructor
@@ -18,7 +19,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
     @Id
@@ -71,7 +71,8 @@ public class Person {
     @JoinColumn(name = "ubs_id", referencedColumnName = "id")
     private Ubs ubs;
 
-    public Person(String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email, Gender gender, String ddd, String phone, String cpf, String password, Boolean active, Address address, Ubs ubs) {
+    public Person(String name, String motherName, String fatherName, LocalDate birthDate, String birthCity, String birthUf, String email,
+                  Gender gender, String ddd, String phone, String cpf, String password, Boolean active, Address address, Ubs ubs) {
         this.name = name;
         this.motherName = motherName;
         this.fatherName = fatherName;

@@ -2,4 +2,8 @@ package com.saude.agenda.api.admin;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AdminRepository extends JpaRepository<Admin, Long> {}
+public interface AdminRepository extends JpaRepository<Admin, Long> {
+
+    Boolean existsByPersonId(Long id);
+
+}

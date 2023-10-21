@@ -1,9 +1,7 @@
 package com.saude.agenda.api.person;
 
-import com.saude.agenda.api.doctor.dto.DoctorDto;
-import com.saude.agenda.api.doctor.dto.DoctorLoginDto;
-import com.saude.agenda.api.person.dto.PersonDto;
 import com.saude.agenda.api.person.dto.PersonLoginDto;
+import com.saude.agenda.api.person.dto.ResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +18,8 @@ public class PersonController {
     private PersonService service;
 
     @PostMapping("/auth")
-    public ResponseEntity<Person> auth(@RequestBody @Valid PersonLoginDto data) throws Exception {
-        return ResponseEntity.ok(service.login(data));
+    public ResponseEntity<ResponseDto> auth(@RequestBody @Valid PersonLoginDto data) throws Exception {
+        return  ResponseEntity.ok().body(service.login(data));
     }
 
 }

@@ -41,17 +41,6 @@ public class PatientService {
         return adapter.fromEntity(patient);
     }
 
-    public PatientDto login (PatientLoginDto data) throws Exception {
-        Patient patient = findBySusCode(data.getSusCode());
-        Boolean isLogin = HashPassword.verifyPassword(data.getPassword(), patient.getPassword());
-
-        if (isLogin) {
-            return adapter.fromEntity(patient);
-        }
-
-        throw new Exception("Username or passaword invalid");
-    }
-
     private Patient findById(Long patientId) {
         return repository.findById(patientId).
                 orElseThrow(() -> new EntityNotFoundException("Paciente não encontrado."));
@@ -59,8 +48,8 @@ public class PatientService {
 
     public void updatePatient(Integer susCode, PatientUpdateDto patientUpdateDto){
         Patient patient = findBySusCode(susCode);
-        patient.setEmail(patientUpdateDto.getEmail());
-        patient.setPhone(patientUpdateDto.getPhone());
+        patient.getPerson().setEmail(patientUpdateDto.getEmail());
+        patient.getPerson().setPhone(patientUpdateDto.getPhone());
 
         repository.save(patient);
     }
@@ -72,7 +61,7 @@ public class PatientService {
 
     public void deleteById(Long id) {
         Patient patient = findById(id);
-        patient.setActive(false);
+        patient.getPerson().setActive(false);
         repository.save(patient);
     }
 }

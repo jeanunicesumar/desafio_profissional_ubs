@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     Optional<Doctor> findByCrm(Integer crm);
+
+    Boolean existsByPersonId(Long personId);
 }
