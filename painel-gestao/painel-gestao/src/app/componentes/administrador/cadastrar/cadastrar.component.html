@@ -166,7 +166,7 @@
           name="numero"
           id="numero"
           placeholder="Número"
-          class="campo__escrita campo__dois__modelo2 medium-input"
+          class="campo__escrita campo__tres__modelo1 small-input"
           ngModel
           required
           #numero="ngModel" />
@@ -177,40 +177,34 @@
           name="complemento"
           id="complemento"
           placeholder="Complemento"
-          class="campo__escrita campo__dois__modelo2"
+          class="campo__escrita campo__tres__modelo1"
          />
+         <input
+         name="bairro"
+         id="bairro"
+         placeholder="Bairro"
+         class="campo__escrita campo__tres__modelo1"
+         ngModel
+         required
+         #bairro="ngModel"/>
+         <!-- <div *ngIf="(bairro?.invalid && bairro?.touched) || bairro?.dirty">
+           <app-mensagem *ngIf="bairro?.errors?.['required']" mensagem="O bairro é obrigatório"></app-mensagem>
+         </div> -->
         </div>
-      <div class="formulario__campo">
-        <label class="campo__etiqueta" for="bairro">Bairro</label>
-        <input
-        name="bairro"
-        id="bairro"
-        class="campo__escrita"
-        ngModel
-        required
-        #bairro="ngModel"/>
-        <!-- <div *ngIf="(bairro?.invalid && bairro?.touched) || bairro?.dirty">
-          <app-mensagem *ngIf="bairro?.errors?.['required']" mensagem="O bairro é obrigatório"></app-mensagem>
-        </div> -->
-      </div>
-      <div class="formulario__dupla">
-        <div class="formulario__campo">
-          <label class="campo__etiqueta" for="cidade">Cidade</label>
+       <div class="formulario__campo">
           <input
           name="cidade"
           id="cidade"
-          class="campo__escrita"
+          placeholder="Cidade"
+          class="campo__escrita campo__dois"
           ngModel
           required
           #cidade="ngModel" />
           <!-- <div *ngIf="(cidade?.invalid && cidade?.touched) || cidade?.dirty">
             <app-mensagem *ngIf="cidade?.errors?.['required']" mensagem="Preencha a cidade"></app-mensagem>
           </div> -->
-        </div>
-
-        <div class="formulario__campo">
           <label class="campo__etiqueta" for="estado">UF</label>
-          <select id="estado" name="estado" class="campo__escrita" ngModel required #estado="ngModel">
+          <select id="estado" name="estado" class="campo__escrita campo__dois" ngModel required #estado="ngModel">
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -245,7 +239,6 @@
           </div> -->
         </div>
 
-      </div>
       <button type="submit" class="formulario__botao">Enviar formulário</button>
       </form>
       <!-- <div *ngIf="nome?.invalid && nome?.touched || nome?.dirty"> -->

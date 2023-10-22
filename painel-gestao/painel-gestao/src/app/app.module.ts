@@ -15,6 +15,7 @@ import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/v
 import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     CadastroUsuarioComponent,
     CadastrarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatDialogModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, MatDialogModule, FormsModule, HttpClientModule],
   providers: [MedicoGuard, AdministradorGuard],
   bootstrap: [AppComponent],
 })

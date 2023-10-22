@@ -8,11 +8,11 @@
         <form>
           <span>
             <label for="cpf" class="label-left">CPF:</label>
-            <input class="input-form" type="cpf" id="cpf" />
+            <input class="input-form" name="cpf" type="cpf" id="cpf"[(ngModel)]="cpf" />
           </span>
           <span>
             <label for="senha" class="label-left">Senha:</label>
-            <input class="input-form" type="password" id="senha" />
+            <input class="input-form" name="password" type="password" id="senha" [(ngModel)]="password"/>
           </span>
         </form>
       </div>

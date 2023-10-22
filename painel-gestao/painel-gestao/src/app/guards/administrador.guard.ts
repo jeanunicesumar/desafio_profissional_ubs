@@ -11,11 +11,12 @@ export class AdministradorGuard {
     private router: Router) {}
 
   canActivate(): boolean {
-    if (this.authService.autenticacaoAdmnistrador()) {
-      return true;
-    } else {
-      this.router.navigate(['/login']);
-      return false;
-    }
+    // if (this.authService.autenticacaoAdmnistrador()) {
+    //   return true;
+    // } else {
+    //   this.router.navigate(['/login']);
+    //   return false;
+    // }
+    return true;
   }
 }

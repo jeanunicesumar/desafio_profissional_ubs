@@ -10,6 +10,9 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+cpf: string = '';
+password: string = '';
+
   ngOnInit(): void {}
 
   constructor(
@@ -24,13 +27,20 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    if (this.authService.autenticacaoMedico()) {
-      this.router.navigate(['/medico']);
-      return;
-    } else if (this.authService.autenticacaoAdmnistrador()){
-      this.router.navigate(['/administrador']);
-    } else {
-      console.log("Usuário não existe");
-    }
+    // const cpf = this.cpf;
+    // const password = this.password;
+
+    // this.authService.autenticacaoMedico(cpf, password).subscribe({
+    //   next: (autenticado) => {
+    //     if (autenticado) {
+    //       this.router.navigate(['/medico']);
+    //     } else {
+    //       console.log("CPF ou senha inválidos");
+    //     }
+    //   },
+    //   error: (error) => {
+    //     console.log("Ocorreu um erro na autenticação");
+    //   },
+    // });
   }
 }
