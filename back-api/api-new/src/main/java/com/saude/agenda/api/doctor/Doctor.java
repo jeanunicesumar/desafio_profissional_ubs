@@ -1,5 +1,7 @@
 package com.saude.agenda.api.doctor;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.appointment.Appointment;
 import com.saude.agenda.api.person.Gender;
@@ -14,17 +16,25 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@DiscriminatorValue("doctor")
 @Entity
 @Table(name = "doctor")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Doctor extends Person {
+public class Doctor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private Integer crm;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
@@ -38,23 +48,7 @@ public class Doctor extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "doctor")
     private List<Appointment> appointments;
 
-    public Doctor(Integer crm,
-                  String name,
-                  String motherName,
-                  String fatherName,
-                  LocalDate birthDate,
-                  String birthCity,
-                  String birthUf,
-                  String email,
-                  Gender gender,
-                  String ddd,
-                  String phone,
-                  String cpf,
-                  String password,
-                  Boolean active,
-                  Address address,
-                  Ubs ubs) {
-        super(name, motherName, fatherName, birthDate, birthCity, birthUf, email, gender, ddd, phone, cpf, password, active, address, ubs);
+    public Doctor(Integer crm) {
         this.crm = crm;
     }
 

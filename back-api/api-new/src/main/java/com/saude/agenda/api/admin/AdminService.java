@@ -52,6 +52,10 @@ public class AdminService {
         patientService.deleteById(patientId);
     }
 
+    public Boolean exists(Long personId) {
+        return repository.existsByPersonId(personId);
+    }
+
     private Admin findById(Long id) {
         return repository.findById(id)
                 .orElse(null);
