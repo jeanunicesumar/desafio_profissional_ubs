@@ -5,19 +5,29 @@
         <img class="logo" src="../../../assets/Logo-icon.svg" alt="Logotipo" />
       </div>
       <div>
-        <form>
+        <form [formGroup]="form">
           <span>
             <label for="cpf" class="label-left">CPF:</label>
-            <input class="input-form" name="cpf" type="cpf" id="cpf"[(ngModel)]="cpf" />
+            <input class="input-form" type="cpf" formControlName="cpf" />
           </span>
           <span>
             <label for="senha" class="label-left">Senha:</label>
-            <input class="input-form" name="password" type="password" id="senha" [(ngModel)]="password"/>
+            <input
+              class="input-form"
+              type="password"
+              formControlName="password"
+            />
           </span>
         </form>
       </div>
       <div class="align-right">
-        <button (click)="submit()">Entrar</button>
+        <button
+          [disabled]="!form.valid"
+          [ngClass]="formIsValid()"
+          (click)="submit()"
+        >
+          Entrar
+        </button>
       </div>
       <div>
         <h3 (click)="toogle()">Esqueci minha senha</h3>

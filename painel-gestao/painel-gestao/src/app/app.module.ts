@@ -14,7 +14,7 @@ import { MedicoComponent } from './componentes/medico/medico.component';
 import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/visualizar-consulta.component';
 import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -29,7 +29,14 @@ import { HttpClientModule } from '@angular/common/http';
     CadastroUsuarioComponent,
     CadastrarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatDialogModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatDialogModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [MedicoGuard, AdministradorGuard],
   bootstrap: [AppComponent],
 })

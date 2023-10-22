@@ -72,6 +72,10 @@
   box-shadow: 1px 5px 5px rgb(184, 182, 182);
 }
 
+.login div.align-right button.disabled {
+  background-color: #7a7c7c;
+}
+
 h3 {
   margin-top: 20px;
   font-size: 14px;
