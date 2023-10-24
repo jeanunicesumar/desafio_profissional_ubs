@@ -7,14 +7,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
-public class CrudController<Domain, Id> {
+import java.io.Serializable;
 
-    @Autowired
-    private CrudService<Domain, Id> crudService;
+public class CrudController<T, ID> {
 
+    @Autowired(required = false)
+    private CrudService<T, ID> crudService;
 
     @GetMapping
-    public ResponseEntity<Page<Domain>> getAll(Pageable pageable) {
+    public ResponseEntity<Page<T>> getAll(Pageable pageable) {
         return ResponseEntity.ok().body(crudService.findAll(pageable));
     }
 

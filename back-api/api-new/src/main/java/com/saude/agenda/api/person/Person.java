@@ -2,6 +2,7 @@ package com.saude.agenda.api.person;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.ubs.Ubs;
@@ -11,6 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Table(name = "person")
@@ -19,7 +21,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-public class Person {
+public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
