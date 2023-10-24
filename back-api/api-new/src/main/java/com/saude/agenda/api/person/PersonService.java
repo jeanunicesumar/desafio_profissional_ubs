@@ -1,14 +1,9 @@
 package com.saude.agenda.api.person;
 
-import com.saude.agenda.api.admin.Admin;
-import com.saude.agenda.api.admin.AdminAdapter;
-import com.saude.agenda.api.admin.AdminRepository;
 import com.saude.agenda.api.admin.AdminService;
-import com.saude.agenda.api.admin.dto.AdminDto;
-import com.saude.agenda.api.doctor.Doctor;
-import com.saude.agenda.api.doctor.DoctorAdapter;
-import com.saude.agenda.api.doctor.DoctorRepository;
 import com.saude.agenda.api.doctor.DoctorService;
+import com.saude.agenda.api.generics.repository.CrudRepository;
+import com.saude.agenda.api.generics.service.CrudService;
 import com.saude.agenda.api.helper.HashPassword;
 import com.saude.agenda.api.person.dto.PersonLoginDto;
 import com.saude.agenda.api.person.dto.ResponseDto;
@@ -16,10 +11,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 @Service
-public class PersonService {
+public class PersonService extends CrudService<Person, Long> {
 
     @Autowired
     private PersonRepository repository;

@@ -16,6 +16,7 @@ import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-u
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     VisualizarConsultaComponent,
     CadastroUsuarioComponent,
     CadastrarComponent,
+    AgendamentoComponent,
   ],
   imports: [
     BrowserModule,
