@@ -20,91 +20,30 @@
     <!-- TODO: COMECEI AQUI -->
 
     <div class="form" [formGroup]="form">
-      <div>
-        <span>
-          <input formControlName="name" placeholder="Nome completo" />
-          <span
-            class="erros"
-            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
-          >
-            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+      <div formGroupName="person">
+        <div>
+          <span>
+            <input formControlName="name" placeholder="Nome completo" />
           </span>
-        </span>
-      </div>
-      <div class="coluna-2">
-        <span>
-          <input formControlName="motherName" placeholder="Nome da mãe"/>
-          <span
-            class="erros"
-            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
-          >
-            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+        </div>
+        <div>
+          <span>
+            <input formControlName="motherName" placeholder="Nome da mãe" />
           </span>
-        </span>
-        <span>
-          <input formControlName="person.fatherName" placeholder="Nome do pai"
-          />
-          <span
-            class="erros"
-            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
-          >
-            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+        </div>
+        <div>
+          <span>
+            <input formControlName="fatherName" placeholder="Nome da pai" />
           </span>
-        </span>
-      </div>
-
-      <div class="coluna-3">
-        <span>
-          <input
-            name="nome"
-            id="nome"
-            placeholder="Nome completo"
-            ngModel
-            required
-            minlength="3"
-            #nome="ngModel"
-          />
-          <span
-            class="erros"
-            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
-          >
-            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+        </div>
+        <div class="coluna-2" formGroupName="person">
+          <span>
+            <input formControlName="motherName" placeholder="Nome da mãe"/>
           </span>
-        </span>
-        <span>
-          <input
-            name="nome"
-            id="nome"
-            placeholder="Nome completo"
-            ngModel
-            required
-            minlength="3"
-            #nome="ngModel"
-          />
-          <span
-            class="erros"
-            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
-          >
-            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          <span>
+            <input formControlName="fatherName" placeholder="Nome do pai" />
           </span>
-        </span>
-        <span>
-          <input
-            name="nome"
-            id="nome"
-            placeholder="Nome completo"
-            ngModel
-            required
-            minlength="3"
-            #nome="ngModel"
-          />
-          <span
-            class="erros"
-            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
-          >
-            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
-          </span>
-        </span>
+        </div>
       </div>
     </div>
 
