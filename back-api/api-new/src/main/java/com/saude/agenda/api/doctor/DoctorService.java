@@ -1,7 +1,9 @@
 package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.doctor.dto.DoctorDto;
+import com.saude.agenda.api.generics.service.CrudService;
 import com.saude.agenda.api.helper.HashPassword;
+import com.saude.agenda.api.person.Person;
 import com.saude.agenda.api.person.PersonRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
-public class DoctorService {
+public class DoctorService extends CrudService<Doctor, Long> {
 
     @Autowired
     private DoctorRepository repository;

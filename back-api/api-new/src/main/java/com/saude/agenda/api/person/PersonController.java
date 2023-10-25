@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("person")
-public class PersonController extends CrudController<Person, Long> {
+public class PersonController {
 
     @Autowired
     private PersonService service;

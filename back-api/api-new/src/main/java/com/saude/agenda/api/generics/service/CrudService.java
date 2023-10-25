@@ -5,16 +5,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.io.Serializable;
 
-
-public class CrudService<T, ID> {
+public class CrudService<Entity, Id> {
 
     @Autowired(required = false)
-    private CrudRepository<T, ID> crudRepository;
+    private CrudRepository<Entity, Id> crudRepository;
 
-    public Page<T> findAll(Pageable pageable) {
+    public Page<Entity> findAll(Pageable pageable) {
         return crudRepository.findAll(pageable);
+    }
+
+    public void save(Entity data) {
+        crudRepository.save(data);
+    }
+
+    public Page<Entity> findByUbs(Long idUbs, Pageable pageable) {
+        return crudRepository.findByUbs(idUbs, pageable);
     }
 
 }
