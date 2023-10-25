@@ -16,6 +16,8 @@ import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-u
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MensagemComponent } from './componentes/mensagem/mensagem.component';
+import { ValidandoCepDirective } from './directives/validando-cep.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     VisualizarConsultaComponent,
     CadastroUsuarioComponent,
     CadastrarComponent,
+    MensagemComponent,
+    ValidandoCepDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, MatDialogModule, FormsModule, HttpClientModule],
   providers: [MedicoGuard, AdministradorGuard],

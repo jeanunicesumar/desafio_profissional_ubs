@@ -1,14 +1,14 @@
 <div class="sidebar">
   <div class="menu-item">
-   <span>
+   <span routerLink="/login">
     <img class="menu-icone"src="../../../assets/icone-casa.png" alt="Home">
     Home</span>
   </div>
   <div class="menu-item" *ngIf="isAdmin()">
-   <span>
+   <span routerLink="/administrador">
     <img class="menu-icone"
     src="../../../assets/icone-cadastro.png"
-    alt="Cadastro">
+    alt="Cadastro" >
      Cadastro
     </span>
   </div>

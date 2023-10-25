@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'medico',
     component: MedicoComponent,
-    canActivate: [MedicoGuard],
+    canActivate: [MedicoGuard]
   },
   {
     path: 'administrador',
@@ -29,6 +29,11 @@ const routes: Routes = [
   },
   {
     path: 'cadastrarMedico',
+    component: CadastrarComponent,
+    canActivate: [AdministradorGuard]
+  },
+  {
+    path: 'cadastrarPaciente',
     component: CadastrarComponent,
     canActivate: [AdministradorGuard]
   }

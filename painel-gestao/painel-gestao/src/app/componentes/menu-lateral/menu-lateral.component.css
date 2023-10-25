@@ -33,7 +33,7 @@ body {
 }
 
 .menu-item span {
-  width: 100% ;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -44,4 +44,28 @@ body {
   border-radius: 5px;
   background: #23A2AF;
   cursor: pointer;
+}
+
+@media (max-width: 950px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .menu-item {
+    justify-content: flex-start;
+    padding: 1em 0.5em;
+  }
+
+  .menu-item .menu-icone {
+    font-size: 1.2em;
+  }
+
+  .menu-item span {
+    gap: 10px;
+  }
+
+  .menu-item:hover {
+    border-radius: 0;
+  }
 }
