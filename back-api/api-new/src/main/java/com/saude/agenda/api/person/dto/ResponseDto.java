@@ -15,7 +15,7 @@ public class ResponseDto {
     private Long ubs;
 
     private String nameUbs;
-c
+
     private Boolean isDoctor;
 
     private Boolean isAdmin;
