@@ -1,230 +1,429 @@
-  <app-header></app-header>
-  <app-menu-lateral></app-menu-lateral>
-  <main class="principal">
-    <h2 class="principal__titulo" *ngIf="isPatient()">
-      <img src="../../../../assets/icone-cadastro.png" alt="Cadastrar paciente" >
-      Cadastrar paciente
-    </h2>
-    <h2 class="principal__titulo" *ngIf="!isPatient()">
-      <img src="../../../../assets/icone-cadastro.png" alt="Cadastrar paciente" >
-      Cadastrar médico
-    </h2>
-    <form class="principal__formulario" id="formulario_dadosPessoais" #f="ngForm" (ngSubmit)="cadastrar(f)">
-      <h3 class="principal__subtitulo">
-        <img src="../../../../assets/icone-dados-pessoais.png" alt="Dados pessoais">
-        Dados pessoais
-      </h3>
-      <div class="formulario__campo">
-        <input
-          name="nome"
-          id="nome"
-          placeholder="Nome completo"
-          ngModel
-          required
-          minlength="3"
-          #nome="ngModel"
-          >
-        </div>
-        <div class="form-error" *ngIf="nome?.invalid && nome?.touched || nome?.dirty">
-            <app-mensagem *ngIf="nome?.errors?.['required']" mensagem="O campo de nome deve ser preenchido"></app-mensagem>
-            <app-mensagem *ngIf="nome?.errors?.['minlength']" mensagem="O nome deve ter no mínimo 3 caracteres"></app-mensagem>
-         </div>
+<app-header></app-header>
+<app-menu-lateral></app-menu-lateral>
+<main class="principal">
+  <h2 class="principal__titulo" *ngIf="isPatient()">
+    <img src="../../../../assets/icone-cadastro.png" alt="Cadastrar paciente" />
+    Cadastrar paciente
+  </h2>
+  <h2 class="principal__titulo" *ngIf="!isPatient()">
+    <img src="../../../../assets/icone-cadastro.png" alt="Cadastrar paciente" />
+    Cadastrar médico
+  </h2>
+  <form
+    class="principal__formulario"
+    id="formulario_dadosPessoais"
+    #f="ngForm"
+    (ngSubmit)="cadastrar(f)"
+  >
+    <h3 class="principal__subtitulo">
+      <img
+        src="../../../../assets/icone-dados-pessoais.png"
+        alt="Dados pessoais"
+      />
+      Dados pessoais
+    </h3>
 
-      <div class="formulario__campo">
-        <input
-          name="nomeMae"
-          id="nomeMae"
-          placeholder="Nome da mãe"
-          ngModel
-          required
-          minlength="3"
-          #nomeMae="ngModel"
-          >
-        </div>
-        <div class="form-error" *ngIf="nomeMae?.invalid && nomeMae?.touched || nomeMae?.dirty">
-          <app-mensagem *ngIf="nomeMae?.errors?.['required']" mensagem="O campo nome da mãe deve ser preenchido"></app-mensagem>
-          <app-mensagem *ngIf="nomeMae?.errors?.['minlength']" mensagem="O nome deve ter no mínimo 3 caracteres"></app-mensagem>
-       </div>
+    <!-- TODO: COMECEI AQUI -->
 
-      <div class="formulario__campo">
-        <input
-          name="nomePai"
-          id="nomePai"
-          placeholder="Nome do pai"
-          ngModel
-          minlength="3"
-          #nomePai="ngModel"
+    <div class="form">
+      <div>
+        <span>
+          <input
+            name="nome"
+            id="nome"
+            placeholder="Nome completo"
+            ngModel
+            required
+            minlength="3"
+            #nome="ngModel"
+          />
+          <span
+            class="erros"
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
           >
+            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          </span>
+        </span>
+      </div>
+      <div class="coluna-2">
+        <span>
+          <input
+            name="nome"
+            id="nome"
+            placeholder="Nome completo"
+            ngModel
+            required
+            minlength="3"
+            #nome="ngModel"
+          />
+          <span
+            class="erros"
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
+          >
+            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          </span>
+        </span>
+        <span>
+          <input
+            name="nome"
+            id="nome"
+            placeholder="Nome completo"
+            ngModel
+            required
+            minlength="3"
+            #nome="ngModel"
+          />
+          <span
+            class="erros"
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
+          >
+            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          </span>
+        </span>
       </div>
 
-      <div class="formulario__3">
-        <div class="form-error">
+      <div class="coluna-3">
+        <span>
           <input
+            name="nome"
+            id="nome"
+            placeholder="Nome completo"
+            ngModel
+            required
+            minlength="3"
+            #nome="ngModel"
+          />
+          <span
+            class="erros"
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
+          >
+            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          </span>
+        </span>
+        <span>
+          <input
+            name="nome"
+            id="nome"
+            placeholder="Nome completo"
+            ngModel
+            required
+            minlength="3"
+            #nome="ngModel"
+          />
+          <span
+            class="erros"
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
+          >
+            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          </span>
+        </span>
+        <span>
+          <input
+            name="nome"
+            id="nome"
+            placeholder="Nome completo"
+            ngModel
+            required
+            minlength="3"
+            #nome="ngModel"
+          />
+          <span
+            class="erros"
+            *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
+          >
+            <span *ngIf="nome?.errors?.['required']">Gerou um erro</span>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- TODO: TERMINEI AQUI -->
+
+    <div class="formulario__campo">
+      <input
+        name="nome"
+        id="nome"
+        placeholder="Nome completo"
+        ngModel
+        required
+        minlength="3"
+        #nome="ngModel"
+      />
+    </div>
+    <div
+      class="form-error"
+      *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty"
+    >
+      <app-mensagem
+        *ngIf="nome?.errors?.['required']"
+        mensagem="O campo de nome deve ser preenchido"
+      ></app-mensagem>
+      <app-mensagem
+        *ngIf="nome?.errors?.['minlength']"
+        mensagem="O nome deve ter no mínimo 3 caracteres"
+      ></app-mensagem>
+    </div>
+
+    <div class="formulario__campo">
+      <input
+        name="nomeMae"
+        id="nomeMae"
+        placeholder="Nome da mãe"
+        ngModel
+        required
+        minlength="3"
+        #nomeMae="ngModel"
+      />
+    </div>
+    <div
+      class="form-error"
+      *ngIf="(nomeMae?.invalid && nomeMae?.touched) || nomeMae?.dirty"
+    >
+      <app-mensagem
+        *ngIf="nomeMae?.errors?.['required']"
+        mensagem="O campo nome da mãe deve ser preenchido"
+      ></app-mensagem>
+      <app-mensagem
+        *ngIf="nomeMae?.errors?.['minlength']"
+        mensagem="O nome deve ter no mínimo 3 caracteres"
+      ></app-mensagem>
+    </div>
+
+    <div class="formulario__campo">
+      <input
+        name="nomePai"
+        id="nomePai"
+        placeholder="Nome do pai"
+        ngModel
+        minlength="3"
+        #nomePai="ngModel"
+      />
+    </div>
+
+    <div class="formulario__3">
+      <div class="form-error">
+        <input
           name="ufNascimento"
           id="ufNascimento"
           placeholder="UF"
           ngModel
           required
           #ufNascimento="ngModel"
-          >
-          <app-mensagem *ngIf="ufNascimento?.invalid && ufNascimento?.touched || ufNascimento?.dirty" mensagem="Escolha uma UF"></app-mensagem>
-        </div>
+        />
+        <app-mensagem
+          *ngIf="
+            (ufNascimento?.invalid && ufNascimento?.touched) ||
+            ufNascimento?.dirty
+          "
+          mensagem="Escolha uma UF"
+        ></app-mensagem>
+      </div>
 
-          <div class="form-error">
-          <input
+      <div class="form-error">
+        <input
           name="localNascimento"
           id="localNascimento"
           placeholder="Local de nascimento"
           ngModel
           required
           #localNascimento="ngModel"
-          />
-         <app-mensagem *ngIf="localNascimento?.invalid && localNascimento?.touched || localNascimento?.dirty" mensagem="Campo obrigatório"></app-mensagem>
-        </div>
-        <div class="form-error">
-          <input
+        />
+        <app-mensagem
+          *ngIf="
+            (localNascimento?.invalid && localNascimento?.touched) ||
+            localNascimento?.dirty
+          "
+          mensagem="Campo obrigatório"
+        ></app-mensagem>
+      </div>
+      <div class="form-error">
+        <input
           name="nascimento"
           id="nascimento"
           type="date"
           placeholder="Data de nascimento"
           class=""
           ngModel
-        required
-        #nascimento="ngModel"
+          required
+          #nascimento="ngModel"
         />
-        <app-mensagem *ngIf="nascimento?.invalid && nascimento?.touched || nascimento?.dirty" mensagem="Campo obrigatório"></app-mensagem>
-      </div>
-
-      </div>
-
-      <div class="formulario__3 ">
-        <div class="form-error">
-        <select
-        name="genero"
-        id="genero"
-        type="option"
-        placeholder="Gênero"
-        ngModel
-        required
-        #sexo="ngModel"
-        >
-        <option value="" disabled selected>Gênero</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Masculino">Masculino</option>
-      </select>
-      <div *ngIf="sexo?.invalid && sexo?.touched || sexo?.dirty">
-      <app-mensagem *ngIf="sexo?.errors?.['required']" mensagem="Obrigatório"></app-mensagem>
+        <app-mensagem
+          *ngIf="
+            (nascimento?.invalid && nascimento?.touched) || nascimento?.dirty
+          "
+          mensagem="Campo obrigatório"
+        ></app-mensagem>
       </div>
     </div>
 
-     <div class="form-error">
-        <input
-        name="ddd"
-        id="ddd"
-        type="text"
-        placeholder="DDD"
-        ngModel
-        required
-        minlength="2"
-        maxlength="3"
-        #ddd="ngModel"
-        />
-      <div *ngIf="ddd?.invalid && ddd?.touched || ddd?.dirty">
-        <app-mensagem *ngIf="ddd?.errors?.['required']" mensagem="DDD obrigatório"></app-mensagem>
-        <app-mensagem *ngIf="ddd?.errors?.['minlength']" mensagem="DDD inválido"></app-mensagem>
-      </div>
-      </div>
-
-     <div class="form-error">
-        <input
-        name="telefone"
-        id="telefone"
-        type="text"
-        placeholder="Telefone"
-        ngModel
-        required
-        pattern="(\d{5}\-?\d{4})"
-        #telefone="ngModel"
+    <div class="formulario__3">
+      <div class="form-error">
+        <select
+          name="genero"
+          id="genero"
+          type="option"
+          placeholder="Gênero"
+          ngModel
+          required
+          #sexo="ngModel"
         >
-        <div *ngIf="telefone?.invalid && telefone?.touched || telefone?.dirty">
-        <app-mensagem *ngIf="telefone?.errors?.['required']" mensagem="Telefone obrigatório"></app-mensagem>
-        <app-mensagem *ngIf="telefone?.errors?.['pattern']" mensagem="Telefone inválido"></app-mensagem>
+          <option value="" disabled selected>Gênero</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
+        <div *ngIf="(sexo?.invalid && sexo?.touched) || sexo?.dirty">
+          <app-mensagem
+            *ngIf="sexo?.errors?.['required']"
+            mensagem="Obrigatório"
+          ></app-mensagem>
         </div>
       </div>
-      </div>
-
-
-      <div class="formulario__2">
-        <div class="form-error">
-        <input
-        name="cpf"
-        id="cpf"
-        type="text"
-        placeholder="CPF"
-        class="campo__escrita"
-        ngModel
-        required
-        pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
-        #cpf="ngModel"
-        />
-          <app-mensagem *ngIf="(cpf?.invalid && cpf?.touched || cpf?.dirty) && (cpf?.errors?.['required'])" mensagem="Digite o cpf"></app-mensagem>
-          <app-mensagem *ngIf="(cpf?.invalid && cpf?.touched || cpf?.dirty) && (cpf?.errors?.['pattern'])" mensagem="CPF inválido"></app-mensagem>
-        </div>
 
       <div class="form-error">
         <input
-        name="sus"
-        id="sus"
-        class="campo__escrita"
-        placeholder="Número do SUS"
-        ngModel
-        required
-        pattern="\d{9}\-?\d{5}\-?\d{1}"
-        #sus="ngModel"
+          name="ddd"
+          id="ddd"
+          type="text"
+          placeholder="DDD"
+          ngModel
+          required
+          minlength="2"
+          maxlength="3"
+          #ddd="ngModel"
         />
-      <div *ngIf="sus?.invalid && sus?.touched || sus?.dirty">
-        <app-mensagem *ngIf="sus?.errors?.['required']" mensagem="Digite o número do SUS"></app-mensagem>
-        <app-mensagem *ngIf="sus?.errors?.['pattern']" mensagem="Número do Sus inválido"></app-mensagem>
+        <div *ngIf="(ddd?.invalid && ddd?.touched) || ddd?.dirty">
+          <app-mensagem
+            *ngIf="ddd?.errors?.['required']"
+            mensagem="DDD obrigatório"
+          ></app-mensagem>
+          <app-mensagem
+            *ngIf="ddd?.errors?.['minlength']"
+            mensagem="DDD inválido"
+          ></app-mensagem>
+        </div>
+      </div>
+
+      <div class="form-error">
+        <input
+          name="telefone"
+          id="telefone"
+          type="text"
+          placeholder="Telefone"
+          ngModel
+          required
+          pattern="(\d{5}\-?\d{4})"
+          #telefone="ngModel"
+        />
+        <div
+          *ngIf="(telefone?.invalid && telefone?.touched) || telefone?.dirty"
+        >
+          <app-mensagem
+            *ngIf="telefone?.errors?.['required']"
+            mensagem="Telefone obrigatório"
+          ></app-mensagem>
+          <app-mensagem
+            *ngIf="telefone?.errors?.['pattern']"
+            mensagem="Telefone inválido"
+          ></app-mensagem>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="formulario__campo">
-    <span class="span">
-      <input name="email"
-        id="email"
-        placeholder="Email"
-        ngModel
-        required
-        pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
-        #email="ngModel">
-        <span *ngIf="email?.invalid && email?.touched || email?.dirty">
-          <app-mensagem *ngIf="email?.errors?.['required']" mensagem="O campo de email deve ser preenchido"></app-mensagem>
-          <app-mensagem *ngIf="email?.errors?.['pattern']" mensagem="Email inválido"></app-mensagem>
+    <div class="formulario__2">
+      <div class="form-error">
+        <input
+          name="cpf"
+          id="cpf"
+          type="text"
+          placeholder="CPF"
+          class="campo__escrita"
+          ngModel
+          required
+          pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
+          #cpf="ngModel"
+        />
+        <app-mensagem
+          *ngIf="(cpf?.invalid && cpf?.touched || cpf?.dirty) && (cpf?.errors?.['required'])"
+          mensagem="Digite o cpf"
+        ></app-mensagem>
+        <app-mensagem
+          *ngIf="(cpf?.invalid && cpf?.touched || cpf?.dirty) && (cpf?.errors?.['pattern'])"
+          mensagem="CPF inválido"
+        ></app-mensagem>
+      </div>
+
+      <div class="form-error">
+        <input
+          name="sus"
+          id="sus"
+          class="campo__escrita"
+          placeholder="Número do SUS"
+          ngModel
+          required
+          pattern="\d{9}\-?\d{5}\-?\d{1}"
+          #sus="ngModel"
+        />
+        <div *ngIf="(sus?.invalid && sus?.touched) || sus?.dirty">
+          <app-mensagem
+            *ngIf="sus?.errors?.['required']"
+            mensagem="Digite o número do SUS"
+          ></app-mensagem>
+          <app-mensagem
+            *ngIf="sus?.errors?.['pattern']"
+            mensagem="Número do Sus inválido"
+          ></app-mensagem>
+        </div>
+      </div>
+    </div>
+
+    <div class="formulario__campo">
+      <span class="span">
+        <input
+          name="email"
+          id="email"
+          placeholder="Email"
+          ngModel
+          required
+          pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
+          #email="ngModel"
+        />
+        <span *ngIf="(email?.invalid && email?.touched) || email?.dirty">
+          <app-mensagem
+            *ngIf="email?.errors?.['required']"
+            mensagem="O campo de email deve ser preenchido"
+          ></app-mensagem>
+          <app-mensagem
+            *ngIf="email?.errors?.['pattern']"
+            mensagem="Email inválido"
+          ></app-mensagem>
         </span>
       </span>
     </div>
 
-      <h3 class="principal__subtitulo">
-        <img src="../../../../assets/icone-dados-pessoais.png" alt="Dados pessoais">
-        Endereço
-      </h3>
-      <div class="formulario__campo">
-      <input
-      name="cep"
-      id="cep"
-      placeholder="CEP"
-      class="campo__escrita"
-      ngModel required
-      #cep="ngModel"
-      pattern="^(\d{5})(-?\d{3})$"
-      minlength="8"
-      maxlength="9"
-      (blur)="consultaCep($event, f)"
-      validadorCep
+    <h3 class="principal__subtitulo">
+      <img
+        src="../../../../assets/icone-dados-pessoais.png"
+        alt="Dados pessoais"
       />
-      </div>
-      <div class="formulario__campo">
+      Endereço
+    </h3>
+    <div class="formulario__campo">
+      <input
+        name="cep"
+        id="cep"
+        placeholder="CEP"
+        class="campo__escrita"
+        ngModel
+        required
+        #cep="ngModel"
+        pattern="^(\d{5})(-?\d{3})$"
+        minlength="8"
+        maxlength="9"
+        (blur)="consultaCep($event, f)"
+        validadorCep
+      />
+    </div>
+    <div class="formulario__campo">
       <input
         name="endereco"
         id="endereco"
@@ -232,86 +431,94 @@
         disabled
         class="campo__escrita"
         ngModel
-        #endereco="ngModel" />
-      </div>
-      <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
-        <app-mensagem *ngIf="cep?.errors?.['required']" mensagem="CEP é obrigatório"></app-mensagem>
-        <app-mensagem *ngIf="cep?.errors?.['pattern']" mensagem="CEP deve seguir esse exemplo: 00000-000"></app-mensagem>
-        <app-mensagem *ngIf="cep?.errors?.['validadorCep']" mensagem="CEP informado não existe"></app-mensagem>
-      </div>
-        <div class="formulario__3">
-         <!-- <div class="form-error"> -->
-          <input
-          name="numero"
-          id="numero"
-          placeholder="Número"
-          ngModel
-          required
-          #numero="ngModel" />
-          <!-- <div *ngIf="(numero?.invalid && numero?.touched) || numero?.dirty">
+        #endereco="ngModel"
+      />
+    </div>
+    <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
+      <app-mensagem
+        *ngIf="cep?.errors?.['required']"
+        mensagem="CEP é obrigatório"
+      ></app-mensagem>
+      <app-mensagem
+        *ngIf="cep?.errors?.['pattern']"
+        mensagem="CEP deve seguir esse exemplo: 00000-000"
+      ></app-mensagem>
+      <app-mensagem
+        *ngIf="cep?.errors?.['validadorCep']"
+        mensagem="CEP informado não existe"
+      ></app-mensagem>
+    </div>
+    <div class="formulario__3">
+      <!-- <div class="form-error"> -->
+      <input
+        name="numero"
+        id="numero"
+        placeholder="Número"
+        ngModel
+        required
+        #numero="ngModel"
+      />
+      <!-- <div *ngIf="(numero?.invalid && numero?.touched) || numero?.dirty">
             <app-mensagem *ngIf="numero?.errors?.['required']" mensagem="Número é obrigatório"></app-mensagem>
           </div>
         </div> -->
 
+      <input name="complemento" id="complemento" placeholder="Complemento" />
 
-          <input
-          name="complemento"
-          id="complemento"
-          placeholder="Complemento"
-         />
+      <input name="bairro" id="bairro" placeholder="Bairro" disabled ngModel />
+    </div>
 
-         <input
-         name="bairro"
-         id="bairro"
-         placeholder="Bairro"
-         disabled
-         ngModel
-        />
-      </div>
+    <div class="formulario__2">
+      <input
+        name="cidade"
+        id="cidade"
+        placeholder="Cidade"
+        class="campo__escrita"
+        disabled
+        ngModel
+      />
 
-       <div class="formulario__2">
-          <input
-          name="cidade"
-          id="cidade"
-          placeholder="Cidade"
-          class="campo__escrita"
-          disabled
-          ngModel
-           />
+      <select
+        id="estado"
+        name="estado"
+        class="campo__escrita"
+        disabled
+        ngModel
+        required
+        #estado="ngModel"
+      >
+        <option value="" disabled selected>Estado</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+        <option value="EX">Estrangeiro</option>
+      </select>
+    </div>
 
-          <select id="estado" name="estado" class="campo__escrita" disabled ngModel required #estado="ngModel">
-            <option value="" disabled selected>Estado</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
-            <option value="EX">Estrangeiro</option>
-          </select>
-        </div>
-
-      <button type="submit" class="formulario__botao">Cadastrar</button>
-
-      </form>
+    <button type="submit" class="formulario__botao">Cadastrar</button>
+  </form>
+</main>
