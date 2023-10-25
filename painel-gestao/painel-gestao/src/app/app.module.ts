@@ -16,6 +16,8 @@ import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-u
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MensagemComponent } from './componentes/mensagem/mensagem.component';
+import { ValidandoCepDirective } from './directives/validando-cep.directive';
 import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
 
 @NgModule({
@@ -29,6 +31,8 @@ import { AgendamentoComponent } from './componentes/agendamento/agendamento.comp
     VisualizarConsultaComponent,
     CadastroUsuarioComponent,
     CadastrarComponent,
+    MensagemComponent,
+    ValidandoCepDirective,
     AgendamentoComponent,
   ],
   imports: [
