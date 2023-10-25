@@ -1,8 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from 'src/app/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,37 +10,40 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-cpf: string = '';
-password: string = '';
+  form!: FormGroup;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form = this.builder.group({
+      cpf: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^\\d{3}.\\d{3}.\\d{3}-\\d{2}$'),
+        ]),
+      ],
+      password: ['', Validators.required],
+    });
+  }
 
   constructor(
-    private router: Router,
     private dialog: MatDialog,
-    private authService: AuthService) {}
+    private service: LoginService,
+    private builder: FormBuilder
+  ) {}
 
   toogle() {
-    console.log('teste');
-
     this.dialog.open(ModalComponent);
   }
 
-  submit() {
-    // const cpf = this.cpf;
-    // const password = this.password;
+  formIsValid(): string {
+    if (!this.form.valid) {
+      return 'disabled';
+    }
 
-    // this.authService.autenticacaoMedico(cpf, password).subscribe({
-    //   next: (autenticado) => {
-    //     if (autenticado) {
-    //       this.router.navigate(['/medico']);
-    //     } else {
-    //       console.log("CPF ou senha inválidos");
-    //     }
-    //   },
-    //   error: (error) => {
-    //     console.log("Ocorreu um erro na autenticação");
-    //   },
-    // });
+    return '';
+  }
+
+  submit() {
+    this.service.auth(this.form.value);
   }
 }

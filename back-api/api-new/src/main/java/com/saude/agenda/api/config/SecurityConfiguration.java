@@ -1,4 +1,4 @@
-package com.saude.agenda.api.security;
+package com.saude.agenda.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

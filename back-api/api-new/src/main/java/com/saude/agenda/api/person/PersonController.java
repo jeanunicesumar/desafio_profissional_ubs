@@ -1,5 +1,7 @@
 package com.saude.agenda.api.person;
 
+import com.saude.agenda.api.admin.Admin;
+import com.saude.agenda.api.generics.controller.CrudController;
 import com.saude.agenda.api.person.dto.PersonLoginDto;
 import com.saude.agenda.api.person.dto.ResponseDto;
 import jakarta.validation.Valid;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("person")
-public class PersonController {
+public class PersonController extends CrudController<Person, Long> {
 
     @Autowired
     private PersonService service;

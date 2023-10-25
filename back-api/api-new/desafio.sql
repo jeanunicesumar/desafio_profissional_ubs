@@ -21,12 +21,12 @@ SELECT * FROM person;
 
 INSERT INTO person (`active`, birth_city, birth_date, birth_uf, cpf, ddd, email, father_name, gender, mother_name, `name`, `password`, phone, address_id, ubs_id)
 VALUES
-  (1, 'Maringá', '1980-05-10', 'PR', '46666723031', '41', 'person1@email.com', 'Pai 1', 1, 'Mãe 1', 'Person 1', '81dc9bdb52d04dc20036dbd8313ed055', '987654321', 1, 1),
-  (1, 'Maringá', '1975-03-15', 'PR', '72503240046', '41', 'person2@email.com', 'Pai 2', 0, 'Mãe 2', 'Person 2', '81dc9bdb52d04dc20036dbd8313ed055', '876543210', 2, 2),
-  (1, 'Maringá', '1975-03-16', 'PR', '34817199067', '41', 'person3@email.com', 'Pai 3', 1, 'Mãe 2', 'Person 3', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 3, 1),
-  (1, 'Maringá', '1975-03-17', 'PR', '21549001000', '41', 'person4@email.com', 'Pai 4', 0, 'Mãe 2', 'Person 4', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 4, 2),
-  (1, 'Maringá', '1975-03-18', 'PR', '17951340030', '41', 'person5@email.com', 'Pai 5', 1, 'Mãe 2', 'Person 5', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 5, 1),
-  (1, 'Maringá', '1975-03-19', 'PR', '53496942002', '41', 'person6@email.com', 'Pai 6', 0, 'Mãe 2', 'Person 6', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 6, 2);
+  (1, 'Maringá', '1980-05-10', 'PR', '466.667.230-31', '41', 'person1@email.com', 'Pai 1', 1, 'Mãe 1', 'Person 1', '81dc9bdb52d04dc20036dbd8313ed055', '987654321', 1, 1),
+  (1, 'Maringá', '1975-03-15', 'PR', '725.032.400-46', '41', 'person2@email.com', 'Pai 2', 0, 'Mãe 2', 'Person 2', '81dc9bdb52d04dc20036dbd8313ed055', '876543210', 2, 2),
+  (1, 'Maringá', '1975-03-16', 'PR', '348.171.990-67', '41', 'person3@email.com', 'Pai 3', 1, 'Mãe 2', 'Person 3', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 3, 1),
+  (1, 'Maringá', '1975-03-17', 'PR', '215.490.010-00', '41', 'person4@email.com', 'Pai 4', 0, 'Mãe 2', 'Person 4', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 4, 2),
+  (1, 'Maringá', '1975-03-18', 'PR', '179.513.400-30', '41', 'person5@email.com', 'Pai 5', 1, 'Mãe 2', 'Person 5', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 5, 1),
+  (1, 'Maringá', '1975-03-19', 'PR', '534.969.420-02', '41', 'person6@email.com', 'Pai 6', 0, 'Mãe 2', 'Person 6', '81dc9bdb52d04dc20036dbd8313ed055', '876543211', 6, 2);
 
 
   INSERT INTO medical_record (`date`, `description`) VALUES

@@ -6,6 +6,7 @@ import { MedicoGuard } from './guards/medico.guard';
 import { MedicoComponent } from './componentes/medico/medico.component';
 import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
+import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
   {
     path: 'administrador',
     component: CadastroUsuarioComponent,
-    canActivate: [AdministradorGuard]
+    canActivate: [AdministradorGuard],
   },
   {
     path: 'cadastrarMedico',
@@ -36,7 +37,13 @@ const routes: Routes = [
     path: 'cadastrarPaciente',
     component: CadastrarComponent,
     canActivate: [AdministradorGuard]
-  }
+  },
+
+  {
+    path: 'agendamento',
+    component: AgendamentoComponent,
+    canActivate: [AdministradorGuard],
+  },
 ];
 
 @NgModule({

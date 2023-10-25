@@ -14,10 +14,11 @@ import { MedicoComponent } from './componentes/medico/medico.component';
 import { VisualizarConsultaComponent } from './componentes/visualizar-consulta/visualizar-consulta.component';
 import { CadastroUsuarioComponent } from './componentes/administrador/cadastro-usuario/cadastro-usuario.component';
 import { CadastrarComponent } from './componentes/administrador/cadastrar/cadastrar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MensagemComponent } from './componentes/mensagem/mensagem.component';
 import { ValidandoCepDirective } from './directives/validando-cep.directive';
+import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,16 @@ import { ValidandoCepDirective } from './directives/validando-cep.directive';
     CadastrarComponent,
     MensagemComponent,
     ValidandoCepDirective,
+    AgendamentoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatDialogModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatDialogModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [MedicoGuard, AdministradorGuard],
   bootstrap: [AppComponent],
 })
