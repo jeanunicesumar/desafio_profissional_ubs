@@ -10,6 +10,7 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  
   form!: FormGroup;
 
   ngOnInit(): void {
