@@ -190,21 +190,21 @@
   </div>
 
   <div class="formulario__campo">
-        <div class="form-error">
-        <input
-        name="email"
+    <span class="span">
+      <input name="email"
         id="email"
         placeholder="Email"
         ngModel
         required
         pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"
-        #email="ngModel" />
-      <div *ngIf="email?.invalid && email?.touched || email?.dirty">
-        <app-mensagem *ngIf="email?.errors?.['required']" mensagem="O campo de email deve ser preenchido"></app-mensagem>
-        <app-mensagem *ngIf="email?.errors?.['pattern']" mensagem="Email inválido"></app-mensagem>
-      </div>
+        #email="ngModel">
+        <span *ngIf="email?.invalid && email?.touched || email?.dirty">
+          <app-mensagem *ngIf="email?.errors?.['required']" mensagem="O campo de email deve ser preenchido"></app-mensagem>
+          <app-mensagem *ngIf="email?.errors?.['pattern']" mensagem="Email inválido"></app-mensagem>
+        </span>
+      </span>
     </div>
-</div>
+
       <h3 class="principal__subtitulo">
         <img src="../../../../assets/icone-dados-pessoais.png" alt="Dados pessoais">
         Endereço
@@ -240,7 +240,7 @@
         <app-mensagem *ngIf="cep?.errors?.['validadorCep']" mensagem="CEP informado não existe"></app-mensagem>
       </div>
         <div class="formulario__3">
-         <div class="form-error">
+         <!-- <div class="form-error"> -->
           <input
           name="numero"
           id="numero"
@@ -248,10 +248,10 @@
           ngModel
           required
           #numero="ngModel" />
-          <div *ngIf="(numero?.invalid && numero?.touched) || numero?.dirty">
+          <!-- <div *ngIf="(numero?.invalid && numero?.touched) || numero?.dirty">
             <app-mensagem *ngIf="numero?.errors?.['required']" mensagem="Número é obrigatório"></app-mensagem>
           </div>
-        </div>
+        </div> -->
 
 
           <input
