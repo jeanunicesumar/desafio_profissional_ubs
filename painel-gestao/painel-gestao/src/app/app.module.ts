@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MensagemComponent } from './componentes/mensagem/mensagem.component';
 import { ValidandoCepDirective } from './directives/validando-cep.directive';
 import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
+import { AgendamentoItemComponent } from './componentes/agendamento/agendamento-item/agendamento-item.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AgendamentoComponent } from './componentes/agendamento/agendamento.comp
     MensagemComponent,
     ValidandoCepDirective,
     AgendamentoComponent,
+    AgendamentoItemComponent,
   ],
   imports: [
     BrowserModule,
