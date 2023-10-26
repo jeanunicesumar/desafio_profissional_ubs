@@ -27,9 +27,11 @@ export class CadastrarComponent implements OnInit {
   createForm(): FormGroup {
     const form = this.formBuilder.group({
       id: [''],
-      susCode: ['', [Validators.required, Validators.pattern('\d{9}\-?\d{5}\-?\d{1}')]],
       person: this.formBuilder.group({
-        name: ['', Validators.required],
+        crm: ['', [Validators.required]],
+        susCode: ['', [Validators.required, Validators.pattern('\d{9}\-?\d{5}\-?\d{1}')]],
+        specialty: ['', [Validators.required]],
+        name: ['', Validators.required, Validators.minLength(3)],
         motherName: ['', Validators.required],
         fatherName: [''],
         birthDate: ['', Validators.required],
@@ -41,7 +43,7 @@ export class CadastrarComponent implements OnInit {
         phone: ['', [Validators.required, Validators.pattern('\d{5}\-?\d{4}')]],
         cpf: ['', [Validators.required, Validators.pattern('\d{3}\.?\d{3}\.?\d{3}-?\d{2}')]],
         address: this.formBuilder.group({
-          zipCode: ['', [Validators.required, Validators.pattern('^(\d{5})(-?\d{3})$')]], 
+          zipCode: ['', [Validators.required, Validators.pattern('^(\d{5})(-?\d{3})$')]],
           streetAddress: ['', Validators.required],
           streetAddressII: ['', Validators.required],
           number: ['', Validators.required],
@@ -55,25 +57,24 @@ export class CadastrarComponent implements OnInit {
     return form;
   }
 
-  consultaCep(ev: any, f: NgForm){
+  consultaCep(ev: any, form: FormGroup){
     const cep = ev.target.value;
     if(cep !== ''){
       this.consultaCepService.getConsultaCep(cep)
        .subscribe(resultado => {
         console.log(resultado)
-        this.populandoEndereco(resultado, f);
+        this.populandoEndereco(resultado, form);
       });
     }
   }
 
-  populandoEndereco(dados: any, f: NgForm){
-    f.form.patchValue({
-      endereco: dados.logradouro,
-      complemento: dados.complemento,
-      bairro: dados.bairro,
-      cidade: dados.localidade,
-      estado: dados.uf
-    })
+  populandoEndereco(dados: any, form: FormGroup) {
+    form.get('person.address.zipCode')?.setValue(dados.cep);
+    form.get('person.address.streetAddress')?.setValue(dados.logradouro);
+    form.get('person.address.number')?.setValue(dados.complemento);
+    form.get('person.address.district')?.setValue(dados.bairro);
+    form.get('person.address.city')?.setValue(dados.localidade);
+    form.get('person.address.uf')?.setValue(dados.uf);
   }
 
   cadastrar(form: NgForm){

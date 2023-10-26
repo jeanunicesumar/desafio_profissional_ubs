@@ -31,64 +31,6 @@
   flex-direction: column;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
-.formulario__campo {
-  width: 100%;
-}
-
-.formulario__campo input {
-  margin-top: 1em;
-  border: none;
-  border-bottom: 1px solid black;
-  outline: 0;
-  padding: 1em;
-}
-
-.formulario__3 span.span {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.formulario__3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
-}
-
-.formulario__3 input,
-.formulario__3 select {
-  margin-top: 1em;
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 1em;
-}
-
-.formulario__2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
-}
-
-.formulario__2 input,
-.formulario__2 select {
-  margin-top: 1em;
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 1em;
-}
-
-.form-error {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 1em 0 0 1em;
-}
-
 .formulario__botao {
   background: #105965;
   border-radius: 5px;
@@ -102,15 +44,14 @@
   cursor: pointer;
 }
 
-.ng-touched .ng-invalid:not(form) {
+.ng-touched:not(form) {
   border-color: red;
   color: red;
 }
 
-/* TODO: COMECEI AQUI */
-
 .form {
   width: 100%;
+  padding: 0 15em;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -134,7 +75,8 @@
   flex-direction: column;
 }
 
-.form div span input {
+.form div span input,
+.form div span select {
   outline: 0;
   border: 0;
   border-bottom: 1px solid black;
