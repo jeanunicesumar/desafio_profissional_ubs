@@ -20,6 +20,8 @@ import { MensagemComponent } from './componentes/mensagem/mensagem.component';
 import { ValidandoCepDirective } from './directives/validando-cep.directive';
 import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
 import { AgendamentoItemComponent } from './componentes/agendamento/agendamento-item/agendamento-item.component';
+import { PacienteComponent } from './componentes/paciente/paciente.component';
+import { PacienteItemComponent } from './componentes/paciente/paciente-item/paciente-item.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { AgendamentoItemComponent } from './componentes/agendamento/agendamento-
     ValidandoCepDirective,
     AgendamentoComponent,
     AgendamentoItemComponent,
+    PacienteComponent,
+    PacienteItemComponent
   ],
   imports: [
     BrowserModule,
