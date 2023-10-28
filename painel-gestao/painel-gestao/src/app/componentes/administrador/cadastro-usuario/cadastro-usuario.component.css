@@ -1,25 +1,38 @@
+.main {
+  width: 85%;
+  float: right;
+}
+
 .titulo {
-  margin: 2rem 0 0 15rem;
-  text-align: center; /* Alinha o texto no centro */
+  padding: 30px;
+  text-align: center;
   color: #105050;
 }
 
 .botoes {
-  margin: 10rem 0 0 15rem;
+  padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .botoes button {
-  background-color: #23A2AF;
-  font-size: 1.3em;
-  padding: 1rem 10rem;
-  margin: 0 1rem;
+  border: 1px solid #bbbbbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 200px;
+  height: 50px;
+  color: #054955;
+  font-size: 12pt;
   border-radius: 5px;
+  transition: 0.5s;
 }
 
-.botoes img {
-  margin: 0 1rem 0 0;
+.botoes button:hover {
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  background-color: #23a2af;
 }
-
