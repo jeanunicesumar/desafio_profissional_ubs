@@ -2,15 +2,14 @@ import { ConsultaCepService } from './../../../service/consulta-cep.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { PatientService } from './patient.service';
 
 @Component({
   selector: 'app-cadastrar',
   templateUrl: './cadastrar.component.html',
-  styleUrls: ['./cadastrar.component.css']
+  styleUrls: ['./cadastrar.component.css'],
 })
 export class CadastrarComponent implements OnInit {
-
   form!: FormGroup;
 
   ngOnInit(): void {
@@ -21,17 +20,20 @@ export class CadastrarComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private consultaCepService: ConsultaCepService,
+    private patientService: PatientService,
     private route: ActivatedRoute
-  ){}
+  ) {}
 
   createForm(): FormGroup {
     const form = this.formBuilder.group({
       id: [''],
+      susCode: ['', [Validators.required]],
       person: this.formBuilder.group({
-        crm: ['', [Validators.required]],
-        susCode: ['', [Validators.required, Validators.pattern('\d{9}\-?\d{5}\-?\d{1}')]],
-        specialty: ['', [Validators.required]],
-        name: ['', Validators.required, Validators.minLength(3)],
+        active: true,
+        password: 1234,
+        // crm: ['', [Validators.required]],
+        // specialty: ['', [Validators.required]],
+        name: ['', [Validators.required, Validators.minLength(3)]],
         motherName: ['', Validators.required],
         fatherName: [''],
         birthDate: ['', Validators.required],
@@ -39,30 +41,54 @@ export class CadastrarComponent implements OnInit {
         birthCity: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         gender: ['', Validators.required],
-        ddd: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
-        phone: ['', [Validators.required, Validators.pattern('\d{5}\-?\d{4}')]],
-        cpf: ['', [Validators.required, Validators.pattern('\d{3}\.?\d{3}\.?\d{3}-?\d{2}')]],
+        ddd: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(3),
+          ],
+        ],
+        phone: ['', [Validators.required, Validators.pattern('d{5}-?d{4}')]],
+        cpf: [
+          '',
+          [Validators.required, Validators.pattern('d{3}.?d{3}.?d{3}-?d{2}')],
+        ],
         address: this.formBuilder.group({
-          zipCode: ['', [Validators.required, Validators.pattern('^(\d{5})(-?\d{3})$')]],
+          zipCode: [
+            '',
+            [Validators.required, Validators.pattern('^(d{5})(-?d{3})$')],
+          ],
           streetAddress: ['', Validators.required],
           streetAddressII: ['', Validators.required],
           number: ['', Validators.required],
           district: ['', Validators.required],
           city: ['', Validators.required],
-          uf: ['', Validators.required, Validators.length === 2]
-        })
-      })
+          uf: ['', Validators.required, Validators.length === 2],
+        }),
+        ubs: {
+          id: 1,
+          name: 'Teste',
+          address: {
+            zipCode: '87111-111',
+            streetAddress: 'Teste',
+            number: '12A',
+            district: 'Bairro teste',
+            city: 'Maringá',
+            uf: 'PR',
+          },
+        },
+      }),
     });
 
     return form;
   }
 
-  consultaCep(ev: any, form: FormGroup){
+  consultaCep(ev: any, form: FormGroup) {
     const cep = ev.target.value;
-    if(cep !== ''){
-      this.consultaCepService.getConsultaCep(cep)
-       .subscribe(resultado => {
-        console.log(resultado)
+    if (cep !== '') {
+      this.consultaCepService.getConsultaCep(cep).subscribe((resultado) => {
+        console.log(resultado);
         this.populandoEndereco(resultado, form);
       });
     }
@@ -77,16 +103,16 @@ export class CadastrarComponent implements OnInit {
     form.get('person.address.uf')?.setValue(dados.uf);
   }
 
-  cadastrar(form: NgForm){
-        if(form.valid){
-          this.router.navigate(['/sucesso']);
-        } else {
-          alert('Formulário inválido');
-        }
-        console.log(form.controls);
-      }
+  cadastrar(form: NgForm) {
+    if (form.valid) {
+      this.router.navigate(['/sucesso']);
+    } else {
+      alert('Formulário inválido');
+    }
+    console.log(form.controls);
+  }
 
-  isPatient(){
+  isPatient() {
     const currentRoute = this.route.snapshot?.routeConfig?.path;
 
     if (currentRoute === 'cadastrarPaciente') {
@@ -94,8 +120,14 @@ export class CadastrarComponent implements OnInit {
     } else if (currentRoute === 'cadastrarMedico') {
       return false;
     } else {
-      console.log("Não tem retorno");
+      console.log('Não tem retorno');
       return false;
     }
+  }
+
+  save() {
+    this.patientService.save(this.form.value).subscribe((response) => {
+      console.log(response);
+    });
   }
 }

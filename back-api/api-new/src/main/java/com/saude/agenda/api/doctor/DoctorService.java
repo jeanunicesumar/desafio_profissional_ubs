@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
-public class DoctorService extends CrudService<Doctor, Long> {
+public class DoctorService {
 
     @Autowired
     private DoctorRepository repository;

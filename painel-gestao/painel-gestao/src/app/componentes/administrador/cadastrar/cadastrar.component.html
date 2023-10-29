@@ -89,8 +89,8 @@
         <span>
           <select formControlName="gender">
             <option value="" disabled selected>Gênero</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="MASCULINO">Masculino</option>
           </select>
           <span
             *ngIf="
@@ -134,16 +134,13 @@
             <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
           </span>
         </span>
-        <span *ngIf="isPatient()">
+        <span *ngIf="isPatient()" [formGroup]="form">
           <input
             formControlName="susCode"
             placeholder="Digite o número do SUS"
           />
           <span
-            *ngIf="
-              form.get('person.susCode')?.errors &&
-              form.get('person.susCode')?.touched
-            "
+            *ngIf="form.get('susCode')?.errors && form.get('susCode')?.touched"
           >
             <app-mensagem mensagem="Código SUS obrigatório"></app-mensagem>
           </span>
@@ -283,5 +280,5 @@
       </div>
     </div>
   </div>
-  <button type="submit" class="formulario__botao">Cadastrar</button>
+  <button (click)="save()" class="formulario__botao">Cadastrar</button>
 </main>

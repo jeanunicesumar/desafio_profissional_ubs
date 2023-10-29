@@ -1,5 +1,6 @@
 package com.saude.agenda.api.appointment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.saude.agenda.api.doctor.Doctor;
 import com.saude.agenda.api.medicalRecord.MedicalRecord;
 import com.saude.agenda.api.patient.Patient;

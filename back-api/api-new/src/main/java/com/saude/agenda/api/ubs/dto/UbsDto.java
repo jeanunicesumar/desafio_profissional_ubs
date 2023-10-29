@@ -14,10 +14,8 @@ public class UbsDto {
 
     private Long id;
 
-    @NotBlank(message = "Insira uma descrição")
     private String name;
 
-    @NotNull
     private AddressDto address;
 
 }
