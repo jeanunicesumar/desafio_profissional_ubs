@@ -1,6 +1,7 @@
 package com.saude.agenda.api.appointment.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.saude.agenda.api.appointment.StatusAppointment;
 import com.saude.agenda.api.doctor.Doctor;
 import com.saude.agenda.api.doctor.dto.DoctorDto;
 import com.saude.agenda.api.medicalRecord.MedicalRecord;
@@ -44,5 +45,7 @@ public class AppointmentDto {
 
     @NotNull(message = "Insira o laudo")
     private MedicalRecordDto medicalRecord;
+
+    private StatusAppointment statusAppointment;
 
 }

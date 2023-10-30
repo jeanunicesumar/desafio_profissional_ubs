@@ -26,7 +26,7 @@ public class AppointmentAdapter implements Adapter<AppointmentDto, Appointment> 
     public AppointmentDto fromEntity(Appointment appointment) {
         return new AppointmentDto(appointment.getId(), appointment.getStartTime(), appointment.getEndTime(), appointment.getDate(),
                 patientAdapter.fromEntity(appointment.getPatient()), doctorAdapter.fromEntity(appointment.getDoctor()),
-                medicalRecordAdapter.fromEntity(appointment.getMedicalRecord()));
+                medicalRecordAdapter.fromEntity(appointment.getMedicalRecord()), appointment.getStatus());
     }
 
     @Override
@@ -34,6 +34,6 @@ public class AppointmentAdapter implements Adapter<AppointmentDto, Appointment> 
         return new Appointment(appointmentDto.getStartTime(), appointmentDto.getEndTime(),
                 appointmentDto.getDate(), patientAdapter.fromDto(appointmentDto.getPatient()),
                 doctorAdapter.fromDto(appointmentDto.getDoctor()),
-                medicalRecordAdapter.fromDto(appointmentDto.getMedicalRecord()));
+                medicalRecordAdapter.fromDto(appointmentDto.getMedicalRecord()), appointmentDto.getStatusAppointment());
     }
 }

@@ -50,7 +50,7 @@ public class Appointment {
     @JoinColumn(name = "medical_record_id", referencedColumnName = "id")
     private MedicalRecord medicalRecord;
 
-    public Appointment(Timestamp startTime, Timestamp endTime, LocalDate date, Patient patient, Doctor doctor, MedicalRecord medicalRecord) {
+    public Appointment(Timestamp startTime, Timestamp endTime, LocalDate date, Patient patient, Doctor doctor, MedicalRecord medicalRecord, StatusAppointment status) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.date = date;
@@ -58,5 +58,7 @@ public class Appointment {
         this.patient = patient;
         this.doctor = doctor;
         this.medicalRecord = medicalRecord;
+        this.status = status;
+
     }
 }
