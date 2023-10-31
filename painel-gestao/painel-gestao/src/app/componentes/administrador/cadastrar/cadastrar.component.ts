@@ -2,6 +2,7 @@ import { ConsultaCepService } from './../../../service/consulta-cep.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -77,7 +78,7 @@ export class CadastrarComponent implements OnInit {
     form.get('person.address.uf')?.setValue(dados.uf);
   }
 
-  cadastrar(form: NgForm){
+  cadastrar(form: FormGroup){
         if(form.valid){
           this.router.navigate(['/sucesso']);
         } else {

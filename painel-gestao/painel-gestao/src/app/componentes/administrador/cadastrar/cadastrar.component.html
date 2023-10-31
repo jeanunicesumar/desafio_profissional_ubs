@@ -20,16 +20,17 @@
     <div class="form" [formGroup]="form">
       <div formGroupName="person">
         <div>
-          <span >
+          <span>
             <input formControlName="name" placeholder="Nome completo" />
-            <span *ngIf="form.get('person.name')?.errors && (form.get('person.name')?.touched)">
-              Preencha o nome            </span>
+            <span class="show-error" *ngIf="form.get('person.name')?.errors && (form.get('person.name')?.touched)">
+            <app-mensagem mensagem="Preencha o nome"></app-mensagem>
+            </span>
          </span>
         </div>
         <div>
           <span>
             <input formControlName="motherName" placeholder="Nome da mãe" />
-            <span *ngIf="form.get('person.motherName')?.errors && form.get('person.motherName')?.touched">
+            <span class="show-error" *ngIf="form.get('person.motherName')?.errors && form.get('person.motherName')?.touched">
               <app-mensagem mensagem="Preencha o nome da mãe"></app-mensagem>
             </span>
           </span>
@@ -42,19 +43,19 @@
         <div class="coluna-3">
           <span>
             <input formControlName="birthUf" placeholder="UF"/>
-            <span *ngIf="form.get('person.birthUf')?.errors && form.get('person.birthUf')?.touched">
+            <span class="show-error" *ngIf="form.get('person.birthUf')?.errors && form.get('person.birthUf')?.touched">
               <app-mensagem mensagem="Escolha a UF"></app-mensagem>
             </span>
           </span>
           <span>
             <input formControlName="birthCity" placeholder="Local de nascimento" />
-            <span  *ngIf="form.get('person.birthCity')?.errors && form.get('person.birthCity')?.touched">
+            <span class="show-error" *ngIf="form.get('person.birthCity')?.errors && form.get('person.birthCity')?.touched">
               <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
             </span>
           </span>
           <span>
             <input formControlName="birthDate" placeholder="Data de nascimento" />
-            <span *ngIf="form.get('person.birthDate')?.errors && form.get('person.birthDate')?.touched">
+            <span class="show-error" *ngIf="form.get('person.birthDate')?.errors && form.get('person.birthDate')?.touched">
               <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
             </span>
           </span>
@@ -66,19 +67,19 @@
             <option value="Feminino">Feminino</option>
             <option value="Masculino">Masculino</option>
           </select>
-          <span *ngIf="form.get('person.gender')?.errors && form.get('person.gender')?.touched">
+          <span class="show-error" *ngIf="form.get('person.gender')?.errors && form.get('person.gender')?.touched">
             <app-mensagem mensagem="Escolha o gênero"></app-mensagem>
           </span>
           </span>
           <span>
             <input formControlName="ddd" placeholder="DDD" />
-            <span *ngIf="form.get('person.ddd')?.errors && form.get('person.ddd')?.touched">
+            <span class="show-error" *ngIf="form.get('person.ddd')?.errors && form.get('person.ddd')?.touched">
               <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
             </span>
           </span>
           <span>
             <input formControlName="phone" placeholder="Telefone" />
-            <span *ngIf="form.get('person.phone')?.errors && form.get('person.phone')?.touched">
+            <span class="show-error" *ngIf="form.get('person.phone')?.errors && form.get('person.phone')?.touched">
               <app-mensagem mensagem="Preencha o telefone"></app-mensagem>
             </span>
           </span>
@@ -86,19 +87,19 @@
         <div class="coluna-2">
           <span>
             <input formControlName="cpf" placeholder="Digite o CPF">
-            <span *ngIf="form.get('person.cpf')?.errors && form.get('person.cpf')?.touched">
+            <span class="show-error" *ngIf="form.get('person.cpf')?.errors && form.get('person.cpf')?.touched">
               <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
             </span>
           </span>
           <span *ngIf="isPatient()">
             <input formControlName="susCode" placeholder="Digite o número do SUS">
-            <span *ngIf="form.get('person.susCode')?.errors && form.get('person.susCode')?.touched">
+            <span class="show-error" *ngIf="form.get('person.susCode')?.errors && form.get('person.susCode')?.touched">
               <app-mensagem mensagem="Código SUS obrigatório"></app-mensagem>
             </span>
           </span>
           <span *ngIf="!isPatient()">
             <input formControlName="crm" placeholder="Digite o número do CRM">
-            <span *ngIf="form.get('person.crm')?.errors && form.get('person.crm')?.touched">
+            <span class="show-error" *ngIf="form.get('person.crm')?.errors && form.get('person.crm')?.touched">
               <app-mensagem mensagem="CRM obrigatório"></app-mensagem>
             </span>
           </span>
@@ -132,7 +133,7 @@
               <option value="Tisiologia">Tisiologia</option>
               <option value="Urologia">Urologia</option>
             </select>
-            <span *ngIf="form.get('person.specialty')?.errors && form.get('person.specialty')?.touched">
+            <span class="show-error" *ngIf="form.get('person.specialty')?.errors && form.get('person.specialty')?.touched">
               <app-mensagem mensagem="Escolha a especialidade"></app-mensagem>
             </span>
           </span>
@@ -148,7 +149,7 @@
         <div class="coluna-2">
           <span>
             <input formControlName="zipCode" placeholder="CEP" (blur)="consultaCep($event, form)" />
-            <span *ngIf="form.get('person.address.zipCode')?.errors && form.get('person.address.zipCode')?.touched">
+            <span class="show-error" *ngIf="form.get('person.address.zipCode')?.errors && form.get('person.address.zipCode')?.touched">
               <app-mensagem mensagem="CEP obrigatório"></app-mensagem>
             </span>
           </span>

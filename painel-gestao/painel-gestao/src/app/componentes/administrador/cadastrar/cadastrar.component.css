@@ -44,10 +44,16 @@
   cursor: pointer;
 }
 
+.show-error {
+  padding: 5px 10px;
+  font-size: 10pt;
+  color: red;
+}
+/*
 .ng-touched:not(form) {
   border-color: red;
   color: red;
-}
+} */
 
 .form {
   width: 100%;
