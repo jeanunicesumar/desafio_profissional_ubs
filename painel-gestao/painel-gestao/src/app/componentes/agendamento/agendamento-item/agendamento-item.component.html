@@ -1,16 +1,18 @@
 <div class="main">
-    <span class="width-10 align-center">
-        <img src="../../../../assets/svg/note.svg" alt="document">
-    </span>
-    <div>
-        <span>Teste</span>
-        <span class="align-center">Cardiologia</span>
-        <span class="align-center">21/08/2023</span>
-        <span class="align-center"><img src="../../../../assets/svg/ok.svg" alt="document"></span>
-    </div>
-    <span class="width-10 align-center" >
-        <img src="../../../../assets/svg/note-eye.svg" alt="document">
-        <img src="../../../../assets/svg/note-pencil.svg" alt="document">
-        <img src="../../../../assets/svg/note-cancel.svg" alt="document">
-    </span>
+  <span class="width-10 align-center">
+    <img src="../../../../assets/svg/note.svg" alt="document" />
+  </span>
+  <div>
+    <span>{{ appointment.patient.person.name }}</span>
+    <span class="align-center">Cardiologia</span>
+    <span class="align-center">{{ appointment.date }}</span>
+    <span class="align-center"
+      ><img src="../../../../assets/svg/ok.svg" alt="document"
+    /></span>
+  </div>
+  <span class="width-10 align-center">
+    <img src="../../../../assets/svg/note-eye.svg" alt="document" />
+    <img src="../../../../assets/svg/note-pencil.svg" alt="document" />
+    <img src="../../../../assets/svg/note-cancel.svg" alt="document" />
+  </span>
 </div>

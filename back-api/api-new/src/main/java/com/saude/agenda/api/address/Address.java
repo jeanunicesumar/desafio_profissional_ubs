@@ -22,9 +22,6 @@ public class Address {
     private Long id;
 
     @OneToOne(mappedBy = "address")
-    private Person person;
-
-    @OneToOne(mappedBy = "address")
     private Ubs ubs;
 
     @Column(nullable = false)

@@ -1,5 +1,6 @@
 package com.saude.agenda.api.appointment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.saude.agenda.api.doctor.Doctor;
 import com.saude.agenda.api.medicalRecord.MedicalRecord;
 import com.saude.agenda.api.patient.Patient;
@@ -49,7 +50,7 @@ public class Appointment {
     @JoinColumn(name = "medical_record_id", referencedColumnName = "id")
     private MedicalRecord medicalRecord;
 
-    public Appointment(Timestamp startTime, Timestamp endTime, LocalDate date, Patient patient, Doctor doctor, MedicalRecord medicalRecord) {
+    public Appointment(Timestamp startTime, Timestamp endTime, LocalDate date, Patient patient, Doctor doctor, MedicalRecord medicalRecord, StatusAppointment status) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.date = date;
@@ -57,5 +58,7 @@ public class Appointment {
         this.patient = patient;
         this.doctor = doctor;
         this.medicalRecord = medicalRecord;
+        this.status = status;
+
     }
 }

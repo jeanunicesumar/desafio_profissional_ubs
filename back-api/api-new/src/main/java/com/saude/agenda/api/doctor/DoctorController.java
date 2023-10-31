@@ -1,21 +1,15 @@
 package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.doctor.dto.DoctorDto;
-import com.saude.agenda.api.doctor.dto.DoctorLoginDto;
-import com.saude.agenda.api.generics.controller.CrudController;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
 
 @RestController
 @RequestMapping("/doctor")
-public class DoctorController extends CrudController<Doctor, Long> {
+public class DoctorController {
 
     @Autowired
     private DoctorService service;
@@ -23,6 +17,16 @@ public class DoctorController extends CrudController<Doctor, Long> {
     @GetMapping("/{id}")
     public ResponseEntity<DoctorDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok().body(service.getById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<DoctorDto>> findAll(Pageable pageable) {
+        return ResponseEntity.ok().body(service.getAll(pageable));
+    }
+
+    @PostMapping
+    public void save(@RequestBody DoctorDto data) {
+        service.register(data);
     }
 
     @DeleteMapping("/{id}")

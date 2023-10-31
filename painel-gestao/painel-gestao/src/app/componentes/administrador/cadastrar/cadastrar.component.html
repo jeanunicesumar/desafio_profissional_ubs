@@ -1,176 +1,247 @@
 <app-header></app-header>
 <app-menu-lateral></app-menu-lateral>
 <main class="principal">
-  <h2 class="principal__titulo" *ngIf="isPatient()">
+  <div class="titulo cor-fundo">
     <img src="../../../../assets/icone-cadastro.png" alt="Cadastrar paciente" />
-    Cadastrar paciente
-  </h2>
-  <h2 class="principal__titulo" *ngIf="!isPatient()">
-    <img src="../../../../assets/icone-cadastro.png" alt="Cadastrar paciente" />
-    Cadastrar médico
-  </h2>
-  <h3 class="principal__subtitulo">
-      <img
-        src="../../../../assets/icone-dados-pessoais.png"
-        alt="Dados pessoais"
-      />
-      Dados pessoais
-  </h3>
+    <span>{{ isPatient() ? "Cadastrar paciente" : "Cadastrar médico" }}</span>
+  </div>
 
-    <div class="form" [formGroup]="form">
-      <div formGroupName="person">
-        <div>
-          <span>
-            <input formControlName="name" placeholder="Nome completo" />
-            <span class="show-error" *ngIf="form.get('person.name')?.errors && (form.get('person.name')?.touched)">
-            <app-mensagem mensagem="Preencha o nome"></app-mensagem>
-            </span>
-         </span>
-        </div>
-        <div>
-          <span>
-            <input formControlName="motherName" placeholder="Nome da mãe" />
-            <span class="show-error" *ngIf="form.get('person.motherName')?.errors && form.get('person.motherName')?.touched">
-              <app-mensagem mensagem="Preencha o nome da mãe"></app-mensagem>
-            </span>
+  <div class="titulo">
+    <img
+      src="../../../../assets/icone-dados-pessoais.png"
+      alt="Dados pessoais"
+    />
+    <span>Dados pessoais</span>
+  </div>
+
+  <div class="form" [formGroup]="form">
+    <div formGroupName="person">
+      <div>
+        <span>
+          <input formControlName="name" placeholder="Nome completo" />
+          <span
+            *ngIf="
+              form.get('person.name')?.errors &&
+              form.get('person.name')?.touched
+            "
+          >
+            Preencha o nome
           </span>
-        </div>
-        <div>
-          <span>
-            <input formControlName="fatherName" placeholder="Nome da pai" />
+        </span>
+      </div>
+      <div>
+        <span>
+          <input formControlName="motherName" placeholder="Nome da mãe" />
+          <span
+            *ngIf="
+              form.get('person.motherName')?.errors &&
+              form.get('person.motherName')?.touched
+            "
+          >
+            <app-mensagem mensagem="Preencha o nome da mãe"></app-mensagem>
           </span>
-        </div>
-        <div class="coluna-3">
-          <span>
-            <input formControlName="birthUf" placeholder="UF"/>
-            <span class="show-error" *ngIf="form.get('person.birthUf')?.errors && form.get('person.birthUf')?.touched">
-              <app-mensagem mensagem="Escolha a UF"></app-mensagem>
-            </span>
+        </span>
+      </div>
+      <div>
+        <span>
+          <input formControlName="fatherName" placeholder="Nome da pai" />
+        </span>
+      </div>
+      <div class="coluna-3">
+        <span>
+          <input formControlName="birthUf" placeholder="UF" />
+          <span
+            *ngIf="
+              form.get('person.birthUf')?.errors &&
+              form.get('person.birthUf')?.touched
+            "
+          >
+            <app-mensagem mensagem="Escolha a UF"></app-mensagem>
           </span>
-          <span>
-            <input formControlName="birthCity" placeholder="Local de nascimento" />
-            <span class="show-error" *ngIf="form.get('person.birthCity')?.errors && form.get('person.birthCity')?.touched">
-              <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
-            </span>
+        </span>
+        <span>
+          <input
+            formControlName="birthCity"
+            placeholder="Local de nascimento"
+          />
+          <span
+            *ngIf="
+              form.get('person.birthCity')?.errors &&
+              form.get('person.birthCity')?.touched
+            "
+          >
+            <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
           </span>
-          <span>
-            <input formControlName="birthDate" placeholder="Data de nascimento" />
-            <span class="show-error" *ngIf="form.get('person.birthDate')?.errors && form.get('person.birthDate')?.touched">
-              <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
-            </span>
+        </span>
+        <span>
+          <input formControlName="birthDate" placeholder="Data de nascimento" />
+          <span
+            *ngIf="
+              form.get('person.birthDate')?.errors &&
+              form.get('person.birthDate')?.touched
+            "
+          >
+            <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
           </span>
-        </div>
-        <div class="coluna-3">
-          <span>
+        </span>
+      </div>
+      <div class="coluna-3">
+        <span>
           <select formControlName="gender">
             <option value="" disabled selected>Gênero</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="MASCULINO">Masculino</option>
           </select>
-          <span class="show-error" *ngIf="form.get('person.gender')?.errors && form.get('person.gender')?.touched">
+          <span
+            *ngIf="
+              form.get('person.gender')?.errors &&
+              form.get('person.gender')?.touched
+            "
+          >
             <app-mensagem mensagem="Escolha o gênero"></app-mensagem>
           </span>
+        </span>
+        <span>
+          <input formControlName="ddd" placeholder="DDD" />
+          <span
+            *ngIf="
+              form.get('person.ddd')?.errors && form.get('person.ddd')?.touched
+            "
+          >
+            <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
           </span>
-          <span>
-            <input formControlName="ddd" placeholder="DDD" />
-            <span class="show-error" *ngIf="form.get('person.ddd')?.errors && form.get('person.ddd')?.touched">
-              <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
-            </span>
+        </span>
+        <span>
+          <input formControlName="phone" placeholder="Telefone" />
+          <span
+            *ngIf="
+              form.get('person.phone')?.errors &&
+              form.get('person.phone')?.touched
+            "
+          >
+            <app-mensagem mensagem="Preencha o telefone"></app-mensagem>
           </span>
-          <span>
-            <input formControlName="phone" placeholder="Telefone" />
-            <span class="show-error" *ngIf="form.get('person.phone')?.errors && form.get('person.phone')?.touched">
-              <app-mensagem mensagem="Preencha o telefone"></app-mensagem>
-            </span>
+        </span>
+      </div>
+      <div class="coluna-2">
+        <span>
+          <input formControlName="cpf" placeholder="Digite o CPF" />
+          <span
+            *ngIf="
+              form.get('person.cpf')?.errors && form.get('person.cpf')?.touched
+            "
+          >
+            <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
           </span>
-        </div>
-        <div class="coluna-2">
-          <span>
-            <input formControlName="cpf" placeholder="Digite o CPF">
-            <span class="show-error" *ngIf="form.get('person.cpf')?.errors && form.get('person.cpf')?.touched">
-              <app-mensagem mensagem="Campo obrigatório"></app-mensagem>
-            </span>
-          </span>
-          <span *ngIf="isPatient()">
-            <input formControlName="susCode" placeholder="Digite o número do SUS">
-            <span class="show-error" *ngIf="form.get('person.susCode')?.errors && form.get('person.susCode')?.touched">
-              <app-mensagem mensagem="Código SUS obrigatório"></app-mensagem>
-            </span>
-          </span>
-          <span *ngIf="!isPatient()">
-            <input formControlName="crm" placeholder="Digite o número do CRM">
-            <span class="show-error" *ngIf="form.get('person.crm')?.errors && form.get('person.crm')?.touched">
-              <app-mensagem mensagem="CRM obrigatório"></app-mensagem>
-            </span>
-          </span>
-        </div>
-        <div class="coluna-3">
-          <span>
-            <select formControlName="specialty" *ngIf="!isPatient()">
-              <option value="" disabled selected>Especialidade</option>
-              <option value="Angiologia">Angiologia</option>
-              <option value="Cardiologia">Cardiologia</option>
-              <option value="Dermatologia">Dermatologia</option>
-              <option value="Endocrinologia">Endocrinologia</option>
-              <option value="Gastroenterologia">Gastroenterologia</option>
-              <option value="Geriatria">Geriatria</option>
-              <option value="Ginecologia">Ginecologia</option>
-              <option value="Hematologia">Hematologia</option>
-              <option value="Hepatologia">Hepatologia</option>
-              <option value="Infectologia">Infectologia</option>
-              <option value="Mastologia">Mastologia</option>
-              <option value="Nefrologia">Nefrologia</option>
-              <option value="Neurologia">Neurologia</option>
-              <option value="Obstetricia">Obstetrícia</option>
-              <option value="Oftalmologia">Oftalmologia</option>
-              <option value="Oncologia">Oncologia</option>
-              <option value="Ortopedia">Ortopedia</option>
-              <option value="Otorrinolaringologia">Otorrinolaringologia</option>
-              <option value="Pediatria">Pediatria</option>
-              <option value="Pneumologia">Pneumologia</option>
-              <option value="Proctologia">Proctologia</option>
-              <option value="Psiquiatria">Psiquiatria</option>
-              <option value="Tisiologia">Tisiologia</option>
-              <option value="Urologia">Urologia</option>
-            </select>
-            <span class="show-error" *ngIf="form.get('person.specialty')?.errors && form.get('person.specialty')?.touched">
-              <app-mensagem mensagem="Escolha a especialidade"></app-mensagem>
-            </span>
-          </span>
-        </div>
-      <h3 class="principal__subtitulo">
-          <img
-            src="../../../../assets/icone-endereco.svg"
-            alt="Endereco"
+        </span>
+        <span *ngIf="isPatient()" [formGroup]="form">
+          <input
+            formControlName="susCode"
+            placeholder="Digite o número do SUS"
           />
-          Endereço
-      </h3>
+          <span
+            *ngIf="form.get('susCode')?.errors && form.get('susCode')?.touched"
+          >
+            <app-mensagem mensagem="Código SUS obrigatório"></app-mensagem>
+          </span>
+        </span>
+        <span *ngIf="!isPatient()">
+          <input formControlName="crm" placeholder="Digite o número do CRM" />
+          <span
+            *ngIf="
+              form.get('person.crm')?.errors && form.get('person.crm')?.touched
+            "
+          >
+            <app-mensagem mensagem="CRM obrigatório"></app-mensagem>
+          </span>
+        </span>
+      </div>
+      <div class="coluna-3">
+        <span>
+          <select formControlName="specialty" *ngIf="!isPatient()">
+            <option value="" disabled selected>Especialidade</option>
+            <option value="Angiologia">Angiologia</option>
+            <option value="Cardiologia">Cardiologia</option>
+            <option value="Dermatologia">Dermatologia</option>
+            <option value="Endocrinologia">Endocrinologia</option>
+            <option value="Gastroenterologia">Gastroenterologia</option>
+            <option value="Geriatria">Geriatria</option>
+            <option value="Ginecologia">Ginecologia</option>
+            <option value="Hematologia">Hematologia</option>
+            <option value="Hepatologia">Hepatologia</option>
+            <option value="Infectologia">Infectologia</option>
+            <option value="Mastologia">Mastologia</option>
+            <option value="Nefrologia">Nefrologia</option>
+            <option value="Neurologia">Neurologia</option>
+            <option value="Obstetricia">Obstetrícia</option>
+            <option value="Oftalmologia">Oftalmologia</option>
+            <option value="Oncologia">Oncologia</option>
+            <option value="Ortopedia">Ortopedia</option>
+            <option value="Otorrinolaringologia">Otorrinolaringologia</option>
+            <option value="Pediatria">Pediatria</option>
+            <option value="Pneumologia">Pneumologia</option>
+            <option value="Proctologia">Proctologia</option>
+            <option value="Psiquiatria">Psiquiatria</option>
+            <option value="Tisiologia">Tisiologia</option>
+            <option value="Urologia">Urologia</option>
+          </select>
+          <span
+            *ngIf="
+              form.get('person.specialty')?.errors &&
+              form.get('person.specialty')?.touched
+            "
+          >
+            <app-mensagem mensagem="Escolha a especialidade"></app-mensagem>
+          </span>
+        </span>
+      </div>
+      <div class="titulo">
+        <div>
+          <img src="../../../../assets/svg/note-user.svg" alt="Endereco" />
+          <span>Endereço</span>
+        </div>
+      </div>
       <div formGroupName="address">
         <div class="coluna-2">
           <span>
-            <input formControlName="zipCode" placeholder="CEP" (blur)="consultaCep($event, form)" />
-            <span class="show-error" *ngIf="form.get('person.address.zipCode')?.errors && form.get('person.address.zipCode')?.touched">
+            <input
+              formControlName="zipCode"
+              placeholder="CEP"
+              (blur)="consultaCep($event, form)"
+            />
+            <span
+              *ngIf="
+                form.get('person.address.zipCode')?.errors &&
+                form.get('person.address.zipCode')?.touched
+              "
+            >
               <app-mensagem mensagem="CEP obrigatório"></app-mensagem>
             </span>
           </span>
           <span>
-            <input formControlName="streetAddress" placeholder="Digite o endereço" />
+            <input
+              formControlName="streetAddress"
+              placeholder="Digite o endereço"
+            />
           </span>
         </div>
         <div class="coluna-3">
           <span>
-            <input formControlName="number" placeholder="Número">
+            <input formControlName="number" placeholder="Número" />
           </span>
           <span>
-            <input formControlName="streetAddressII" placeholder="Complemento">
+            <input
+              formControlName="streetAddressII"
+              placeholder="Complemento"
+            />
           </span>
           <span>
-            <input formControlName="district" placeholder="Bairro">
+            <input formControlName="district" placeholder="Bairro" />
           </span>
         </div>
         <div class="coluna-2">
           <span>
-            <input formControlName="city" placeholder="Cidade">
+            <input formControlName="city" placeholder="Cidade" />
           </span>
           <span>
             <select formControlName="uf">
@@ -207,8 +278,7 @@
           </span>
         </div>
       </div>
-      </div>
     </div>
-    <button type="submit" class="formulario__botao">Cadastrar</button>
-
+  </div>
+  <button (click)="save()" class="formulario__botao">Cadastrar</button>
 </main>

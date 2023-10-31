@@ -67,8 +67,8 @@ public class PersonDto {
         @NotNull(message = "Insira um endereço")
         private AddressDto address;
 
-        @NotNull(message = "Insira uma ubs")
-        private UbsDto ubs;
+        @NotNull(message = "Insira o códiga de uma UBS")
+        private Long ubsId;
         
 }
 

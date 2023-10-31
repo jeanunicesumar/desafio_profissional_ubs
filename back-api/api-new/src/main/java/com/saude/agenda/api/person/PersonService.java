@@ -7,6 +7,8 @@ import com.saude.agenda.api.generics.service.CrudService;
 import com.saude.agenda.api.helper.HashPassword;
 import com.saude.agenda.api.person.dto.PersonLoginDto;
 import com.saude.agenda.api.person.dto.ResponseDto;
+import com.saude.agenda.api.ubs.Ubs;
+import com.saude.agenda.api.ubs.UbsRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +41,4 @@ public class PersonService {
     public Person findByCpf(String cpf) {
         return repository.findByCpf(cpf).orElseThrow(() -> new EntityNotFoundException("Person not found"));
     }
-
 }
