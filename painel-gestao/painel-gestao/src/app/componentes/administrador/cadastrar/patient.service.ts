@@ -14,4 +14,13 @@ export class PatientService {
   save(data: FormGroup): Observable<any> {
     return this.http.post(this.url, data);
   }
+
+  getDadosDoPaciente(id: number): Observable<any>{
+    const url = `${this.url}/${id}`;
+    return this.http.get(url);
+  }
+
+  getAllPatients(): Observable<any> {
+    return this.http.get(this.url);
+  }
 }

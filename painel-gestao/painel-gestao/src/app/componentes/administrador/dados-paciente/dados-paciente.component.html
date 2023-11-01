@@ -1,0 +1,39 @@
+<app-header></app-header>
+<app-menu-lateral></app-menu-lateral>
+<div class="content">
+  <div class="header">
+    <span class="span-input">
+      <input type="text" placeholder="Pesquisar" />
+      <img src="../../../assets/svg/search.svg" />
+    </span>
+    <span>
+      <button>
+        <img src="../../../assets/svg/document-more.svg" />Novo agendamento
+      </button>
+    </span>
+  </div>
+  <div class="patient-data" *ngIf="patient">
+    <span class="left">
+      <img src="../../../../assets/icone-agenda.svg" alt="" /> {{ patient.name }}
+    </span>
+    <span>
+      <img src="../../../../assets/svg/icone-edit.svg" alt="" />
+    </span>
+    <span>
+      <img src="../../../../assets/svg/pacient-see.svg" alt="" />
+    </span>
+  </div>
+
+  <div class="page">
+    <div>
+      <span><img src="../../../assets/svg/arrow-left.svg" alt="" /></span>
+      <span class="selected">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+      <span><img src="../../../assets/svg/arrow-right.svg" alt="" /></span>
+    </div>
+  </div>
+</div>

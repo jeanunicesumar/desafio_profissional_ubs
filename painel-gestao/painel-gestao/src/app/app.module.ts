@@ -22,6 +22,7 @@ import { AgendamentoComponent } from './componentes/agendamento/agendamento.comp
 import { AgendamentoItemComponent } from './componentes/agendamento/agendamento-item/agendamento-item.component';
 import { PacienteComponent } from './componentes/paciente/paciente.component';
 import { PacienteItemComponent } from './componentes/paciente/paciente-item/paciente-item.component';
+import { DadosPacienteComponent } from './componentes/administrador/dados-paciente/dados-paciente.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PacienteItemComponent } from './componentes/paciente/paciente-item/paci
     AgendamentoComponent,
     AgendamentoItemComponent,
     PacienteComponent,
-    PacienteItemComponent
+    PacienteItemComponent,
+    DadosPacienteComponent
   ],
   imports: [
     BrowserModule,
