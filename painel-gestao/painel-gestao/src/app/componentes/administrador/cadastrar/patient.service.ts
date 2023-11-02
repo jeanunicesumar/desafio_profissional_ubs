@@ -21,6 +21,8 @@ export class PatientService {
   }
 
   getAllPatients(): Observable<any> {
+    console.log("Cheguei aqui");
     return this.http.get(this.url);
+
   }
 }

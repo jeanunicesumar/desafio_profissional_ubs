@@ -8,7 +8,7 @@ import { PatientService } from '../cadastrar/patient.service';
 })
 export class DadosPacienteComponent implements OnInit {
 
-  patient: any = {};
+  person: any = {};
 
   constructor(
     private patientService: PatientService
@@ -16,7 +16,7 @@ export class DadosPacienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.patientService.getAllPatients().subscribe(data => {
-      this.patient = data;
+      this.person = data;
     });
 
 
