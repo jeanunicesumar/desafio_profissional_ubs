@@ -9,6 +9,7 @@ div.header {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
+  margin-bottom: 20px;
 }
 
 div.header span {
@@ -54,25 +55,28 @@ span.span-input {
 }
 
 .patient-data {
-  margin-top: 50px;
-  width: 80%;
-  margin-left: 5%;
-  display: grid;
-  grid-template-columns: 4fr 1fr 2fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.patient-data span {
-  font-size: 10pt;
-  color: #828282;
+.left {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.patient-data span.left {
-  justify-content: flex-start;
+.right {
+  display: flex;
+  align-items: center;
 }
 
+.right img {
+  padding: 10px;
+}
+.patient-name {
+  margin-left: 10px;
+  padding: 10px;
+}
 .page {
   margin: 20px 0;
   width: 100%;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalComponent } from '../modal/modal.component';
+import { ModalComponent } from './modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
@@ -10,7 +10,6 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  
   form!: FormGroup;
 
   ngOnInit(): void {

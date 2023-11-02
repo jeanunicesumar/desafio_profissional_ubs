@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { LoginComponent } from './componentes/login/login.component';
-import { ModalComponent } from './componentes/modal/modal.component';
+import { ModalComponent } from './componentes/login/modal/modal.component';
 import { MenuLateralComponent } from './componentes/menu-lateral/menu-lateral.component';
 import { MedicoGuard } from './guards/medico.guard';
 import { AdministradorGuard } from './guards/administrador.guard';
@@ -23,6 +23,7 @@ import { AgendamentoItemComponent } from './componentes/agendamento/agendamento-
 import { PacienteComponent } from './componentes/paciente/paciente.component';
 import { PacienteItemComponent } from './componentes/paciente/paciente-item/paciente-item.component';
 import { DadosPacienteComponent } from './componentes/administrador/dados-paciente/dados-paciente.component';
+import { VisualizarDadosPacienteComponent } from './componentes/administrador/visualizar-dados-paciente/visualizar-dados-paciente.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DadosPacienteComponent } from './componentes/administrador/dados-pacien
     AgendamentoItemComponent,
     PacienteComponent,
     PacienteItemComponent,
-    DadosPacienteComponent
+    DadosPacienteComponent,
+    VisualizarDadosPacienteComponent
   ],
   imports: [
     BrowserModule,
