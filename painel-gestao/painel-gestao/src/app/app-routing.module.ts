@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'medico',
     component: MedicoComponent,
-    canActivate: [MedicoGuard]
+    canActivate: [MedicoGuard],
   },
   {
     path: 'administrador',
@@ -33,12 +33,12 @@ const routes: Routes = [
   {
     path: 'cadastrarMedico',
     component: CadastrarComponent,
-    canActivate: [AdministradorGuard]
+    canActivate: [AdministradorGuard],
   },
   {
     path: 'cadastrarPaciente',
     component: CadastrarComponent,
-    canActivate: [AdministradorGuard]
+    canActivate: [AdministradorGuard],
   },
 
   {
@@ -54,11 +54,10 @@ const routes: Routes = [
   },
 
   {
-    path: 'visualizarDados',
+    path: 'visualizar-dados',
     component: DadosPacienteComponent,
-    canActivate: [AdministradorGuard, MedicoGuard]
-  }
-
+    canActivate: [AdministradorGuard, MedicoGuard],
+  },
 ];
 
 @NgModule({

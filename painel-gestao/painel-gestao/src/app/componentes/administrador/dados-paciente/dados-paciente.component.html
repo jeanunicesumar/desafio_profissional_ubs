@@ -12,9 +12,10 @@
       </button>
     </span>
   </div>
-  <div class="patient-data" *ngIf="person">
+  <div class="patient-data" *ngFor="let item of person">
     <span class="left">
-      <img src="../../../../assets/icone-agenda.svg" alt="" /> {{ person.name }}
+      <img src="../../../../assets/icone-agenda.svg" alt="" />
+      {{ item.person.name }}
     </span>
     <span>
       <img src="../../../../assets/svg/icone-edit.svg" alt="" />
