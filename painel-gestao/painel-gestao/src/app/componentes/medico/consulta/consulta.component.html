@@ -1,0 +1,32 @@
+<app-header></app-header>
+<app-menu-lateral></app-menu-lateral>
+<head>
+  <title>Consulta </title>
+</head>
+<body>
+  <div class="container">
+   <div class="grid-container">
+    <div class="grid-item1">
+      <img src="../../../../assets/svg/pacient-perfil.svg" alt="Dados paciente">
+      Dados Paciente
+    </div>
+    <div class="grid-item2">
+      <p>Nome: Carlos Teixeira</p>
+      <p>Data Nascimento: 26/09/1988</p>
+    </div>
+    <div class="grid-item3">
+      <p>Sexo: Masculino</p>
+      <p>Idade: 35 anos</p>
+    </div>
+   </div>
+   <div class="prontuario">
+    <img src="../../../../assets/svg/prontuario.svg" alt="Prontuário"> Prontuário
+   </div>
+   <textarea name="Prontuário escrita" id="description" cols="130" rows="10" textareaAutoresize></textarea>
+    <div class="buttons">
+      <button class="button button-cancel" routerLink="/medico">Cancelar</button>
+      <button class="button button-confirm">Confirmar</button>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</body>

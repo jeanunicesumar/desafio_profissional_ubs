@@ -15,14 +15,14 @@ export class PatientService {
     return this.http.post(this.url, data);
   }
 
-  getDadosDoPaciente(id: number): Observable<any>{
+  getPatientData(id: number): Observable<any>{
+    console.log(id);
     const url = `${this.url}/${id}`;
+    console.log(url);
     return this.http.get(url);
   }
 
   getAllPatients(): Observable<any> {
-    console.log("Cheguei aqui");
     return this.http.get(this.url);
-
   }
 }

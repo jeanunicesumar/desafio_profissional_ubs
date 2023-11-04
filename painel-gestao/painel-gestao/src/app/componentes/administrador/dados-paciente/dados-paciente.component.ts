@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientService } from '../cadastrar/patient.service';
+import { PatientService } from '../../../service/patient.service';
 import { MatDialog } from '@angular/material/dialog';
 import { VisualizarDadosPacienteComponent } from '../visualizar-dados-paciente/visualizar-dados-paciente.component';
 
@@ -10,19 +10,22 @@ import { VisualizarDadosPacienteComponent } from '../visualizar-dados-paciente/v
 })
 export class DadosPacienteComponent implements OnInit {
   person: any[] = [];
+  selectedPatientId!: number;
 
   constructor(
     private patientService: PatientService,
     private dialog: MatDialog
     ) {}
 
-    toogle() {
-      this.dialog.open(VisualizarDadosPacienteComponent);
+    toogle(patientId: number) {
+      this.selectedPatientId = patientId;
+      this.dialog.open(VisualizarDadosPacienteComponent, {
+        data: {patientId: this.selectedPatientId}
+      });
     }
 
   ngOnInit(): void {
     this.patientService.getAllPatients().subscribe((data) => {
-      console.log(data);
       this.person = data.content;
     })
   }

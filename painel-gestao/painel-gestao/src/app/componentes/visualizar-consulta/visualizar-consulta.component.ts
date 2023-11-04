@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppointmentService } from 'src/app/service/appointment.service';
 
 @Component({
   selector: 'app-visualizar-consulta',
@@ -7,25 +8,15 @@ import { Component } from '@angular/core';
 })
 export class VisualizarConsultaComponent {
   consultas: any[] = [];
+  medico!: string;
 
-  constructor() { }
+  constructor(
+    private appointmentService: AppointmentService) { }
 
-  ngOnInit() {
-    this.consultas = [
-      {
-        "data": "25/08/2023",
-        "horario": "09:30",
-        "medico": "Ricardo Vilela"
-      },
-      {
-        "data": "25/08/2023",
-        "horario": "10:00",
-        "medico": "Ricardo Vilela"
-      }
-    ];
-  }
+  ngOnInit(): void {
+    this.appointmentService.getAllAppointments().subscribe((data) => {
+      this.consultas = data.content;
+    })
 
-  // visualizarConsulta(consulta) {
-  //     //backend
-  // }
+}
 }

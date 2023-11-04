@@ -7,7 +7,7 @@ body {
   position: absolute;
   padding: 1em;
   gap: 5px;
-  width: 15%;
+  width: auto;
   height: 70%;
   background: #E9F5F6;
   color: #054955;

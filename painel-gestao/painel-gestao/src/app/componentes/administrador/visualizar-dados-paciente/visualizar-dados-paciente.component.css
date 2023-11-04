@@ -21,7 +21,8 @@
   width: 100%;
   max-width: 960px;
   height: 200vh;
-  max-height: 460px;
+  max-height: 560px;
+  overflow-y: auto;
   padding: 20px;
   gap: 20px;
 }
@@ -34,7 +35,7 @@
 .titulo {
   color: #105965;
   width: 100%;
-  height: fit-content;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +68,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+
 }
 
 .content div {
@@ -76,6 +78,7 @@
 
 .content div.coluna-2 {
   grid-template-columns: 1fr 1fr;
+
 }
 
 .content div.coluna-3 {
@@ -87,108 +90,18 @@
   flex-direction: column;
 }
 
-/*span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-span img {
-  width: 50px;
-}
-
-h3 {
-  font-weight: 500;
-  font-size: 14px;
-  color: #105965;
-}
-
-span.form {
-  padding: 0px 60px;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-span.form label {
-  margin-left: 10px;
-}
-
-span.form input {
-  padding: 0 10px;
-  width: 100%;
-  height: 40px;
+.button {
+  display: block;
   border-radius: 10px;
-  outline: 0;
-  border: 1px solid #105050;
-}
-
-span button {
-  max-width: 261px;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  border: 0;
-  background-color: #105965;
-  color: white;
-  box-shadow: 1px 5px 5px rgb(184, 182, 182);
-}
-
-.padding-60 {
-  padding: 0px 60px;
-}
-.principal {
-  width: 85%;
-  float: right;
-}
-
-.principal__titulo {
-  margin-top: 2em;
-  font-size: 1rem;
-  padding: 1em;
-  gap: 1em;
-  color: #105965;
-  background-color: #e9f5f6;
-  display: flex;
-  justify-content: center;
-}
-
-.principal__formulario {
-  width: 60%;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.formulario__botao {
-  background: #105965;
-  border-radius: 5px;
-  padding: 1em 2em;
-  font-weight: 300;
-  font-size: 14px;
-  margin: 2em 18em 2em 0;
-  float: right;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.show-error {
-  padding: 5px 10px;
-  font-size: 10pt;
-  color: red;
-}
-
-.form div span input,
-.form div span select {
-  outline: 0;
-  border: 0;
-  border-bottom: 1px solid rgb(190, 190, 190);
-  color: #6b6b6b;
+  padding: 10px;
+  width: 170px;
   height: 40px;
-  padding: 0 10px;
-} */
-
+  margin: 10px 15px 10px 15px;
+}
+.button-cancel {
+  background-color:#FA5A5A;
+  color: white;
+  text-align: center;
+  font-size: 12pt;
+}
 

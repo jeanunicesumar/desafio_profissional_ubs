@@ -2,7 +2,7 @@ import { ConsultaCepService } from './../../../service/consulta-cep.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PatientService } from './patient.service';
+import { PatientService } from '../../../service/patient.service';
 
 @Component({
   selector: 'app-cadastrar',

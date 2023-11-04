@@ -24,6 +24,9 @@ import { PacienteComponent } from './componentes/paciente/paciente.component';
 import { PacienteItemComponent } from './componentes/paciente/paciente-item/paciente-item.component';
 import { DadosPacienteComponent } from './componentes/administrador/dados-paciente/dados-paciente.component';
 import { VisualizarDadosPacienteComponent } from './componentes/administrador/visualizar-dados-paciente/visualizar-dados-paciente.component';
+import { ConsultaComponent } from './componentes/medico/consulta/consulta.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { TextareaAutoresizeDirective } from './directives/textarea-autoresize.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { VisualizarDadosPacienteComponent } from './componentes/administrador/vi
     PacienteComponent,
     PacienteItemComponent,
     DadosPacienteComponent,
-    VisualizarDadosPacienteComponent
+    VisualizarDadosPacienteComponent,
+    ConsultaComponent,
+    FooterComponent,
+    TextareaAutoresizeDirective
   ],
   imports: [
     BrowserModule,

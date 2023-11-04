@@ -9,6 +9,7 @@ import { CadastrarComponent } from './componentes/administrador/cadastrar/cadast
 import { AgendamentoComponent } from './componentes/agendamento/agendamento.component';
 import { PacienteComponent } from './componentes/paciente/paciente.component';
 import { DadosPacienteComponent } from './componentes/administrador/dados-paciente/dados-paciente.component';
+import { ConsultaComponent } from './componentes/medico/consulta/consulta.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,11 @@ const routes: Routes = [
     path: 'visualizar-dados',
     component: DadosPacienteComponent,
     canActivate: [AdministradorGuard, MedicoGuard],
+  },
+  {
+    path: 'medico/consulta',
+    component: ConsultaComponent,
+    canActivate: [MedicoGuard],
   },
 ];
 

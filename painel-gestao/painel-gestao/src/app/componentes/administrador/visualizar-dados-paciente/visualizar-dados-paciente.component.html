@@ -1,48 +1,57 @@
 <div class="modal-overlay">
   <div class="modal-container">
-    <span class="align-right">
-      <img src="../../../assets/icone-fechar.png" (click)="close()" />
-    </span>
-
     <div class="titulo cor-fundo">
       <img src="../../../../assets/icone-cadastro.png" alt="Dados do paciente" />
       Dados do paciente
     </div>
 
+    <div class="titulo">
+      <img src="../../../../assets/svg/paciente-dados-pessoais.svg" alt="Dados pessoais" />
+      Dados pessoais
+    </div>
+
     <div class="content">
     <div class="coluna-2">
-      <span class="patient-name">
-        Nome 1
+      <span class="patient-name"> Nome:
+        {{ patientData?.person?.name }}
       </span>
       <span class="patient-parents">
-        Pais
+          <div class="parents">
+          Filiação:
+          <div class="names">
+         {{ patientData?.person?.motherName }}
+         <div>
+         {{ patientData?.person?.fatherName }}
+        </div>
+        </div>
+          </div>
       </span>
     </div>
     <div class="coluna-3">
-      <span class="patient-birthday">
-        11/11/1993
+      <span class="patient-birthday">Data de nascimento:
+        {{ patientData?.person?.birthDate }}
       </span>
-      <span class="patient-city">
-        Curitiba
+      <span class="patient-city"> Cidade:
+        {{ patientData?.person?.birthCity }}
       </span>
-      <span class="patient-uf">
-        PR
-      </span>
-    </div>
-    <div class="coluna-2">
-      <span class="patient-gender">
-        Feminino
-      </span>
-      <span class="patient-phone">
-        85 98476-0000
+      <span class="patient-uf"> UF:
+        {{ patientData?.person?.birthUf }}
       </span>
     </div>
     <div class="coluna-2">
-      <span class="patient-cpf">
-        CPF: 000.000.000-00
+      <span class="patient-gender"> Gênero:
+        {{ patientData?.person?.gender }}
       </span>
-      <span class="patient-susCode">
-        SUS: 12345678912345
+      <span class="patient-phone"> Telefone:
+        ({{ patientData?.person?.ddd }}) {{ patientData?.person?.phone }}
+      </span>
+    </div>
+    <div class="coluna-2">
+      <span class="patient-cpf"> CPF:
+        {{ patientData?.person?.cpf }}
+      </span>
+      <span class="patient-susCode"> SUS:
+        {{ patientData?.susCode }}
       </span>
     </div>
   </div>
@@ -54,8 +63,16 @@
       </div>
     </div>
    <span class="patient-address">
-    Um endereço qualquer
+     {{ patientData?.person?.address.streetAddress }}
+     {{ patientData?.person?.address?.streetAddressII }}
+     {{ patientData?.person?.address.number }}
+     {{ patientData?.person?.address.district }}
+     {{ patientData?.person?.address.city }}
+     {{ patientData?.person?.address.uf }}
+     {{ patientData?.person?.address.zipCode }}
   </span>
+  <div class="titulo cor-fundo">
+    {{ patientData?.person?.ubsId }}
+  </div>
 
-<button>Sair</button>
-<button>Confirmar</button>
+<button class="button button-cancel" (click)="close()"><img src="../../../../assets/svg/cancel.svg" alt="Sair" />Sair</button>

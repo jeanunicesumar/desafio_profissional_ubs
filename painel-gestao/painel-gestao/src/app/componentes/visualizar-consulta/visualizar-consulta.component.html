@@ -1,20 +1,20 @@
 <div class="proximas-consultas">
   <h3>Próximas consultas agendadas</h3>
 </div>
-<div class="consulta">
+<div *ngFor="let consulta of consultas" class="consulta">
   <div class="data-horario dados-consulta">
     <div class="data">
-      <p>25/08/2023</p>
+      {{ consulta.date }}
     </div>
   <div class="horario">
-      <p>09:30</p>
+      {{ consulta.startTime }}
   </div>
 </div>
     <div class="medico dados-consulta">
-      <p>Ricardo Vilela</p>
+      {{ consulta.doctor.person.name }}
     </div>
     <div class="acoes">
-      <button>Visualizar consulta</button>
+      <button routerLink="/medico/consulta">Visualizar consulta</button>
     </div>
   </div>
 

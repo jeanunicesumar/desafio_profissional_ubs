@@ -3,7 +3,6 @@ package com.saude.agenda.api.admin;
 import com.saude.agenda.api.admin.dto.AdminDto;
 import com.saude.agenda.api.doctor.DoctorService;
 import com.saude.agenda.api.patient.PatientService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
