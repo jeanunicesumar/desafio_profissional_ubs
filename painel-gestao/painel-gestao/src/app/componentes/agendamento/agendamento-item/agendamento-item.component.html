@@ -5,7 +5,7 @@
   <div>
     <span>{{ appointment.patient.person.name }}</span>
     <span class="align-center">Cardiologia</span>
-    <span class="align-center">{{ appointment.date }}</span>
+    <span class="align-center">{{ appointment.date | date:'dd/MM/yyyy'}}</span>
     <span class="align-center"
       ><img src="../../../../assets/svg/ok.svg" alt="document"
     /></span>

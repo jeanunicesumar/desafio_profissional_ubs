@@ -3,8 +3,8 @@
 <div class="content">
   <div class="header">
     <span class="span-input">
-      <input type="text" placeholder="Pesquisar" />
-      <img src="../../../assets/svg/search.svg" />
+      <input type="text" placeholder="Pesquisar" [(ngModel)]="susCode"/>
+      <img src="../../../assets/svg/search.svg" (click)="searchBySusCode()"/>
     </span>
     <span>
       <button>
@@ -22,7 +22,7 @@
     <span><img src="../../../assets/svg/calendar-blue.svg" alt="" />Data</span>
     <span><img src="../../../assets/svg/eye-blue.svg" alt="" />Status</span>
   </div>
-  <div class="content-main" *ngFor="let item of result; let i = index">
+  <div class="content-main" *ngFor="let item of result">
     <app-agendamento-item [appointment]="item"></app-agendamento-item>
   </div>
   <div class="page">

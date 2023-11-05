@@ -11,8 +11,10 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AppointmentService {
@@ -29,6 +31,15 @@ public class AppointmentService {
 
     public AppointmentDto getAppointmentDto(Appointment appointment) {
         return adapter.fromEntity(appointment);
+    }
+
+    public List<AppointmentDto> getTodayAppointment(LocalDate date){
+        LocalDate actualDate = LocalDate.now();
+        if(date.isEqual(actualDate)){
+            List<Appointment> consultas = repository.findByDate(actualDate);
+            return consultas.stream().map(this::getAppointmentDto).collect(Collectors.toList());
+        } else
+            return Collections.emptyList();
     }
 
     public AppointmentDto register(AppointmentDto data) {

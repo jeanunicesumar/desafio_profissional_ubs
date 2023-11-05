@@ -5,7 +5,7 @@
       Home</span
     >
   </div>
-  <div class="menu-item" *ngIf="isAdmin()">
+  <div class="menu-item" *ngIf="isAdmin()" routerLink="/administrador">
     <span>
       <img
         class="menu-icone"
@@ -25,7 +25,7 @@
       Agendamentos
     </span>
   </div>
-  <div class="menu-item">
+  <div class="menu-item" routerLink="/medico">
     <span>
       <img
         class="menu-icone"

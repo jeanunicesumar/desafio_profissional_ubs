@@ -39,6 +39,12 @@ public class AppointmentController {
         return ResponseEntity.ok().body(service.getByPatient(id, pageable));
     }
 
+    @GetMapping("/today")
+    public List<AppointmentDto> getTodayAppointments(){
+        LocalDate actualDate = LocalDate.now();
+        return service.getTodayAppointment(actualDate);
+    }
+
     @PostMapping
     public AppointmentDto register(@RequestBody @Valid AppointmentDto data) {
         return service.register(data);

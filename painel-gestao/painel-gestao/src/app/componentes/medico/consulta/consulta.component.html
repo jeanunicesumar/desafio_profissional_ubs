@@ -1,3 +1,4 @@
+
 <app-header></app-header>
 <app-menu-lateral></app-menu-lateral>
 <head>
@@ -11,21 +12,21 @@
       Dados Paciente
     </div>
     <div class="grid-item2">
-      <p>Nome: Carlos Teixeira</p>
-      <p>Data Nascimento: 26/09/1988</p>
+      <p>Nome: {{ patientData?.person?.name }}</p>
+      <p>Data Nascimento: {{ patientData?.person?.birthDate | date:'dd/MM/yyyy'}}</p>
     </div>
     <div class="grid-item3">
-      <p>Sexo: Masculino</p>
-      <p>Idade: 35 anos</p>
+      <p>Sexo: {{ patientData?.person?.gender }}</p>
+      <p>Idade: {{ patientAge }} anos</p>
     </div>
    </div>
    <div class="prontuario">
     <img src="../../../../assets/svg/prontuario.svg" alt="Prontuário"> Prontuário
    </div>
-   <textarea name="Prontuário escrita" id="description" cols="130" rows="10" textareaAutoresize></textarea>
+   <textarea name="Prontuário escrita" id="description" cols="130" rows="10" textareaAutoresize [(ngModel)]="description"></textarea>
     <div class="buttons">
       <button class="button button-cancel" routerLink="/medico">Cancelar</button>
-      <button class="button button-confirm">Confirmar</button>
+      <button class="button button-confirm" (click)="saveMedicalRecord()">Confirmar</button>
     </div>
   </div>
   <app-footer></app-footer>

@@ -60,7 +60,12 @@ const routes: Routes = [
     canActivate: [AdministradorGuard, MedicoGuard],
   },
   {
-    path: 'medico/consulta',
+    path: 'medico/consulta/:patientId',
+    component: ConsultaComponent,
+    canActivate: [MedicoGuard],
+  },
+  {
+    path: 'consulta',
     component: ConsultaComponent,
     canActivate: [MedicoGuard],
   },

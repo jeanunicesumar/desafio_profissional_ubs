@@ -4,17 +4,17 @@
 <div *ngFor="let consulta of consultas" class="consulta">
   <div class="data-horario dados-consulta">
     <div class="data">
-      {{ consulta.date }}
+      {{ consulta.date | date:'dd/MM/yyyy' }}
     </div>
   <div class="horario">
-      {{ consulta.startTime }}
+      {{ consulta.startTime | date:'HH:mm' }}
   </div>
 </div>
     <div class="medico dados-consulta">
       {{ consulta.doctor.person.name }}
     </div>
     <div class="acoes">
-      <button routerLink="/medico/consulta">Visualizar consulta</button>
+      <button (click)="openConsulta(consulta.patient.id)">Visualizar consulta</button>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppointmentService } from 'src/app/service/appointment.service';
 
 @Component({
@@ -11,12 +12,21 @@ export class VisualizarConsultaComponent {
   medico!: string;
 
   constructor(
-    private appointmentService: AppointmentService) { }
+    private appointmentService: AppointmentService,
+    private router: Router
+    ) { }
+
+    openConsulta(patientId: number){
+      console.log(patientId);
+      this.router.navigate(['/medico/consulta', patientId])
+
+    }
 
   ngOnInit(): void {
     this.appointmentService.getAllAppointments().subscribe((data) => {
       this.consultas = data.content;
     })
+}
+}
 
-}
-}
+
