@@ -23,7 +23,7 @@ public class MedicalRecord {
     private LocalDate date;
     
     public MedicalRecord(LocalDate date, String description) {
-        this.date = date;
+        this.date = LocalDate.now();
         this.description = description;
     }
 }

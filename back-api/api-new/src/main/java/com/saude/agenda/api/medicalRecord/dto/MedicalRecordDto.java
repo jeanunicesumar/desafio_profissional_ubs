@@ -18,7 +18,6 @@ public class MedicalRecordDto {
     @NotBlank
     private String description;
 
-    @NotBlank
     private LocalDate date;
 
 }

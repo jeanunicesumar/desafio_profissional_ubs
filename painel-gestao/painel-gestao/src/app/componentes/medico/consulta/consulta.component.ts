@@ -34,9 +34,9 @@ export class ConsultaComponent {
   saveMedicalRecord() {
     const id = this.patientData.id;
     const description = this.description;
-    const data = new Date();
+    const date = new Date();
 
-    this.medicalRecordService.saveMedicalRecord(id, description, data)
+    this.medicalRecordService.saveMedicalRecord(id, description, date)
       .subscribe(savedRecord => {
         console.log('Prontuário salvo:', savedRecord);
       });

@@ -13,11 +13,9 @@ export class MedicalRecordService {
 
   saveMedicalRecord(id: number, description: string, data: Date){
       const medicalRecordData = {
-        id: id,
         description : description,
-        data: data
       };
+      console.log("Prontuário salvo");
       return this.http.post<any>(this.url, medicalRecordData);
 }
 }
-//não está salvando o prontuário - está dando erro 400 - verificar

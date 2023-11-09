@@ -2,6 +2,7 @@ package com.saude.agenda.api.medicalRecord;
 
 
 import com.saude.agenda.api.medicalRecord.dto.MedicalRecordDto;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
