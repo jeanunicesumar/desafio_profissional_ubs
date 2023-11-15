@@ -55,10 +55,18 @@ public class AdminService {
         return repository.existsByPersonId(personId);
     }
 
-    private Admin findById(Long id) {
+    public Admin findById(Long id) {
         return repository.findById(id)
                 .orElse(null);
     }
 
     // TODO: Fazer update
+
+    public Admin updateById(Long id, Admin newAdmin) {
+        Admin adminSaved = findById(id);
+
+        newAdmin.setId(adminSaved.getId());
+
+        return repository.save(newAdmin);
+    }
 }

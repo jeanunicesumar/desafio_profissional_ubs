@@ -36,4 +36,10 @@ public class AdminController {
         return ResponseEntity.created(location).body(admin);
     }
 
+    //Put desenvolvido pelo Ricardo, checar possíveis erros!!!
+    @PutMapping("/{id}")
+    public Admin updateAdminById(@PathVariable Long id, @RequestBody Admin newAdmin) {
+        return service.updateById(id, newAdmin);
+    }
+
 }
