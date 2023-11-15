@@ -1,10 +1,7 @@
 package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.doctor.dto.DoctorDto;
-import com.saude.agenda.api.generics.service.CrudService;
 import com.saude.agenda.api.helper.HashPassword;
-import com.saude.agenda.api.person.Person;
-import com.saude.agenda.api.person.PersonRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,11 +38,6 @@ public class DoctorService {
     public DoctorDto getById(Long id) {
         Doctor doctor = findById(id);
         return adapter.fromEntity(doctor);
-    }
-
-    public void updateDoctor(@RequestBody @Valid DoctorDto data, @PathVariable Long id) {
-        var findDoctor = repository.getReferenceById(id);
-//        findDoctor.updateRegister(data);
     }
 
     public void deleteById(Long id) {

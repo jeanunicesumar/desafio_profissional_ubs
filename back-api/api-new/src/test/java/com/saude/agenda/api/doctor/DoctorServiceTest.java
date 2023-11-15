@@ -2,67 +2,105 @@ package com.saude.agenda.api.doctor;
 
 import com.saude.agenda.api.address.Address;
 import com.saude.agenda.api.doctor.dto.DoctorDto;
+import com.saude.agenda.api.helper.HashPassword;
 import com.saude.agenda.api.person.Gender;
+import com.saude.agenda.api.person.Person;
+import com.saude.agenda.api.person.dto.PersonDto;
+import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.internal.util.StringUtil;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
-class DoctorServiceTest {
+
+public class DoctorServiceTest {
 
     @InjectMocks
-    DoctorService service;
+    private DoctorService doctorService;
 
     @Mock
-    DoctorRepository repository;
+    private DoctorRepository doctorRepository;
 
     @Mock
-    DoctorAdapter adapter;
+    private DoctorAdapter adapter;
 
-    private Doctor doctor;
-    private Address address;
-
-    /*
     @BeforeEach
     public void setUp() {
-        address = new Address("87230-230", "Rua Tal", "Complemento", "123A", "Bairro tal", "Maringá", "PR");
-        doctor = new Doctor(1231231, "carlos", "maria", "joao",
-                LocalDate.of(2020, 1, 8),
-                "Maringá", "PR", "teste@gmail.com",
-                Gender.MASCULINO, "44", "99999-9999", "123.456.789-10", "1234", true, address);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void should_return_list_doctorDto_when_catch_service_get_all() {
-        DoctorDto doctorDto = adapter.fromEntity(doctor);
-        when(service.getAll()).thenReturn(Collections.singletonList(doctorDto));
+    public void testGetAll() {
+        Pageable pageable = Pageable.unpaged();
+        Page<Doctor> doctorPage = new PageImpl<>(Collections.emptyList());
+        when(doctorRepository.findAll(pageable)).thenReturn(doctorPage);
 
-        List<DoctorDto> doctors = service.getAll();
+        doctorService.getAll(pageable);
 
-        assertEquals(Collections.singletonList(doctorDto), doctors);
-        verifyNoMoreInteractions(repository);
-
+        verify(doctorRepository, times(1)).findAll(pageable);
     }
 
     @Test
-    void should_return_ok_when_register_one_doctor() {
-        DoctorDto doctorDtoExpected = adapter.fromEntity(doctor);
-        when(service.register(doctorDtoExpected)).thenReturn(doctorDtoExpected);
+    public void testRegister() {
+        DoctorDto doctorDto = new DoctorDto();
+        Doctor doctor = new Doctor();
 
-        DoctorDto doctorDto = service.register(doctorDtoExpected);
+        doctorDto.setPerson(new PersonDto());
+        doctorDto.getPerson().setPassword("teste");
 
-        assertEquals(doctorDto, doctorDtoExpected);
+        when(adapter.fromDto(doctorDto)).thenReturn(doctor);
+        when(doctorRepository.save(doctor)).thenReturn(doctor);
+        doctorService.register(doctorDto);
+
+        verify(adapter, times(1)).fromDto(doctorDto);
+        verify(doctorRepository, times(1)).save(doctor);
     }
-     */
+
+    @Test
+    public void testGetById() {
+        Long id = 1L;
+        Doctor doctor = new Doctor();
+        DoctorDto doctorDto = new DoctorDto();
+
+        when(doctorRepository.findById(id)).thenReturn(java.util.Optional.of(doctor));
+        when(adapter.fromEntity(doctor)).thenReturn(doctorDto);
+
+        DoctorDto result = doctorService.getById(id);
+
+        assertNotNull(result);
+        verify(doctorRepository, times(1)).findById(id);
+        verify(adapter, times(1)).fromEntity(doctor);
+    }
+
+    @Test
+    public void testDeleteById() {
+        Long id = 1L;
+        Doctor doctor = new Doctor();
+
+        doctor.setPerson(new Person());
+
+        when(doctorRepository.findById(id)).thenReturn(java.util.Optional.of(doctor));
+        when(adapter.fromEntity(doctor)).thenReturn(new DoctorDto());
+
+        doctorService.deleteById(id);
+
+        verify(doctorRepository, times(1)).findById(id);
+        verify(doctorRepository, times(1)).save(doctor);
+        assertFalse(doctor.getPerson().getActive());
+    }
+
 }
