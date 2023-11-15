@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppointmentAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.appointment</a> &gt; <span class="el_source">AppointmentAdapter.java</span></div><h1>AppointmentAdapter.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.appointment;
+
+import com.saude.agenda.api.adapter.Adapter;
+import com.saude.agenda.api.appointment.dto.AppointmentDto;
+import com.saude.agenda.api.doctor.Doctor;
+import com.saude.agenda.api.doctor.DoctorAdapter;
+import com.saude.agenda.api.medicalRecord.MedicalRecord;
+import com.saude.agenda.api.medicalRecord.MedicalRecordAdapter;
+import com.saude.agenda.api.patient.PatientAdapter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+<span class="nc" id="L14">public class AppointmentAdapter implements Adapter&lt;AppointmentDto, Appointment&gt; {</span>
+
+    @Autowired
+    private PatientAdapter patientAdapter;
+
+    @Autowired
+    private DoctorAdapter doctorAdapter;
+
+    @Autowired
+    private MedicalRecordAdapter medicalRecordAdapter;
+
+    @Override
+    public AppointmentDto fromEntity(Appointment appointment) {
+<span class="nc" id="L27">        return new AppointmentDto(appointment.getId(), appointment.getStartTime(), appointment.getEndTime(), appointment.getDate(),</span>
+<span class="nc" id="L28">                patientAdapter.fromEntity(appointment.getPatient()), doctorAdapter.fromEntity(appointment.getDoctor()),</span>
+<span class="nc" id="L29">                medicalRecordAdapter.fromEntity(appointment.getMedicalRecord()), appointment.getStatus());</span>
+    }
+
+    @Override
+    public Appointment fromDto(AppointmentDto appointmentDto) {
+<span class="nc" id="L34">        return new Appointment(appointmentDto.getStartTime(), appointmentDto.getEndTime(),</span>
+<span class="nc" id="L35">                appointmentDto.getDate(), patientAdapter.fromDto(appointmentDto.getPatient()),</span>
+<span class="nc" id="L36">                doctorAdapter.fromDto(appointmentDto.getDoctor()),</span>
+<span class="nc" id="L37">                medicalRecordAdapter.fromDto(appointmentDto.getMedicalRecord()), appointmentDto.getStatusAppointment());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

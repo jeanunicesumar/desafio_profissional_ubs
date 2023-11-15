@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.person.dto</a> &gt; <span class="el_source">PersonDto.java</span></div><h1>PersonDto.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.person.dto;
+
+import com.saude.agenda.api.address.dto.AddressDto;
+import com.saude.agenda.api.person.Gender;
+import com.saude.agenda.api.ubs.dto.UbsDto;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
+
+import java.time.LocalDate;
+
+@Getter
+<span class="nc" id="L18">@AllArgsConstructor</span>
+<span class="fc" id="L19">@NoArgsConstructor</span>
+<span class="pc" id="L20">@Setter</span>
+public class PersonDto {
+
+        private static final String PHONE_PATTERN_REGEX = &quot;^\\s?9?\\d{4}-\\d{4}$&quot;;
+
+<span class="nc" id="L25">        private Long id;</span>
+
+        @NotBlank(message = &quot;Insira um nome&quot;)
+<span class="nc" id="L28">        private String name;</span>
+
+        @NotBlank(message = &quot;Insira o nome da mãe&quot;)
+<span class="nc" id="L31">        private String motherName;</span>
+
+<span class="nc" id="L33">        private String fatherName;</span>
+
+        @NotNull(message = &quot;Insira a data de nascimento&quot;)
+<span class="nc" id="L36">        private LocalDate birthDate;</span>
+
+        @NotBlank(message = &quot;Insira a cidade onde nasceu&quot;)
+<span class="nc" id="L39">        private String birthCity;</span>
+
+        @NotBlank(message = &quot;Insira o estado onde nasceu&quot;)
+<span class="nc" id="L42">        private String birthUf;</span>
+
+        @NotBlank(message = &quot;e-mail não pode ser vazio&quot;)
+        @Email(message = &quot;Insira um e-mail válido&quot;)
+<span class="nc" id="L46">        private String email;</span>
+
+        @Enumerated(EnumType.STRING)
+<span class="nc" id="L49">        private Gender gender;</span>
+
+        @NotBlank(message = &quot;Insira o ddd&quot;)
+        @Size(min = 2, max = 2, message = &quot;DDD inválido&quot;)
+<span class="nc" id="L53">        private String ddd;</span>
+
+        @NotBlank
+        @Pattern(regexp = PHONE_PATTERN_REGEX, message = &quot;Número de telefone inválido&quot;)
+<span class="nc" id="L57">        private String phone;</span>
+
+        @NotBlank(message = &quot;Insira um cpf&quot;)
+        @CPF(message = &quot;Cpf inválido&quot;)
+<span class="nc" id="L61">        private String cpf;</span>
+
+        @NotBlank(message = &quot;Insira uma senha&quot;)
+<span class="fc" id="L64">        private String password;</span>
+
+        @NotNull
+<span class="nc" id="L67">        private Boolean active;</span>
+
+        @NotNull(message = &quot;Insira um endereço&quot;)
+<span class="nc" id="L70">        private AddressDto address;</span>
+
+        @NotNull(message = &quot;Insira o códiga de uma UBS&quot;)
+<span class="nc" id="L73">        private Long ubsId;</span>
+        
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

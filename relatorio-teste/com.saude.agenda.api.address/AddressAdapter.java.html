@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddressAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.address</a> &gt; <span class="el_source">AddressAdapter.java</span></div><h1>AddressAdapter.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.address;
+
+import com.saude.agenda.api.adapter.Adapter;
+import com.saude.agenda.api.address.dto.AddressDto;
+import org.springframework.stereotype.Service;
+
+
+@Service
+<span class="nc" id="L9">public class AddressAdapter implements Adapter&lt;AddressDto, Address&gt; {</span>
+
+
+    @Override
+    public AddressDto fromEntity(Address address) {
+<span class="nc" id="L14">        return new AddressDto(address.getId(), address.getZipCode(), address.getStreetAddress(),</span>
+<span class="nc" id="L15">                address.getStreetAddressII(), address.getNumber(), address.getDistrict(), address.getCity(),</span>
+<span class="nc" id="L16">                address.getUf());</span>
+    }
+
+    @Override
+    public Address fromDto(AddressDto addressDto) {
+<span class="nc" id="L21">        return new Address(addressDto.getZipCode(), addressDto.getStreetAddress(),</span>
+<span class="nc" id="L22">                addressDto.getStreetAddressII(), addressDto.getNumber(), addressDto.getDistrict(),</span>
+<span class="nc" id="L23">                addressDto.getCity(), addressDto.getUf());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

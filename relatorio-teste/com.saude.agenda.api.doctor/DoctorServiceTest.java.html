@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DoctorServiceTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.doctor</a> &gt; <span class="el_source">DoctorServiceTest.java</span></div><h1>DoctorServiceTest.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.doctor;
+
+import com.saude.agenda.api.doctor.dto.DoctorDto;
+import com.saude.agenda.api.person.Person;
+import com.saude.agenda.api.person.PersonTest;
+import com.saude.agenda.api.person.dto.PersonDto;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+
+<span class="fc" id="L22">public class DoctorServiceTest {</span>
+
+    @InjectMocks
+    private DoctorService doctorService;
+
+    @Mock
+    private DoctorRepository doctorRepository;
+
+    @Mock
+    private DoctorAdapter adapter;
+
+    @BeforeEach
+    public void setUp() {
+<span class="fc" id="L35">        MockitoAnnotations.openMocks(this);</span>
+<span class="fc" id="L36">    }</span>
+
+    @Test
+    public void testGetAll() {
+<span class="fc" id="L40">        Pageable pageable = Pageable.unpaged();</span>
+<span class="fc" id="L41">        Page&lt;Doctor&gt; doctorPage = new PageImpl&lt;&gt;(Collections.emptyList());</span>
+<span class="fc" id="L42">        when(doctorRepository.findAll(pageable)).thenReturn(doctorPage);</span>
+
+<span class="fc" id="L44">        doctorService.getAll(pageable);</span>
+
+<span class="fc" id="L46">        verify(doctorRepository, times(1)).findAll(pageable);</span>
+<span class="fc" id="L47">    }</span>
+
+    @Test
+    public void testRegister() {
+<span class="fc" id="L51">        DoctorDto doctorDto = new DoctorDto();</span>
+<span class="fc" id="L52">        Doctor doctor = new Doctor();</span>
+
+<span class="fc" id="L54">        doctorDto.setPerson(new PersonDto());</span>
+<span class="fc" id="L55">        doctorDto.getPerson().setPassword(&quot;teste&quot;);</span>
+
+<span class="fc" id="L57">        when(adapter.fromDto(doctorDto)).thenReturn(doctor);</span>
+<span class="fc" id="L58">        when(doctorRepository.save(doctor)).thenReturn(doctor);</span>
+<span class="fc" id="L59">        doctorService.register(doctorDto);</span>
+
+<span class="fc" id="L61">        verify(adapter, times(1)).fromDto(doctorDto);</span>
+<span class="fc" id="L62">        verify(doctorRepository, times(1)).save(doctor);</span>
+<span class="fc" id="L63">    }</span>
+
+    @Test
+    public void testGetById() {
+<span class="fc" id="L67">        Long id = 1L;</span>
+<span class="fc" id="L68">        Doctor doctor = new Doctor();</span>
+<span class="fc" id="L69">        DoctorDto doctorDto = new DoctorDto();</span>
+
+<span class="fc" id="L71">        when(doctorRepository.findById(id)).thenReturn(java.util.Optional.of(doctor));</span>
+<span class="fc" id="L72">        when(adapter.fromEntity(doctor)).thenReturn(doctorDto);</span>
+
+<span class="fc" id="L74">        DoctorDto result = doctorService.getById(id);</span>
+
+<span class="fc" id="L76">        assertNotNull(result);</span>
+<span class="fc" id="L77">        verify(doctorRepository, times(1)).findById(id);</span>
+<span class="fc" id="L78">        verify(adapter, times(1)).fromEntity(doctor);</span>
+<span class="fc" id="L79">    }</span>
+
+    @Test
+    public void testDeleteById() {
+<span class="fc" id="L83">        Long id = 1L;</span>
+<span class="fc" id="L84">        Doctor doctor = new Doctor();</span>
+
+<span class="fc" id="L86">        doctor.setPerson(new Person());</span>
+
+<span class="fc" id="L88">        when(doctorRepository.findById(id)).thenReturn(java.util.Optional.of(doctor));</span>
+<span class="fc" id="L89">        when(adapter.fromEntity(doctor)).thenReturn(new DoctorDto());</span>
+
+<span class="fc" id="L91">        doctorService.deleteById(id);</span>
+
+<span class="fc" id="L93">        verify(doctorRepository, times(1)).findById(id);</span>
+<span class="fc" id="L94">        verify(doctorRepository, times(1)).save(doctor);</span>
+<span class="fc" id="L95">        assertFalse(doctor.getPerson().getActive());</span>
+<span class="fc" id="L96">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

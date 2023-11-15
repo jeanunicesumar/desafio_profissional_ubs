@@ -25,4 +25,8 @@ public class AdminDto {
         this.id = id;
         this.person = person;
     }
+
+    public AdminDto() {
+
+    }
 }

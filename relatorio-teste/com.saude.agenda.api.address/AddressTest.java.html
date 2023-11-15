@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddressTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.address</a> &gt; <span class="el_source">AddressTest.java</span></div><h1>AddressTest.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.address;
+
+import com.saude.agenda.api.ubs.Ubs;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+<span class="fc" id="L9">public class AddressTest {</span>
+
+    @Test
+    public void testSetAddress(){
+<span class="fc" id="L13">        Long id = 3L;</span>
+<span class="fc" id="L14">        Address address = new Address(&quot;87050390&quot;, &quot;Avenida Guedner&quot;, &quot;Casa&quot;, &quot;1025&quot;, &quot;Zona 8&quot;, &quot;Maringá&quot;, &quot;PR&quot;);</span>
+<span class="fc" id="L15">        Ubs ubs = new Ubs(1L, &quot;Jardim Aclimacao&quot;, address);</span>
+<span class="fc" id="L16">        String zipCode = &quot;87050390&quot;;</span>
+<span class="fc" id="L17">        String streetAddress = &quot;Avenida Guedner&quot;;</span>
+<span class="fc" id="L18">        String streetAddressII = &quot;Casa&quot;;</span>
+<span class="fc" id="L19">        String number = &quot;1000&quot;;</span>
+<span class="fc" id="L20">        String district = &quot;Jardim Aclimacao&quot;;</span>
+<span class="fc" id="L21">        String city = &quot;Maringa&quot;;</span>
+<span class="fc" id="L22">        String uf = &quot;PR&quot;;</span>
+
+<span class="fc" id="L24">        Address address1 = new Address (id, ubs, zipCode, streetAddress, streetAddressII, number, district, city, uf);</span>
+
+<span class="fc" id="L26">        assertNotNull(address1);</span>
+<span class="fc" id="L27">        assertEquals(id, address1.getId());</span>
+<span class="fc" id="L28">        assertEquals(ubs, address1.getUbs());</span>
+<span class="fc" id="L29">        assertEquals(zipCode, address1.getZipCode());</span>
+<span class="fc" id="L30">        assertEquals(streetAddress, address1.getStreetAddress());</span>
+<span class="fc" id="L31">        assertEquals(streetAddressII, address1.getStreetAddressII());</span>
+<span class="fc" id="L32">        assertEquals(number, address1.getNumber());</span>
+<span class="fc" id="L33">        assertEquals(district, address1.getDistrict());</span>
+<span class="fc" id="L34">        assertEquals(city, address1.getCity());</span>
+<span class="fc" id="L35">        assertEquals(uf, address1.getUf());</span>
+<span class="fc" id="L36">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

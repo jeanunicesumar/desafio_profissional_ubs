@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.person</a> &gt; <span class="el_source">PersonAdapter.java</span></div><h1>PersonAdapter.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.person;
+
+import com.saude.agenda.api.adapter.Adapter;
+import com.saude.agenda.api.address.AddressAdapter;
+import com.saude.agenda.api.person.dto.PersonDto;
+import com.saude.agenda.api.ubs.UbsAdapter;
+import com.saude.agenda.api.ubs.UbsRepository;
+import com.saude.agenda.api.ubs.UbsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+<span class="nc" id="L13">public class PersonAdapter implements Adapter&lt;PersonDto, Person&gt; {</span>
+
+    @Autowired
+    private AddressAdapter addressAdapter;
+
+    @Autowired
+    private UbsAdapter ubsAdapter;
+
+    @Autowired
+    private UbsService ubsService;
+
+    @Override
+    public PersonDto fromEntity(Person person) {
+<span class="nc" id="L26">        return new PersonDto(person.getId(), person.getName(), person.getMotherName(), person.getFatherName(), person.getBirthDate(),</span>
+<span class="nc" id="L27">                person.getBirthCity(), person.getBirthUf(), person.getEmail(), person.getGender(), person.getDdd(), person.getPhone(),</span>
+<span class="nc" id="L28">                person.getCpf(), person.getPassword(), person.getActive(), addressAdapter.fromEntity(person.getAddress())</span>
+<span class="nc" id="L29">                , person.getUbs().getId());</span>
+    }
+
+    @Override
+    public Person fromDto(PersonDto personDto) {
+<span class="nc" id="L34">        return new Person(personDto.getName(), personDto.getMotherName(), personDto.getFatherName(), personDto.getBirthDate(),</span>
+<span class="nc" id="L35">                personDto.getBirthCity(), personDto.getBirthUf(), personDto.getEmail(), personDto.getGender(), personDto.getDdd(), personDto.getPhone(),</span>
+<span class="nc" id="L36">                personDto.getCpf(), personDto.getPassword(), personDto.getActive(), addressAdapter.fromDto(personDto.getAddress())</span>
+<span class="nc" id="L37">                , ubsService.findById(personDto.getUbsId()));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

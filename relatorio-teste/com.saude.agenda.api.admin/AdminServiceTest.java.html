@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdminServiceTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.admin</a> &gt; <span class="el_source">AdminServiceTest.java</span></div><h1>AdminServiceTest.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.admin;
+
+import com.saude.agenda.api.admin.dto.AdminDto;
+import com.saude.agenda.api.doctor.DoctorService;
+import com.saude.agenda.api.patient.PatientService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+<span class="fc" id="L16">public class AdminServiceTest {</span>
+
+    @Mock
+    private AdminRepository repository;
+
+    @Mock
+    private AdminAdapter adapter;
+
+    @Mock
+    private DoctorService doctorService;
+
+    @Mock
+    private PatientService patientService;
+
+    @InjectMocks
+    private AdminService adminService;
+
+    @BeforeEach
+    public void setUp() {
+<span class="fc" id="L35">        MockitoAnnotations.openMocks(this);</span>
+<span class="fc" id="L36">    }</span>
+
+    @Test
+    public void testRegister() {
+<span class="fc" id="L40">        AdminDto adminDto = new AdminDto();</span>
+<span class="fc" id="L41">        Admin admin = new Admin();</span>
+<span class="fc" id="L42">        when(adapter.fromDto(adminDto)).thenReturn(admin);</span>
+<span class="fc" id="L43">        when(repository.save(admin)).thenReturn(admin);</span>
+<span class="fc" id="L44">        when(adapter.fromEntity(admin)).thenReturn(adminDto);</span>
+
+<span class="fc" id="L46">        AdminDto result = adminService.register(adminDto);</span>
+
+<span class="fc" id="L48">        assertNotNull(result);</span>
+<span class="fc" id="L49">        verify(repository).save(admin);</span>
+<span class="fc" id="L50">    }</span>
+
+    @Test
+    public void testGetById() {
+<span class="fc" id="L54">        Admin admin = new Admin();</span>
+<span class="fc" id="L55">        admin.setId(1L);</span>
+<span class="fc" id="L56">        AdminDto adminDto = new AdminDto();</span>
+<span class="fc" id="L57">        adminDto.setId(1L);</span>
+<span class="fc" id="L58">        when(repository.findById(1L)).thenReturn(Optional.of(admin));</span>
+<span class="fc" id="L59">        when(adapter.fromEntity(admin)).thenReturn(adminDto);</span>
+
+<span class="fc" id="L61">        AdminDto result = adminService.getById(1L);</span>
+
+<span class="fc" id="L63">        assertNotNull(result);</span>
+<span class="fc" id="L64">        assertEquals(1L, result.getId());</span>
+<span class="fc" id="L65">    }</span>
+
+    @Test
+    public void testExists() {
+<span class="fc" id="L69">        when(repository.existsByPersonId(1L)).thenReturn(true);</span>
+
+<span class="fc" id="L71">        boolean result = adminService.exists(1L);</span>
+
+<span class="fc" id="L73">        assertTrue(result);</span>
+<span class="fc" id="L74">    }</span>
+
+    @Test
+    public void testMarkDoctorAsDeleted() {
+<span class="fc" id="L78">        adminService.markDoctorAsDeleted(1L);</span>
+
+<span class="fc" id="L80">        verify(doctorService).deleteById(1L);</span>
+<span class="fc" id="L81">    }</span>
+
+    @Test
+    public void testMarkPatientAsDeleted() {
+<span class="fc" id="L85">        adminService.markPatientAsDeleted(1L);</span>
+
+<span class="fc" id="L87">        verify(patientService).deleteById(1L);</span>
+<span class="fc" id="L88">    }</span>
+
+    @Test
+    public void testUpdateById() {
+<span class="fc" id="L92">        Admin existingAdmin = new Admin();</span>
+<span class="fc" id="L93">        existingAdmin.setId(1L);</span>
+<span class="fc" id="L94">        Admin updatedAdmin = new Admin();</span>
+<span class="fc" id="L95">        updatedAdmin.setId(1L);</span>
+<span class="fc" id="L96">        when(repository.findById(1L)).thenReturn(Optional.of(existingAdmin));</span>
+<span class="fc" id="L97">        when(repository.save(updatedAdmin)).thenReturn(updatedAdmin);</span>
+
+<span class="fc" id="L99">        Admin result = adminService.updateById(1L, updatedAdmin);</span>
+
+<span class="fc" id="L101">        assertNotNull(result);</span>
+<span class="fc" id="L102">        assertEquals(1L, result.getId());</span>
+<span class="fc" id="L103">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

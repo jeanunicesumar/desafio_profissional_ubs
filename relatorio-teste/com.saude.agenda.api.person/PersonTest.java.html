@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.person</a> &gt; <span class="el_source">PersonTest.java</span></div><h1>PersonTest.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.person;
+
+
+import com.saude.agenda.api.address.Address;
+import com.saude.agenda.api.ubs.Ubs;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+<span class="fc" id="L13">public class PersonTest {</span>
+
+    @Test
+    public void testSetPerson(){
+<span class="fc" id="L17">        Long id = 2L;</span>
+<span class="fc" id="L18">        String name = &quot;Samuel Costa&quot;;</span>
+<span class="fc" id="L19">        String motherName = &quot;Lucia Costa&quot;;</span>
+<span class="fc" id="L20">        String fatherName = &quot;Lucas Costa&quot;;</span>
+<span class="fc" id="L21">        LocalDate birthDate = LocalDate.of(1990, 5, 15);</span>
+<span class="fc" id="L22">        String birthCity = &quot;Maringa&quot;;</span>
+<span class="fc" id="L23">        String birthUf = &quot;PR&quot;;</span>
+<span class="fc" id="L24">        String email = &quot;samuel@gmail.com&quot;;</span>
+<span class="fc" id="L25">        Gender gender = Gender.MASCULINO;</span>
+<span class="fc" id="L26">        String ddd = &quot;44&quot;;</span>
+<span class="fc" id="L27">        String phone = &quot;99999-9999&quot;;</span>
+<span class="fc" id="L28">        String cpf = &quot;06021665007&quot;;</span>
+<span class="fc" id="L29">        String password = &quot;123456789&quot;;</span>
+<span class="fc" id="L30">        Boolean active = true;</span>
+<span class="fc" id="L31">        Address address = new Address(&quot;87050390&quot;, &quot;Avenida Guedner&quot;, &quot;Casa&quot;, &quot;1025&quot;, &quot;Zona 8&quot;, &quot;Maringá&quot;, &quot;PR&quot;);</span>
+<span class="fc" id="L32">        Ubs ubs = new Ubs(1L, &quot;Jardim Aclimacao&quot;, address);</span>
+<span class="fc" id="L33">        Person person = new Person(name, motherName, fatherName, birthDate, birthCity, birthUf, email,gender, ddd, phone, cpf, password, active, address, ubs);</span>
+
+<span class="fc" id="L35">        assertNotNull(person);</span>
+<span class="nc" id="L36">        assertEquals(id, person.getId());</span>
+<span class="nc" id="L37">        assertEquals(name, person.getName());</span>
+<span class="nc" id="L38">        assertEquals(motherName, person.getMotherName());</span>
+<span class="nc" id="L39">        assertEquals(fatherName, person.getFatherName());</span>
+<span class="nc" id="L40">        assertEquals(birthDate, person.getBirthDate());</span>
+<span class="nc" id="L41">        assertEquals(birthCity, person.getBirthCity());</span>
+<span class="nc" id="L42">        assertEquals(birthUf, person.getBirthUf());</span>
+<span class="nc" id="L43">        assertEquals(email, person.getEmail());</span>
+<span class="nc" id="L44">        assertEquals(gender, person.getGender());</span>
+<span class="nc" id="L45">        assertEquals(ddd, person.getDdd());</span>
+<span class="nc" id="L46">        assertEquals(phone, person.getPhone());</span>
+<span class="nc" id="L47">        assertEquals(cpf, person.getCpf());</span>
+<span class="nc" id="L48">        assertEquals(password, person.getPassword());</span>
+<span class="nc" id="L49">        assertEquals(active, person.getActive());</span>
+<span class="nc" id="L50">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

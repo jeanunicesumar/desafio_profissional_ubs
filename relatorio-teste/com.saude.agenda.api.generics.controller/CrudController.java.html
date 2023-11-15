@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CrudController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.saude.agenda.api in api Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.saude.agenda.api.generics.controller</a> &gt; <span class="el_source">CrudController.java</span></div><h1>CrudController.java</h1><pre class="source lang-java linenums">package com.saude.agenda.api.generics.controller;
+
+import com.saude.agenda.api.generics.service.CrudService;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+<span class="nc" id="L14">public class CrudController&lt;Entity, Id&gt; {</span>
+
+    @Autowired(required = false)
+    private CrudService&lt;Entity, Id&gt; crudService;
+
+    @GetMapping
+    public ResponseEntity&lt;Page&lt;Entity&gt;&gt; getAll(Pageable pageable) {
+<span class="nc" id="L21">        return ResponseEntity.ok().body(crudService.findAll(pageable));</span>
+    }
+
+    @PostMapping
+    @Transactional
+    public void save(@RequestBody Entity data) {
+<span class="nc" id="L27">        crudService.save(data);</span>
+<span class="nc" id="L28">    }</span>
+
+    @GetMapping(&quot;/ubs/{id}&quot;)
+    public ResponseEntity&lt;Page&lt;Entity&gt;&gt; getByUbsId(@PathVariable Long id, Pageable pageable) {
+<span class="nc" id="L32">        return ResponseEntity.ok().body(crudService.findByUbs(id, pageable));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
