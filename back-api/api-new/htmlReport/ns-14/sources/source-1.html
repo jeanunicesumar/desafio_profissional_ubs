@@ -1,0 +1,178 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > PersonDto</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.saude.agenda.api.person.dto</a>
+</div>
+
+<h1>Coverage Summary for Class: PersonDto (com.saude.agenda.api.person.dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PersonDto</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.saude.agenda.api.person.dto;
+&nbsp;
+&nbsp;import com.saude.agenda.api.address.dto.AddressDto;
+&nbsp;import com.saude.agenda.api.person.Gender;
+&nbsp;import com.saude.agenda.api.ubs.dto.UbsDto;
+&nbsp;import jakarta.persistence.EnumType;
+&nbsp;import jakarta.persistence.Enumerated;
+&nbsp;import jakarta.validation.constraints.*;
+&nbsp;import lombok.AllArgsConstructor;
+&nbsp;import lombok.Getter;
+&nbsp;import lombok.Setter;
+&nbsp;import org.hibernate.validator.constraints.br.CPF;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;
+&nbsp;@Getter
+<b class="nc">&nbsp;@AllArgsConstructor</b>
+<b class="nc">&nbsp;@Setter</b>
+&nbsp;public class PersonDto {
+&nbsp;
+&nbsp;        private static final String PHONE_PATTERN_REGEX = &quot;^\\s?9?\\d{4}-\\d{4}$&quot;;
+&nbsp;
+<b class="nc">&nbsp;        private Long id;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira um nome&quot;)
+<b class="nc">&nbsp;        private String name;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira o nome da mãe&quot;)
+<b class="nc">&nbsp;        private String motherName;</b>
+&nbsp;
+<b class="nc">&nbsp;        private String fatherName;</b>
+&nbsp;
+&nbsp;        @NotNull(message = &quot;Insira a data de nascimento&quot;)
+<b class="nc">&nbsp;        private LocalDate birthDate;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira a cidade onde nasceu&quot;)
+<b class="nc">&nbsp;        private String birthCity;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira o estado onde nasceu&quot;)
+<b class="nc">&nbsp;        private String birthUf;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;e-mail não pode ser vazio&quot;)
+&nbsp;        @Email(message = &quot;Insira um e-mail válido&quot;)
+<b class="nc">&nbsp;        private String email;</b>
+&nbsp;
+&nbsp;        @Enumerated(EnumType.STRING)
+<b class="nc">&nbsp;        private Gender gender;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira o ddd&quot;)
+&nbsp;        @Size(min = 2, max = 2, message = &quot;DDD inválido&quot;)
+<b class="nc">&nbsp;        private String ddd;</b>
+&nbsp;
+&nbsp;        @NotBlank
+&nbsp;        @Pattern(regexp = PHONE_PATTERN_REGEX, message = &quot;Número de telefone inválido&quot;)
+<b class="nc">&nbsp;        private String phone;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira um cpf&quot;)
+&nbsp;        @CPF(message = &quot;Cpf inválido&quot;)
+<b class="nc">&nbsp;        private String cpf;</b>
+&nbsp;
+&nbsp;        @NotBlank(message = &quot;Insira uma senha&quot;)
+<b class="nc">&nbsp;        private String password;</b>
+&nbsp;
+&nbsp;        @NotNull
+<b class="nc">&nbsp;        private Boolean active;</b>
+&nbsp;
+&nbsp;        @NotNull(message = &quot;Insira um endereço&quot;)
+<b class="nc">&nbsp;        private AddressDto address;</b>
+&nbsp;
+&nbsp;        @NotNull(message = &quot;Insira uma ubs&quot;)
+<b class="nc">&nbsp;        private UbsDto ubs;</b>
+&nbsp;        
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-10-27 20:16</div>
+</div>
+</body>
+</html>
